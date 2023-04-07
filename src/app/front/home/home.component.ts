@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,8 @@ import { Component, OnInit } from '@angular/core';
   '../../../assets/front/css/default.css',
   '../../../assets/front/css/bootstrap.min.css',
   '../../../assets/front/css/animate.css' 
-]
+],
+encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
 

@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-single-product',
-  templateUrl: './single-product.component.html',
-  styleUrls: ['./single-product.component.css',
+  selector: 'app-category-product',
+  templateUrl: './category-product.component.html',
+  styleUrls: ['./category-product.component.css',
   '../../../../assets/front/css/style.css',
   '../../../../assets/front/css/slick.css',
   '../../../../assets/front/css/responsive.css',
@@ -15,9 +15,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   '../../../../assets/front/css/bootstrap.min.css',
   '../../../../assets/front/css/animate.css' 
 ],
-  encapsulation: ViewEncapsulation.None,
+encapsulation: ViewEncapsulation.None,
 })
-export class SingleProductComponent implements OnInit {
+export class CategoryProductComponent implements OnInit {
 
   constructor() { }
 
