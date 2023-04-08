@@ -12,6 +12,7 @@ export class WishListService {
   storageUserAsStr: any = localStorage.getItem('currentUser')
     ? JSON.parse(localStorage.getItem('currentUser') || '{}')
     : null;
+  
 
   constructor(private httpClient: HttpClient) {}
 
@@ -22,7 +23,7 @@ export class WishListService {
         Authorization: `Bearer ${this.storageUserAsStr.token}`,
       },
     };
-    return this.httpClient.get<Product[]>(this.baseUrl + '/wishlist', config);
+    return this.httpClient.get<Product[]>(this.baseUrl + '/wishlist',config);
   }
 
   addWishList(id: number): Observable<any> {
@@ -32,11 +33,7 @@ export class WishListService {
         Authorization: `Bearer ${this.storageUserAsStr.token}`,
       },
     };
-    return this.httpClient.post<any>(
-      this.baseUrl + '/wishlist/' + id,
-      {},
-      config
-    );
+    return this.httpClient.post<any>(this.baseUrl + '/wishlist/' + id,{}, config);
   }
 
   deleteWishList(id: number): Observable<any> {
@@ -46,6 +43,6 @@ export class WishListService {
         Authorization: `Bearer ${this.storageUserAsStr.token}`,
       },
     };
-    return this.httpClient.delete(this.baseUrl + '/dwishlist/' + id, config);
+    return this.httpClient.delete(this.baseUrl + '/dwishlist/' + id,config);
   }
 }
