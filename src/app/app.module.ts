@@ -12,9 +12,10 @@ import { AddProductComponent } from './admin/add-product/add-product.component';
 import { AddcategoryComponent } from './admin/addcategory/addcategory.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ListCategoryComponent } from './admin/list-category/list-category.component';
-import { NavbarComponent } from './admin/navbar/navbar.component';
 import { SidebarComponent } from './admin/sidebar/sidebar.component';
 import { UpdateProductComponent } from './admin/update-product/update-product.component';
+import { NavbarComponent } from './front/navbar/navbar.component';
+import { FooterComponent } from './front/footer/footer.component';
 
 const routes: Routes = [
   {path: 'shop', component: ListProductComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
     ListCategoryComponent,
     NavbarComponent,
     SidebarComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
