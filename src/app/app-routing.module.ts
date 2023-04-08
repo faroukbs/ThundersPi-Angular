@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListProductComponent } from './front/shop/list-product/list-product.component';
 import { SingleProductComponent } from './front/shop/single-product/single-product.component';
 import { HomeComponent } from './front/home/home.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
@@ -9,6 +8,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AddcategoryComponent } from './admin/addcategory/addcategory.component';
 import { ListCategoryComponent } from './admin/list-category/list-category.component';
 import { CategoryProduct } from './models/category-product';
+import { ListProductComponent } from './admin/list-product/list-product.component';
 
 const routes: Routes = [
   {path: 'products/:id', component: SingleProductComponent},
