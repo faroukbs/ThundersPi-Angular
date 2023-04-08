@@ -1,5 +1,4 @@
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ToastrModule } from 'ngx-toastr';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './front/home/home.component';
 import { ListProductComponent } from './front/shop/list-product/list-product.component';
 import { SingleProductComponent } from './front/shop/single-product/single-product.component';
-import { Routes } from '@angular/router';
 import { CategoryProductComponent } from './front/shop/category-product/category-product.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { AddcategoryComponent } from './admin/addcategory/addcategory.component';
@@ -23,11 +21,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { WishListService } from './services/wish-list.service';
 import { NavComponent } from './admin/nav/nav.component';
+import { ToastrModule } from 'ngx-toastr';
 
-const routes: Routes = [
-  {path: 'shop', component: ListProductComponent},
-  {path:'shop/:id', component: SingleProductComponent}
-];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,12 +43,13 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule,
     ToastrModule.forRoot(),
+    AppRoutingModule,
+    NgxPaginationModule,
+    
     
   ],
   providers: [ProductService,WishListService],
