@@ -49,8 +49,7 @@ export class AddProductComponent implements OnInit {
     this.productService.dataForm = this.fb.group({
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      nprix: [0, [Validators.required]],
-      gprix: [0, [Validators.required]],
+      prix: [0, [Validators.required]],
       quantity: [0, [Validators.required]],
       category: ['', [Validators.required]],
     });

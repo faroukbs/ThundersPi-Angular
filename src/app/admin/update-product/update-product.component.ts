@@ -53,8 +53,7 @@ export class UpdateProductComponent implements OnInit {
     this.productService.dataForm = this.fb.group({
       name: [this.product.name, [Validators.required]],
       description: [this.product.description, [Validators.required]],
-      nprix: [this.product.nprix, [Validators.required]],
-      gprix: [this.product.gprix, [Validators.required]],
+      nprix: [this.product.prix, [Validators.required]],
       quantity: [this.product.quantity, [Validators.required]],
       category: [this.product.category, [Validators.required]],
     });

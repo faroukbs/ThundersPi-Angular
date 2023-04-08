@@ -5,8 +5,7 @@ export class Product {
     name!: string;
     description!: string;
     image!: string;
-    nprix!: number;
-    gprix!: number;
+    prix!: number;
     quantity!: number;
     createdDate!: Date;
     updatedDate!: Date;
