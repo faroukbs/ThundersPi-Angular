@@ -99,8 +99,8 @@
                   <div class="row">
                       <div class="col-md-6 ">
                         <div class="form-group">
-                          <label> choose an image</label>
-                          <input type="file" class="form-control"  accept="image/*" multiple (change)="onSelectFile($event)" />
+                          <label> choose images for your product</label>
+                          <input style="border-color:black ;" type="file" class="form-control"  accept="image/*" multiple (change)="onSelectFile($event)" />
                           <img [src]="imgURL" height="200" *ngIf="imgURL">
                           <!-- <input type="text" class="form-control" placeholder="Image" name="image"
                           [(ngModel)]="product.image"

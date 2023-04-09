@@ -9,10 +9,13 @@ import { AddcategoryComponent } from './admin/addcategory/addcategory.component'
 import { ListCategoryComponent } from './admin/list-category/list-category.component';
 import { CategoryProduct } from './models/category-product';
 import { ListProductComponent } from './admin/list-product/list-product.component';
+import { ProductsComponent } from './front/shop/products/products.component';
 
 const routes: Routes = [
   {path: 'products/:id', component: SingleProductComponent},
    {path: '', component: HomeComponent},
+   {path:'shop', component: ProductsComponent},
+   {path: 'shopdet', component: SingleProductComponent},
    //{path: 'cart-details', component: CartDetailsComponent},
   
   // {path: 'checkout', component: CheckoutComponent},

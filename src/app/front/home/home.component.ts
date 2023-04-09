@@ -15,7 +15,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   '../../../assets/front/css/bootstrap.min.css',
   '../../../assets/front/css/animate.css' 
 ],
-encapsulation: ViewEncapsulation.Emulated,
+encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class HomeComponent implements OnInit {
 
