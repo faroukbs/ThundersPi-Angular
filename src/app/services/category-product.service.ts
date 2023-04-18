@@ -16,6 +16,7 @@ export class CategoryProductService {
   getCategoryById(id: number): Observable<CategoryProduct> {
     return this.httpClient.get<CategoryProduct>(`${this.baseUrl}/find/` + id);
   }
+  
   addCategorie(category: CategoryProduct): Observable<any> {
     return this.httpClient.post<any>(this.baseUrl + '/add', category);
   }

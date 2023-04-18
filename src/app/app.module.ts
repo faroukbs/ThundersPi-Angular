@@ -24,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './front/shop/products/products.component';
 import { ProjectComponentComponent } from './front/project/project-component/project-component.component';
+import { CartComponent } from './front/shop/cart/cart.component';
 
 
 @NgModule({
@@ -43,7 +44,9 @@ import { ProjectComponentComponent } from './front/project/project-component/pro
     FooterComponent,
     NavComponent,
     ProductsComponent,
-    ProjectComponentComponent
+    ProjectComponentComponent,
+    CartComponent,
+    
   ],
   imports: [
     BrowserModule,
