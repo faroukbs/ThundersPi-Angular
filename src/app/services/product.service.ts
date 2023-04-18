@@ -45,7 +45,7 @@ import { User } from '../models/user';
     }
   
     updateTask(formData: FormData): Observable<any> {
-      return this.httpClient.post(this.baseUrl + '/update', formData);
+      return this.httpClient.put(this.baseUrl + '/update', formData);
     }
     deleteProduct(product: Product): Observable<Product> {
       const url = `${this.baseUrl}/delete/${product.id}`;

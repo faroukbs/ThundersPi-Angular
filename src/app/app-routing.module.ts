@@ -15,25 +15,43 @@ import { UserListComponent } from './admin/user-list/user-list.component';
 import { AuthComponent } from './auth/auth.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
-
-import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
 import { ResetPasswordComponents } from './auth/forget-password/forget-password.component';
+import { CartComponent } from './front/shop/cart/cart.component';
+import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
+import { ProjectComponentComponent } from './front/project/project-component/project-component.component';
+import { EmptyPageComponent } from './front/empty-page/empty-page.component';
+import { CourseComponent } from './front/course/course.component';
+import { ProductCommentComponent } from './front/shop/product-comment/product-comment.component';
+import { BackOfficeComponent } from './admin/back-office/back-office.component';
+
 
 const routes: Routes = [
-  {path: 'products/:id', component: SingleProductComponent},
-  {path: '', component: HomeComponent},
-   {path:'shop', component: ProductsComponent},
+//General empty page and its children FRONT
+{path: '', component: HomeComponent},
+  {path : 'p', component:EmptyPageComponent,
+children: [
+  {
+    path : 'project', 
+    component: ProjectComponentComponent
+    
+  },
+  {path : 'course' , component: CourseComponent},
+  {path:'shop', component: ProductsComponent},
    {path: 'shopdet', component: SingleProductComponent},
   
-   //{path: 'cart-details', component: CartDetailsComponent},
-  // {path: 'checkout', component: CheckoutComponent},
-   {path: 'add', component: AddProductComponent},
-   { path: 'listProduct', component: ListProductComponent },
-   { path: 'updateProduct/:id', component: UpdateProductComponent },
-   {path: 'admin', component: DashboardComponent},
+]},
+{ path: 'listProduct/:id', component: ProductbycatComponent },
+
+  {path: 'products/:id', component: SingleProductComponent},
+   
+   {path: 'cart-details', component: CartComponent},
+
+  
+   
+   
 //{path: 'order-history', component: OrderHistoryComponent}, 
-   {path: 'addCategory', component: AddcategoryComponent},
-   {path: 'listCategory', component: ListCategoryComponent},
+
+   {path:'product-comment',component: ProductCommentComponent},
 
   //{path:'favoriteProduct', component: WishListComponent},
   { path: 'listProduct/:id', component: CategoryProduct },
@@ -47,7 +65,28 @@ const routes: Routes = [
 
   //Projects Part
   
+  { path: 'auth', component: AuthComponent },
+  { path: 'Forget', component: ResetPasswordComponent },
+  { path: 'sign', component: SignUpComponent },
 
+  //Project routes
+  {path :'project' ,component: ProjectComponentComponent},
+
+//product routes
+{path: 'product/add', component: AddProductComponent},
+{ path: 'listProduct', component: ListProductComponent },
+{ path: 'listUser', component: UserListComponent },
+{ path: 'updateProduct/:id', component: UpdateProductComponent },
+{path: 'addCategory', component: AddcategoryComponent},
+{path: 'listCategory', component: ListCategoryComponent},
+  //admin routes
+  {path: 'admin', component: BackOfficeComponent, children: [
+    {path: 'dashboard', component: DashboardComponent},
+    {path:'projectB', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)}
+  ]},
+  
+ 
+  
 ];
 
 @NgModule({

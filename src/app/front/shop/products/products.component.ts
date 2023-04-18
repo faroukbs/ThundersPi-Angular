@@ -16,7 +16,7 @@ import { WishListService } from 'src/app/services/wish-list.service';
   '../../../../assets/shop/css/all.min.css' ,
 
 ],
-encapsulation: ViewEncapsulation.ShadowDom,
+encapsulation: ViewEncapsulation.None,
 })
 export class ProductsComponent implements OnInit {
 
@@ -29,6 +29,7 @@ export class ProductsComponent implements OnInit {
  
 
   constructor(
+   
     public productService: ProductService,
     private cartService: CartService,
     private route: ActivatedRoute,

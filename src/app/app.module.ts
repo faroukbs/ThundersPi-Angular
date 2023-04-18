@@ -17,6 +17,7 @@ import { UpdateProductComponent } from './admin/update-product/update-product.co
 import { NavbarComponent } from './front/navbar/navbar.component';
 import { FooterComponent } from './front/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { ProductService } from './services/product.service';
 import { WishListService } from './services/wish-list.service';
 import { NavComponent } from './admin/nav/nav.component';
@@ -39,6 +40,14 @@ import { QuestionAnswerUserComponent } from './front/quiz/question-answer-user/q
 import { QuestionComponent } from './front/quiz/question/question.component';
 import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
 import { ResetPasswordComponents } from './auth/forget-password/forget-password.component';
+import { ProductCommentComponent } from './front/shop/product-comment/product-comment.component';
+import { CourseComponent } from './front/course/course.component';
+import { HeaderComponent } from './front/header/header.component';
+import { EmptyPageComponent } from './front/empty-page/empty-page.component';
+import { ProjectService } from './services/riadh/project.service';
+import { QuizService } from './services/riadh/quiz.service';
+import { BackOfficeComponent } from './admin/back-office/back-office.component';
+import { ProjectComponent } from './admin/project/project.component';
 
 
 @NgModule({
@@ -75,7 +84,17 @@ import { ResetPasswordComponents } from './auth/forget-password/forget-password.
     CartComponent,
     ProductsComponent,
     ProductbycatComponent,
-    
+    ProductCommentComponent,
+    CourseComponent,
+    UserListComponent,
+    AuthComponent,
+    ResetPasswordComponent,
+    SignUpComponent,
+    HeaderComponent,
+    EmptyPageComponent,
+    FooterComponent,
+    BackOfficeComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -87,7 +106,7 @@ import { ResetPasswordComponents } from './auth/forget-password/forget-password.
     NgxPaginationModule,
     RouterModule.forRoot([])
   ],
-  providers: [ProductService,WishListService],
+  providers: [ProductService,WishListService,ProjectService,QuizService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

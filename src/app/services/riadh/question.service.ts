@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,5 +10,7 @@ export class QuestionService {
   storageUserAsStr: any = localStorage.getItem('currentUser')
   ? JSON.parse(localStorage.getItem('currentUser') || '{}')
   : null;
-  constructor() { }
+  constructor(private httpClient : HttpClient) { }
+ 
+
 }

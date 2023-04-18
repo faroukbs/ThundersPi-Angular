@@ -1,10 +1,10 @@
 import { User } from "../user";
 
 export class Project  {
-    id!: number;
+    id!: number | undefined;
     name! : string;
     maxMarks!: number;
-    idCours! :number;
-    idTeacher!: User;
+    course! :number | null;
+    user!: User;
     
 }
