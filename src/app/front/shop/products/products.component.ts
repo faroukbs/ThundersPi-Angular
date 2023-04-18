@@ -10,18 +10,13 @@ import { WishListService } from 'src/app/services/wish-list.service';
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css',
-  '../../../../assets/front/css/style.css',
-  '../../../../assets/front/css/slick.css',
-  '../../../../assets/front/css/responsive.css',
-  '../../../../assets/front/css/nice-select.css',
-  '../../../../assets/front/css/magnific-popup.css',
-  '../../../../assets/front/css/jquery.nice-number.min.css',
-  '../../../../assets/front/css/font-awesome.min.css',
-  '../../../../assets/front/css/default.css',
-  '../../../../assets/front/css/bootstrap.min.css',
-  '../../../../assets/front/css/animate.css' 
+  '../../../../assets/shop/css/ui.css',
+  '../../../../assets/shop/css/responsive.css' ,
+  '../../../../assets/shop/css/bootstrap.css',
+  '../../../../assets/shop/css/all.min.css' ,
+
 ],
-encapsulation: ViewEncapsulation.None,
+encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class ProductsComponent implements OnInit {
 
@@ -30,7 +25,7 @@ export class ProductsComponent implements OnInit {
   id!: number;
   fav!:Product[];
   p:number=1;
-
+  
  
 
   constructor(
@@ -78,6 +73,8 @@ export class ProductsComponent implements OnInit {
       this.fav = data;
     }
   )}
+
+ 
 
 }
 

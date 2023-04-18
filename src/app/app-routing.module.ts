@@ -11,6 +11,7 @@ import { CategoryProduct } from './models/category-product';
 import { ListProductComponent } from './admin/list-product/list-product.component';
 import { ProductsComponent } from './front/shop/products/products.component';
 import { CartComponent } from './front/shop/cart/cart.component';
+import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
 
 const routes: Routes = [
   {path: 'products/:id', component: SingleProductComponent},
@@ -29,7 +30,7 @@ const routes: Routes = [
    {path: 'listCategory', component: ListCategoryComponent},
 
   //{path:'favoriteProduct', component: WishListComponent},
-  { path: 'listProduct/:id', component: CategoryProduct },
+  { path: 'listProduct/:id', component: ProductbycatComponent },
 
 ];
 

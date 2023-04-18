@@ -1,31 +1,151 @@
-  <!--====== SHOP PART START ======-->
-    
-  <div class="row">
-    <div class="col-lg-12">
-        <div class="shop-top-search">
-            <div class="shop-bar">
-                <ul class="nav" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="active" id="shop-grid-tab" data-toggle="tab" href="#shop-grid" role="tab" aria-controls="shop-grid" aria-selected="true"><i class="fa fa-th-large"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="shop-list-tab" data-toggle="tab" href="#shop-list" role="tab" aria-controls="shop-list" aria-selected="false"><i class="fa fa-th-list"></i></a>
-                    </li>
-                    <li class="nav-item">Showning 4 0f 24 Results</li>
-                </ul> <!-- nav -->
-            </div><!-- shop bar -->
-            <div class="shop-select">
-               <select>
-                    <option value="1">Sort by</option>
-                    <option value="1">Sort by 01</option>
-                    <option value="2">Sort by 02</option>
-                    <option value="3">Sort by 03</option>
-                    <option value="4">Sort by 04</option>
-                    <option value="5">Sort by 05</option>
-                </select>
-            </div> <!-- shop select -->
-        </div> <!-- shop top search -->
-    </div>
-</div> <!-- row -->
+<div class="card">
+    <article class="filter-group">
+        <header class="card-header">
+            <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+                <i class="icon-control fa fa-chevron-down"></i>
+                <h6 class="title">Product type</h6>
+            </a>
+        </header>
+        <div class="filter-content collapse show" id="collapse_1" style="">
+            <div class="card-body">
+                <form class="pb-3">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                  <div class="input-group-append">
+                    <button class="btn btn-light" type="button"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+                </form >
+                
+                <ul *ngFor="let category of categories" class="list-menu">
+                <li><a routerLink="/listProduct/{{category.id}}"> {{category.name}}  </a></li>
+  
+                </ul>
 
-<!--====== COURSES PART ENDS ======-->
+            </div> <!-- card-body.// -->
+        </div>
+    </article> <!-- filter-group  .// -->
+    <article class="filter-group">
+        <header class="card-header">
+            <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
+                <i class="icon-control fa fa-chevron-down"></i>
+                <h6 class="title">Brands </h6>
+            </a>
+        </header>
+        <div class="filter-content collapse show" id="collapse_2" style="">
+            <div class="card-body">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" checked="" class="custom-control-input">
+                  <div class="custom-control-label">Mercedes  
+                      <b class="badge badge-pill badge-light float-right">120</b>  </div>
+                </label>
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" checked="" class="custom-control-input">
+                  <div class="custom-control-label">Toyota 
+                      <b class="badge badge-pill badge-light float-right">15</b>  </div>
+                </label>
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" checked="" class="custom-control-input">
+                  <div class="custom-control-label">Mitsubishi 
+                      <b class="badge badge-pill badge-light float-right">35</b> </div>
+                </label>
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" checked="" class="custom-control-input">
+                  <div class="custom-control-label">Nissan 
+                      <b class="badge badge-pill badge-light float-right">89</b> </div>
+                </label>
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input">
+                  <div class="custom-control-label">Honda 
+                      <b class="badge badge-pill badge-light float-right">30</b>  </div>
+                </label>
+    </div> <!-- card-body.// -->
+        </div>
+    </article> <!-- filter-group .// -->
+    <article class="filter-group">
+        <header class="card-header">
+            <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
+                <i class="icon-control fa fa-chevron-down"></i>
+                <h6 class="title">Price range </h6>
+            </a>
+        </header>
+        <div class="filter-content collapse show" id="collapse_3" style="">
+            <div class="card-body">
+                <input type="range" class="custom-range" min="0" max="100" name="">
+                <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Min</label>
+                  <input class="form-control" placeholder="$0" type="number" >
+                </div>
+                <div class="form-group text-right col-md-6">
+                  <label>Max</label>
+                  <input class="form-control" placeholder="$999999" type="number">
+                </div>
+                </div> <!-- form-row.// -->
+                <button class="btn btn-block btn-primary">Apply</button>
+            </div><!-- card-body.// -->
+        </div>
+    </article> <!-- filter-group .// -->
+    <article class="filter-group">
+        <header class="card-header">
+            <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
+                <i class="icon-control fa fa-chevron-down"></i>
+                <h6 class="title">Sizes </h6>
+            </a>
+        </header>
+        <div class="filter-content collapse show" id="collapse_4" style="">
+            <div class="card-body">
+              <label class="checkbox-btn">
+                <input type="checkbox">
+                <span class="btn btn-light"> XS </span>
+              </label>
+
+              <label class="checkbox-btn">
+                <input type="checkbox">
+                <span class="btn btn-light"> SM </span>
+              </label>
+
+              <label class="checkbox-btn">
+                <input type="checkbox">
+                <span class="btn btn-light"> LG </span>
+              </label>
+
+              <label class="checkbox-btn">
+                <input type="checkbox">
+                <span class="btn btn-light"> XXL </span>
+              </label>
+        </div><!-- card-body.// -->
+        </div>
+    </article> <!-- filter-group .// -->
+    <article class="filter-group">
+        <header class="card-header">
+            <a href="#" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" class="">
+                <i class="icon-control fa fa-chevron-down"></i>
+                <h6 class="title">More filter </h6>
+            </a>
+        </header>
+        <div class="filter-content collapse in" id="collapse_5" style="">
+            <div class="card-body">
+                <label class="custom-control custom-radio">
+                  <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                  <div class="custom-control-label">Any condition</div>
+                </label>
+
+                <label class="custom-control custom-radio">
+                  <input type="radio" name="myfilter_radio" class="custom-control-input">
+                  <div class="custom-control-label">Brand new </div>
+                </label>
+
+                <label class="custom-control custom-radio">
+                  <input type="radio" name="myfilter_radio" class="custom-control-input">
+                  <div class="custom-control-label">Used items</div>
+                </label>
+
+                <label class="custom-control custom-radio">
+                  <input type="radio" name="myfilter_radio" class="custom-control-input">
+                  <div class="custom-control-label">Very old</div>
+                </label>
+            </div><!-- card-body.// -->
+        </div>
+    </article> <!-- filter-group .// -->
+</div>
