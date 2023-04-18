@@ -17,13 +17,13 @@ import { UpdateProductComponent } from './admin/update-product/update-product.co
 import { NavbarComponent } from './front/navbar/navbar.component';
 import { FooterComponent } from './front/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { ProductService } from './services/product.service';
 import { WishListService } from './services/wish-list.service';
 import { NavComponent } from './admin/nav/nav.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './front/shop/products/products.component';
+import { ProjectComponentComponent } from './front/project/project-component/project-component.component';
 
 
 @NgModule({
@@ -42,7 +42,8 @@ import { ProductsComponent } from './front/shop/products/products.component';
     UpdateProductComponent,
     FooterComponent,
     NavComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProjectComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +53,7 @@ import { ProductsComponent } from './front/shop/products/products.component';
     ToastrModule.forRoot(),
     AppRoutingModule,
     NgxPaginationModule,
-    RouterModule.forRoot([]),
-    
-    
+    RouterModule.forRoot([])
   ],
   providers: [ProductService,WishListService],
   bootstrap: [AppComponent]

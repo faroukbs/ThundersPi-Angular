@@ -30,6 +30,9 @@ const routes: Routes = [
   //{path:'favoriteProduct', component: WishListComponent},
   { path: 'listProduct/:id', component: CategoryProduct },
 
+  //Projects Part
+  
+
 ];
 
 @NgModule({
