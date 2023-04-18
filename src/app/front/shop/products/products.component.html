@@ -105,7 +105,66 @@
     
     <!--====== PAGE BANNER PART ENDS ======-->
    
-  <app-category-product></app-category-product>
+    <section id="shop-page" class="pt-120 pb-120 gray-bg">
+        <div class="container">
+            <app-category-product></app-category-product>
+            <div *ngFor="let product of products | paginate: { itemsPerPage: 4, currentPage: p }" class="tab-content" id="myTabContent">
+              <div  class="tab-pane fade show active" id="shop-grid" role="tabpanel" aria-labelledby="shop-grid-tab">
+                    <div class="row justify-content-center"  >
+                       
+                        <div class="col-lg-3 col-md-6 col-sm-8">
+                            <div class="singel-publication mt-30">
+                                <div class="image">
+                                    <img src="{{this.productService.baseUrl+'/Imgarticle/'+product.id}}" alt="Publication">
+                                    <div class="add-cart">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="#"><i (click)="addToFav(product.id)" class="fa fa-heart-o"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="cont">
+                                    <div class="name">
+                                        <a routerLink="/products/{{ product.id }}"><h6>{{product.name}} </h6></a>
+                                        <span>{{product.prix}}TND</span>
+                                    </div>
+                                    <div class="button text-right">
+                                        <a href="#" class="main-btn">Buy Now</a>
+                                    </div>
+                                </div>
+                            </div> <!-- singel publication -->
+                        </div>
+                        
+                    </div> <!-- row -->
+                 
+                </div>
+                <div class="tab-pane fade" id="shop-list" role="tabpanel" aria-labelledby="shop-list-tab">
+ <!-- row -->
+                </div>
+            </div> <!-- tab content -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="courses-pagination mt-50">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a href="#" aria-label="Previous">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                            </li>
+                            <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)=" p = $event ">
+                            </pagination-controls>
+                            <li class="page-item">
+                                <a href="#" aria-label="Next">
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>  <!-- courses pagination -->
+                </div>
+            </div>  <!-- row -->
+        </div> <!-- container -->
+    </section>
+  
    
     <!--====== FOOTER PART START ======-->
     

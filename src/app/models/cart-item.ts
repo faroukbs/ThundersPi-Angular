@@ -5,7 +5,7 @@ export class CartItem {
     name!:string;
     description!:string;
     image!:string;
-    nprix!:number;
+    prix!:number;
     gprix!:number;
     quantity!:number;
 
@@ -14,8 +14,7 @@ export class CartItem {
         this.name  = product.name
         this.description = product.description
         this.image = product.image
-        this.nprix = product.nprix
-        this.gprix = product.gprix
+        this.prix = product.prix
         this.quantity = 1
     }
 }

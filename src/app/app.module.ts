@@ -24,6 +24,7 @@ import { NavComponent } from './admin/nav/nav.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './front/shop/products/products.component';
+import { CartComponent } from './front/shop/cart/cart.component';
 
 
 @NgModule({
@@ -42,7 +43,9 @@ import { ProductsComponent } from './front/shop/products/products.component';
     UpdateProductComponent,
     FooterComponent,
     NavComponent,
-    ProductsComponent
+    ProductsComponent,
+    CartComponent,
+    
   ],
   imports: [
     BrowserModule,
