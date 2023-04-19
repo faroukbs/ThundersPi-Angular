@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from 'src/app/services/project.service';
+import { ProjectService } from 'src/app/services/riadh/project.service';
 
 @Component({
   selector: 'app-project-component',
@@ -8,7 +8,7 @@ import { ProjectService } from 'src/app/services/project.service';
 })
 export class ProjectComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private projectService : ProjectService) { }
 
   
 

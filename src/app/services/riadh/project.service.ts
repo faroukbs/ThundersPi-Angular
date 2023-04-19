@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpRequest,
 } from '@angular/common/http';
-import { Project } from '../models/project';
+import { Project } from '../../models/riadh/project';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
