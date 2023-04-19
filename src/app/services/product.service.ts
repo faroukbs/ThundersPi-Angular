@@ -111,5 +111,9 @@ import { User } from '../models/user';
         httpOptions
       );
     }
+
+    getByPrix(minP: number,maxP:number): Observable<Product[]> {
+      return this.httpClient.get<Product[]>(this.baseUrl + '/prix/'+minP+'/'+maxP);
+    }
   }
   

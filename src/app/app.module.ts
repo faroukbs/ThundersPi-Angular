@@ -32,6 +32,7 @@ import { QuizTakeComponent } from './front/quiz/quiz-take/quiz-take.component';
 import { QuestionAnswerComponent } from './front/quiz/question-answer/question-answer.component';
 import { QuestionAnswerUserComponent } from './front/quiz/question-answer-user/question-answer-user.component';
 import { QuestionComponent } from './front/quiz/question/question.component';
+import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
 
 
 @NgModule({
@@ -60,6 +61,9 @@ import { QuestionComponent } from './front/quiz/question/question.component';
     QuestionAnswerComponent,
     QuestionAnswerUserComponent,
     QuestionComponent,
+    CartComponent,
+    ProductsComponent,
+    ProductbycatComponent,
     
   ],
   imports: [
