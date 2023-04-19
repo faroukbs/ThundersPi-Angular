@@ -24,7 +24,12 @@ import { NavComponent } from './admin/nav/nav.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './front/shop/products/products.component';
-import { CartComponent } from './front/shop/cart/cart.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { AuthComponent } from './auth/auth.component';
+import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+
 
 
 @NgModule({
@@ -44,7 +49,11 @@ import { CartComponent } from './front/shop/cart/cart.component';
     FooterComponent,
     NavComponent,
     ProductsComponent,
-    CartComponent,
+    UserListComponent,
+    AuthComponent,
+    ForgetPasswordComponent,
+    ResetPasswordComponent,
+    SignUpComponent,
     
   ],
   imports: [
