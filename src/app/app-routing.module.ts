@@ -10,6 +10,10 @@ import { ListCategoryComponent } from './admin/list-category/list-category.compo
 import { CategoryProduct } from './models/category-product';
 import { ListProductComponent } from './admin/list-product/list-product.component';
 import { ProductsComponent } from './front/shop/products/products.component';
+import { UserListComponent } from './admin/user-list/user-list.component'; 
+import { AuthComponent } from './auth/auth.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { CartComponent } from './front/shop/cart/cart.component';
 import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
 
@@ -30,11 +34,12 @@ const routes: Routes = [
    {path: 'listCategory', component: ListCategoryComponent},
 
   //{path:'favoriteProduct', component: WishListComponent},
-  { path: 'listProduct/:id', component: ProductbycatComponent },
-
-  //Projects Part
+  { path: 'listProduct/:id', component: CategoryProduct },
+  { path: 'listUser', component: UserListComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: 'Forget', component: ResetPasswordComponent },
+  { path: 'sign', component: SignUpComponent },
   
-
 ];
 
 @NgModule({

@@ -17,6 +17,7 @@ import { UpdateProductComponent } from './admin/update-product/update-product.co
 import { NavbarComponent } from './front/navbar/navbar.component';
 import { FooterComponent } from './front/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { ProductService } from './services/product.service';
 import { WishListService } from './services/wish-list.service';
 import { NavComponent } from './admin/nav/nav.component';
@@ -34,6 +35,12 @@ import { QuestionAnswerUserComponent } from './front/quiz/question-answer-user/q
 import { QuestionComponent } from './front/quiz/question/question.component';
 import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
 import { CourseComponent } from './front/course/course.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { AuthComponent } from './auth/auth.component';
+import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+
 
 
 @NgModule({
@@ -66,6 +73,11 @@ import { CourseComponent } from './front/course/course.component';
     ProductsComponent,
     ProductbycatComponent,
     CourseComponent,
+    UserListComponent,
+    AuthComponent,
+    ForgetPasswordComponent,
+    ResetPasswordComponent,
+    SignUpComponent,
     
   ],
   imports: [
