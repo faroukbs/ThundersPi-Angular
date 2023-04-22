@@ -33,6 +33,7 @@ import { QuestionAnswerComponent } from './front/quiz/question-answer/question-a
 import { QuestionAnswerUserComponent } from './front/quiz/question-answer-user/question-answer-user.component';
 import { QuestionComponent } from './front/quiz/question/question.component';
 import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
+import { ProductCommentComponent } from './front/shop/product-comment/product-comment.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { ProductbycatComponent } from './front/shop/productbycat/productbycat.co
     CartComponent,
     ProductsComponent,
     ProductbycatComponent,
+    ProductCommentComponent,
     
   ],
   imports: [
