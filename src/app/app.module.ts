@@ -40,6 +40,8 @@ import { AuthComponent } from './auth/auth.component';
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { HeaderComponent } from './front/header/header.component';
+import { EmptyPageComponent } from './front/empty-page/empty-page.component';
 
 
 
@@ -78,7 +80,9 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
     ForgetPasswordComponent,
     ResetPasswordComponent,
     SignUpComponent,
-    
+    HeaderComponent,
+    EmptyPageComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

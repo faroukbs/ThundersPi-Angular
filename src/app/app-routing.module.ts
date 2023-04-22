@@ -16,8 +16,22 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { CartComponent } from './front/shop/cart/cart.component';
 import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
+import { ProjectComponentComponent } from './front/project/project-component/project-component.component';
+import { EmptyPageComponent } from './front/empty-page/empty-page.component';
+import { CourseComponent } from './front/course/course.component';
 
 const routes: Routes = [
+//General empty page and its children FRONT
+  {path : 'p', component:EmptyPageComponent,
+children: [
+  {
+    path : 'project', 
+    component: ProjectComponentComponent
+    
+  },
+  {path : 'course' , component: CourseComponent}
+]},
+
   {path: 'products/:id', component: SingleProductComponent},
    {path: '', component: HomeComponent},
    {path:'shop', component: ProductsComponent},
@@ -39,6 +53,9 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'Forget', component: ResetPasswordComponent },
   { path: 'sign', component: SignUpComponent },
+
+  //Project routes
+  {path :'project' ,component: ProjectComponentComponent},
   
 ];
 
