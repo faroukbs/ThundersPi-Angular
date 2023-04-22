@@ -10,7 +10,10 @@ export class ProjectComponentComponent implements OnInit {
 
   constructor(private projectService : ProjectService) { }
 
-  
+  add(): void 
+  {
+    
+  }
 
   ngOnInit(): void {
   }
