@@ -19,6 +19,7 @@ import { ProductbycatComponent } from './front/shop/productbycat/productbycat.co
 import { ProjectComponentComponent } from './front/project/project-component/project-component.component';
 import { EmptyPageComponent } from './front/empty-page/empty-page.component';
 import { CourseComponent } from './front/course/course.component';
+import { ProductCommentComponent } from './front/shop/product-comment/product-comment.component';
 
 const routes: Routes = [
 //General empty page and its children FRONT
@@ -37,8 +38,8 @@ children: [
    {path:'shop', component: ProductsComponent},
    {path: 'shopdet', component: SingleProductComponent},
    {path: 'cart-details', component: CartComponent},
+
   
-  // {path: 'checkout', component: CheckoutComponent},
    {path: 'add', component: AddProductComponent},
    { path: 'listProduct', component: ListProductComponent },
    { path: 'updateProduct/:id', component: UpdateProductComponent },
@@ -46,6 +47,7 @@ children: [
 //{path: 'order-history', component: OrderHistoryComponent}, 
    {path: 'addCategory', component: AddcategoryComponent},
    {path: 'listCategory', component: ListCategoryComponent},
+   {path:'product-comment',component: ProductCommentComponent},
 
   //{path:'favoriteProduct', component: WishListComponent},
   { path: 'listProduct/:id', component: CategoryProduct },

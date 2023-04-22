@@ -34,6 +34,7 @@ import { QuestionAnswerComponent } from './front/quiz/question-answer/question-a
 import { QuestionAnswerUserComponent } from './front/quiz/question-answer-user/question-answer-user.component';
 import { QuestionComponent } from './front/quiz/question/question.component';
 import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
+import { ProductCommentComponent } from './front/shop/product-comment/product-comment.component';
 import { CourseComponent } from './front/course/course.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { AuthComponent } from './auth/auth.component';
@@ -74,6 +75,7 @@ import { EmptyPageComponent } from './front/empty-page/empty-page.component';
     CartComponent,
     ProductsComponent,
     ProductbycatComponent,
+    ProductCommentComponent,
     CourseComponent,
     UserListComponent,
     AuthComponent,
