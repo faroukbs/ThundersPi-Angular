@@ -16,7 +16,7 @@ import { WishListService } from 'src/app/services/wish-list.service';
   '../../../../assets/shop/css/all.min.css' ,
 
 ],
-encapsulation: ViewEncapsulation.ShadowDom,
+encapsulation: ViewEncapsulation.None,
 })
 export class ProductsComponent implements OnInit {
 
