@@ -1,0 +1,18 @@
+<div>
+    <h2>Add Project Detail</h2>
+    <div>
+      <p>
+          <label>Name:
+              <input [(ngModel)]="project.name" placeholder="project Name"/>
+          </label>
+      </p>
+      <p>
+          <label>MaxMarks:
+              <input [(ngModel)]="project.maxMarks" placeholder="project MaxMarks"/>
+          </label>
+      </p>
+    </div>
+    <button (click)="goBack()">go back</button>
+    <button (click)="save()">save</button>
+  </div>
+  

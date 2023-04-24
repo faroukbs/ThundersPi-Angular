@@ -7,6 +7,13 @@ import {
 } from '@angular/common/http';
 import { Project } from '../../models/riadh/project';
 import { Observable } from 'rxjs';
+import { FormGroup } from '@angular/forms';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +21,15 @@ export class ProjectService {
 
   constructor(private httpClient: HttpClient) { }
 
-  baseUrl = 'http://localhost:8181/project';
+  public dataForm!: FormGroup;
+  post_options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  baseUrl = 'http://localhost:8082/project';
   storageUserAsStr: any = localStorage.getItem('currentUser')
   ? JSON.parse(localStorage.getItem('currentUser') || '{}')
   : null;
@@ -31,19 +46,22 @@ export class ProjectService {
 
   getProjectById(projectId : number):Observable<Project> 
   {
-    const url = `${this.baseUrl}/${projectId}`;
+    
+    //const url = `${this.baseUrl}/${projectId}`;
+    const url = `http://localhost:8181/admin/project/${projectId}`;
+    
     return this.httpClient.get<Project>(url);
   }
 
-  addProject(formData: FormData): Observable<any> {
-    return this.httpClient.post(this.baseUrl + '/', formData);
+  addProject(project : Project): Observable<any> {
+    return this.httpClient.post(this.baseUrl , project,httpOptions);
   }
-  updateProject(formData: FormData): Observable<any> {
-    return this.httpClient.put(this.baseUrl + '/', formData);
+  updateProject(project : Project): Observable<any> {
+    return this.httpClient.put(this.baseUrl + '/', project,httpOptions);
   }
 
-  deleteProject(projectId: number): Observable<Project> {
-    const url = `${this.baseUrl}/${projectId}`;
+  deleteProject(project: Project): Observable<Project> {
+    const url = `${this.baseUrl}/${project.id}`;
     return this.httpClient.delete<Project>(url);
   }
 

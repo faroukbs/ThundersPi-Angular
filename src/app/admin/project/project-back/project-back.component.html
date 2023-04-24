@@ -1,0 +1,13 @@
+<div *ngIf="project">
+    <h2>{{project.name | uppercase}} Details</h2>
+    <div><span>Id: </span>{{project.id}}</div>
+    <div>
+      <p>
+          Name: {{project.name}}
+      </p>
+      <p>
+          MaxMarks: {{project.maxMarks}}
+      </p>
+    </div>
+    <button (click)="goBack()">go back</button>
+  </div>
