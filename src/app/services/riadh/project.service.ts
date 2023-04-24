@@ -29,7 +29,7 @@ export class ProjectService {
     },
   };
 
-  baseUrl = 'http://localhost:8082/project';
+  baseUrl = 'http://localhost:8181/project';
   storageUserAsStr: any = localStorage.getItem('currentUser')
   ? JSON.parse(localStorage.getItem('currentUser') || '{}')
   : null;

@@ -4,10 +4,10 @@
           <div class="col-md-12">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">Add Product</h5>
+                <h5 class="card-title">Add Project</h5>
               </div>
               <div class="card-body">
-	<a routerLink="admin/project/add">
+	<a routerLink="/admin/project/add">
 		Add New Project
 	</a>
 
@@ -23,8 +23,8 @@
     <td>{{project.name}}</td>
     <td>{{project.maxMarks}}</td>
 	<td>
-		<a routerLink="/detail/{{project.id}}">Detail</a>
-		<a routerLink="/edit/{{project.id}}">Edit</a>
+		<a routerLink="admin/project/detail/{{project.id}}">Detail</a>
+		<a routerLink="admin/project/edit/{{project.id}}">Edit</a>
 		<button title="delete project" (click)="delete(project)">x</button>
 	</td>
   </tr>

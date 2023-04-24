@@ -1,7 +1,7 @@
 import { User } from "../user";
 
 export class Project  {
-    id!: number;
+    id!: number | undefined;
     name! : string;
     maxMarks!: number;
     course! :number | null;

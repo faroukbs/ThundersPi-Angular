@@ -70,7 +70,7 @@ children: [
     {path: 'dashboard', component: DashboardComponent},
     { path : 'project/add', component:AddProjectComponent},
     { path : 'project', component:ProjectListBackComponent},
-    { path : 'project/:id', component:ProjectBackComponent},
+    { path : 'project/detail/:id', component:ProjectBackComponent},
   ]},
   
  
