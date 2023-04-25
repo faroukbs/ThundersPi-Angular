@@ -26,7 +26,7 @@ export class AddcategoryComponent implements OnInit {
   ngOnInit(): void {}
   addCategory(): void {
     this.categoryService.addCategorie(this.category).subscribe(() => {
-      this.router.navigate(['/listCategory']);
+      this.router.navigate(['/admin/listCategory']);
     });
   }
 }
