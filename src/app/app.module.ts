@@ -24,6 +24,11 @@ import { NavComponent } from './admin/nav/nav.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './front/shop/products/products.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { AuthComponent } from './auth/auth.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+
 import { ProjectComponentComponent } from './front/project/project-component/project-component.component';
 import { CartComponent } from './front/shop/cart/cart.component';
 import { ProjectFileComponent } from './front/project/project-file/project-file.component';
@@ -34,13 +39,9 @@ import { QuestionAnswerComponent } from './front/quiz/question-answer/question-a
 import { QuestionAnswerUserComponent } from './front/quiz/question-answer-user/question-answer-user.component';
 import { QuestionComponent } from './front/quiz/question/question.component';
 import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
+import { ResetPasswordComponents } from './auth/forget-password/forget-password.component';
 import { ProductCommentComponent } from './front/shop/product-comment/product-comment.component';
 import { CourseComponent } from './front/course/course.component';
-import { UserListComponent } from './admin/user-list/user-list.component';
-import { AuthComponent } from './auth/auth.component';
-import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
-import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
-import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { HeaderComponent } from './front/header/header.component';
 import { EmptyPageComponent } from './front/empty-page/empty-page.component';
 import { ProjectService } from './services/riadh/project.service';
@@ -66,6 +67,11 @@ import { ProjectComponent } from './admin/project/project.component';
     FooterComponent,
     NavComponent,
     ProductsComponent,
+    UserListComponent,
+    AuthComponent,
+    ResetPasswordComponent,
+    ResetPasswordComponents,
+    SignUpComponent,
     ProjectComponentComponent,
     CartComponent,
     ProjectFileComponent,
@@ -82,7 +88,6 @@ import { ProjectComponent } from './admin/project/project.component';
     CourseComponent,
     UserListComponent,
     AuthComponent,
-    ForgetPasswordComponent,
     ResetPasswordComponent,
     SignUpComponent,
     HeaderComponent,

@@ -5,7 +5,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
+  templateUrl: './sign-up.component.html', 
   styleUrls: ['./sign-up.component.css',
   '../../../assets/sign/fonts/material-icon/css/material-design-iconic-font.min.css',
   '../../../assets/sign/css/style.css',
@@ -26,7 +26,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authenticationService.currentUserValue?.id) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/sign']);
       return;
     }
   }

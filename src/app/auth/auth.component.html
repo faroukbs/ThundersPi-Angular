@@ -14,7 +14,7 @@
 </head>
 <body>
 
-    <div class="main">
+    <div class="">
 
      
 
@@ -50,11 +50,13 @@
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"  />
                             </div>
                         </form>
+                        <br>
+                        <a routerLink="/signup" style="background-color: #a8f0b9; color: #ffffff; padding: 5px 10px; display: inline-block; text-decoration: none; border: none; border-radius: 3px; margin-right: 10px;">Create account</a>
+
+                        <a routerLink="/forget" style="background-color: #ffa0a8; color: #ffffff; padding: 5px 10px; display: inline-block; text-decoration: none; border: none; border-radius: 3px;">Forget Password</a>
                         
-                        <a routerLink="sign">Create account</a>
-                       
-                        <a routerLink="Forget">  Forget Password </a>
-                 
+
+                       <router-outlet></router-outlet>
                         <div class="social-login">
                             <span class="social-label">Or login with</span>
                             <ul class="socials">

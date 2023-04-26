@@ -18,7 +18,7 @@ export class ResetServiceService {
     return this.httpClient.get<any>('http://localhost:8181/api/reset/reset_password?token='+token)
   }
 
-  postResetPassword(reset: RecursiveTemplateAstVisitor):Observable<any>{
+  postResetPassword(reset: String):Observable<any>{
     return this.httpClient.post<any>('http://localhost:8181/api/reset/reset_password', reset)
   }
 
