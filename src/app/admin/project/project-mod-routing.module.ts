@@ -9,13 +9,13 @@ import { DeleteProjectComponent } from './delete-project/delete-project.componen
 import { AddProjectComponent } from './add-project/add-project.component';
 
 const routes: Routes = [
-  {path: 'pr' , component: ProjectComponent, children: [
+  
     {path: 'add', component: AddProjectComponent},
     {path: 'delete', component: DeleteProjectComponent},
     {path: 'update', component: UpdateProjectComponent},
     {path: 'list', component: ProjectListBackComponent},
     {path: 'details', component: ProjectBackDetailsComponent},
-    {path: 'file', component: ProjectFileComponent}, ]},
+    {path: 'file', component: ProjectFileComponent}, 
 ];
 
 @NgModule({

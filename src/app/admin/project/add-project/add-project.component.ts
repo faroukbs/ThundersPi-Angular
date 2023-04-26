@@ -46,16 +46,6 @@ export class AddProjectComponent implements OnInit {
   
 	fileUrl : any; //File url to upload
 	selected! : FileList;
-	//progress: { percentage: number } = { percentage: 0 };
-	//formData!: FormGroup; 
-
-	// get status() {
-		//return this.progress.percentage <= 25 ? 'is-danger' : this.progress.percentage <= 50 ? 'is-warning' : this.progress.percentage <= 75 ? 'is-info' : 'is-success';
-	//}
-	//selectFile(event: any) {
-//		this.selected = event.target.files;
-//		this.label = this.selected.length > 1 ? this.selected.length + ' files selected' : '1 file selected';
-//	  }
 	 uploadFiles(): void
 	 {
 		this.message = [];
@@ -64,6 +54,64 @@ export class AddProjectComponent implements OnInit {
 		  for (let i = 0; i < this.selectedFiles.length; i++) {
 			this.upload(i, this.selectedFiles[i]);
 		  }
+		}
+	 }
+	 
+
+	 //Use this after we have added the project to the database with a HTTP response of 200
+	 uploadFilesToProject(projectId: number): void
+	 {
+		this.message = [];
+
+		if (this.selectedFiles) {
+		  for (let i = 0; i < this.selectedFiles.length; i++) {
+			this.uploadFileToProject(i, this.selectedFiles[i],projectId);
+		  }
+		}
+	 }
+	 addProjectWithFiles(): void
+	 {
+		if (this.selectedFiles) {
+			for (let i = 0; i < this.selectedFiles.length; i++) {
+				if(this.selectedFiles[i])
+				{
+					//upload project with files
+					this.project.projectFiles.push(this.selectedFiles[i]);
+					this.project.user = this.projectService.storageUserAsStr.user;
+					//we need to be able to handle to upload of both project files and project itself
+				}
+			}
+		  }
+		  
+		  this.addProject();
+		
+	 }
+	 uploadFileToProject(idx: number, file:File, projectId: number): void 
+	 {
+		this.progress[idx] = { value: 0, fileName: file.name };
+
+		if (file) {
+		  this.projectFileService.uploadProjectFileByProjectId(file,projectId).subscribe({
+			next: (event: any) => {
+			  if (event.type === HttpEventType.UploadProgress) {
+				this.progress[idx].value = Math.round(100 * event.loaded / event.total);
+			  } else if (event instanceof HttpResponse) {
+				const msg = 'Uploaded the file successfully: ' + file.name;
+				this.message.push(msg);
+				this.fileInfos = this.projectFileService.getProjectFilesByProjectId(projectId);
+			  }
+			},
+			error: (err: any) => {
+			  this.progress[idx].value = 0;
+			  const msg = 'Could not upload the file: ' + file.name;
+			  this.message.push(msg);
+			  this.fileInfos = this.projectFileService.getProjectFilesByProjectId(projectId);
+			},
+			complete: () => {
+				// Add Project and link its files
+				
+			}
+		  });
 		}
 	 }
 	  upload(idx : number , file:File): void {
@@ -90,7 +138,7 @@ export class AddProjectComponent implements OnInit {
 		}
 	  }
 	
-  @Input() project: Project = {id: undefined, name: '', maxMarks: 0 , course: null  ,user: this.projectService.storageUserAsStr };
+  @Input() project: Project = {id: undefined, name: '', maxMarks: 0 , course: null  ,user: this.projectService.storageUserAsStr , projectFiles: []};
 	constructor(private formBuilder:FormBuilder ,
 		public projectService: ProjectService,public projectFileService:ProjectFileService, private location: Location) { }
 	ngOnInit() {

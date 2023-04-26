@@ -1,4 +1,5 @@
 import { User } from "../user";
+import { ProjectFile } from "./project-file.model";
 
 export class Project  {
     id!: number | undefined;
@@ -6,5 +7,6 @@ export class Project  {
     maxMarks!: number;
     course! :number | null;
     user!: User;
+    projectFiles! : File[];
     
 }

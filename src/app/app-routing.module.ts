@@ -58,8 +58,6 @@ children: [
   { path: 'Forget', component: ResetPasswordComponent },
   { path: 'sign', component: SignUpComponent },
 
-  //Project routes
-  {path :'project' ,component: ProjectComponentComponent},
 
 //product routes
 {path: 'product/add', component: AddProductComponent},
@@ -71,7 +69,7 @@ children: [
   //admin routes
   {path: 'admin', component: BackOfficeComponent, children: [
     {path: 'dashboard', component: DashboardComponent},
-    {path:'projectB', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)}
+    {path:'project', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)}
   ]},
   
  
