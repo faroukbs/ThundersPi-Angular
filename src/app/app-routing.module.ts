@@ -15,9 +15,9 @@ import { UserListComponent } from './admin/user-list/user-list.component';
 import { AuthComponent } from './auth/auth.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
-import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 
-
+import { ProductbycatComponent } from './front/shop/productbycat/productbycat.component';
+import { ResetPasswordComponents } from './auth/forget-password/forget-password.component';
 
 const routes: Routes = [
   {path: 'products/:id', component: SingleProductComponent},
@@ -39,9 +39,15 @@ const routes: Routes = [
   { path: 'listProduct/:id', component: CategoryProduct },
   { path: 'listUser', component: UserListComponent },
   { path: 'auth', component: AuthComponent },
-  { path: 'Forget', component: ResetPasswordComponent },
-  {path: 'signup', component: SignUpComponent}
+  { path: 'forget', component: ResetPasswordComponent },
+  {path: 'signup', component: SignUpComponent},
+   {path: 'reset',component: ResetPasswordComponents},
   
+  { path: 'listProduct/:id', component: ProductbycatComponent },
+
+  //Projects Part
+  
+
 ];
 
 @NgModule({

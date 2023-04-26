@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryProduct } from 'src/app/models/category-product';
 import { CategoryProductService } from 'src/app/services/category-product.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-addcategory',
