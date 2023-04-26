@@ -36,14 +36,15 @@ children: [
     component: ProjectComponentComponent
     
   },
-  {path : 'course' , component: CourseComponent}
+  {path : 'course' , component: CourseComponent},
+  {path:'shop', component: ProductsComponent},
+   {path: 'shopdet', component: SingleProductComponent},
   
 ]},
 { path: 'listProduct/:id', component: ProductbycatComponent },
 
   {path: 'products/:id', component: SingleProductComponent},
-   {path:'shop', component: ProductsComponent},
-   {path: 'shopdet', component: SingleProductComponent},
+   
    {path: 'cart-details', component: CartComponent},
 
   
@@ -81,6 +82,7 @@ children: [
     {path: 'listCategory', component: ListCategoryComponent},
 
 
+    { path : 'project/detail/:id', component:ProjectBackComponent},
   ]},
   
  

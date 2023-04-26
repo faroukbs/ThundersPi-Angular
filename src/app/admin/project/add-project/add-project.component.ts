@@ -12,7 +12,7 @@ import { ProjectService } from 'src/app/services/riadh/project.service';
 })
 export class AddProjectComponent implements OnInit {
 
-  @Input() project: Project = {id: 0, name: '', maxMarks: 0 , course: null  ,user: this.projectService.storageUserAsStr };
+  @Input() project: Project = {id: undefined, name: '', maxMarks: 0 , course: null  ,user: this.projectService.storageUserAsStr };
 	constructor(private projectService: ProjectService, private location: Location) { }
 	ngOnInit() {
 	}
