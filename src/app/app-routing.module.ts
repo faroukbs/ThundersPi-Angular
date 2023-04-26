@@ -20,11 +20,8 @@ import { ProjectComponentComponent } from './front/project/project-component/pro
 import { EmptyPageComponent } from './front/empty-page/empty-page.component';
 import { CourseComponent } from './front/course/course.component';
 import { ProductCommentComponent } from './front/shop/product-comment/product-comment.component';
-import { ProjectBackComponent } from './admin/project/project-back/project-back.component';
-import { AddProjectComponent } from './admin/project/add-project/add-project.component';
-import { ProjectListBackComponent } from './admin/project/project-list-back/project-list-back.component';
-import { AddProjectFileComponent } from './admin/project/add-project-file/add-project-file.component';
 import { BackOfficeComponent } from './admin/back-office/back-office.component';
+
 
 const routes: Routes = [
 //General empty page and its children FRONT
@@ -68,9 +65,7 @@ children: [
   //admin routes
   {path: 'admin', component: BackOfficeComponent, children: [
     {path: 'dashboard', component: DashboardComponent},
-    { path : 'project/add', component:AddProjectComponent},
-    { path : 'project', component:ProjectListBackComponent},
-    { path : 'project/detail/:id', component:ProjectBackComponent},
+    {path:'projectB', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)}
   ]},
   
  

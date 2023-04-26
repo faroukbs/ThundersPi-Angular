@@ -6,10 +6,10 @@ import { ProjectService } from 'src/app/services/riadh/project.service';
 
 @Component({
   selector: 'app-project-back',
-  templateUrl: './project-back.component.html',
-  styleUrls: ['./project-back.component.css']
+  templateUrl: './project-back-details.component.html',
+  styleUrls: ['./project-back-details.component.css']
 })
-export class ProjectBackComponent implements OnInit {
+export class ProjectBackDetailsComponent implements OnInit {
 
   project: Project = new Project() ;
 	constructor(private route: ActivatedRoute, private projectService: ProjectService, private location: Location) { }

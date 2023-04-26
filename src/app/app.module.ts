@@ -43,16 +43,10 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { HeaderComponent } from './front/header/header.component';
 import { EmptyPageComponent } from './front/empty-page/empty-page.component';
-import { AddProjectComponent } from './admin/project/add-project/add-project.component';
-import { UpdateProjectComponent } from './admin/project/update-project/update-project.component';
-import { AddProjectFileComponent } from './admin/project/add-project-file/add-project-file.component';
-import { AddProjectSubmissionComponent } from './front/project/add-project-submission/add-project-submission.component';
-import { EditProjectSubmissionComponent } from './front/project/edit-project-submission/edit-project-submission.component';
-import { ProjectSubmissionListComponent } from './front/project/project-submission-list/project-submission-list.component';
-import { ProjectBackComponent } from './admin/project/project-back/project-back.component';
-import { ProjectListBackComponent } from './admin/project/project-list-back/project-list-back.component';
+import { ProjectService } from './services/riadh/project.service';
+import { QuizService } from './services/riadh/quiz.service';
 import { BackOfficeComponent } from './admin/back-office/back-office.component';
-
+import { ProjectComponent } from './admin/project/project.component';
 
 
 @NgModule({
@@ -94,16 +88,8 @@ import { BackOfficeComponent } from './admin/back-office/back-office.component';
     HeaderComponent,
     EmptyPageComponent,
     FooterComponent,
-    AddProjectComponent,
-    UpdateProjectComponent,
-    AddProjectFileComponent,
-    AddProjectSubmissionComponent,
-    EditProjectSubmissionComponent,
-    ProjectSubmissionListComponent,
-    ProjectBackComponent,
-    ProjectListBackComponent,
-    AddProjectComponent,
     BackOfficeComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -115,7 +101,7 @@ import { BackOfficeComponent } from './admin/back-office/back-office.component';
     NgxPaginationModule,
     RouterModule.forRoot([])
   ],
-  providers: [ProductService,WishListService],
+  providers: [ProductService,WishListService,ProjectService,QuizService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
