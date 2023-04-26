@@ -25,6 +25,7 @@ import { BackOfficeComponent } from './admin/back-office/back-office.component';
 
 const routes: Routes = [
 //General empty page and its children FRONT
+{path: '', component: HomeComponent},
   {path : 'p', component:EmptyPageComponent,
 children: [
   {
@@ -32,28 +33,27 @@ children: [
     component: ProjectComponentComponent
     
   },
-  {path : 'course' , component: CourseComponent}
+  {path : 'course' , component: CourseComponent},
+  {path:'shop', component: ProductsComponent},
+   {path: 'shopdet', component: SingleProductComponent},
+  
 ]},
+{ path: 'listProduct/:id', component: ProductbycatComponent },
 
   {path: 'products/:id', component: SingleProductComponent},
-   {path: '', component: HomeComponent},
-   {path:'shop', component: ProductsComponent},
-   {path: 'shopdet', component: SingleProductComponent},
+   
    {path: 'cart-details', component: CartComponent},
 
   
-   {path: 'add', component: AddProductComponent},
-   { path: 'listProduct', component: ListProductComponent },
-   { path: 'updateProduct/:id', component: UpdateProductComponent },
+   
    
 //{path: 'order-history', component: OrderHistoryComponent}, 
-   {path: 'addCategory', component: AddcategoryComponent},
-   {path: 'listCategory', component: ListCategoryComponent},
+
    {path:'product-comment',component: ProductCommentComponent},
 
   //{path:'favoriteProduct', component: WishListComponent},
   { path: 'listProduct/:id', component: CategoryProduct },
-  { path: 'listUser', component: UserListComponent },
+  
   { path: 'auth', component: AuthComponent },
   { path: 'Forget', component: ResetPasswordComponent },
   { path: 'sign', component: SignUpComponent },
@@ -61,7 +61,13 @@ children: [
   //Project routes
   {path :'project' ,component: ProjectComponentComponent},
 
-
+//product routes
+{path: 'product/add', component: AddProductComponent},
+{ path: 'listProduct', component: ListProductComponent },
+{ path: 'listUser', component: UserListComponent },
+{ path: 'updateProduct/:id', component: UpdateProductComponent },
+{path: 'addCategory', component: AddcategoryComponent},
+{path: 'listCategory', component: ListCategoryComponent},
   //admin routes
   {path: 'admin', component: BackOfficeComponent, children: [
     {path: 'dashboard', component: DashboardComponent},

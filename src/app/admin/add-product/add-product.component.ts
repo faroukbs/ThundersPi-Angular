@@ -70,7 +70,7 @@ export class AddProductComponent implements OnInit {
     // formData.append('file', this.userFile);
     formData.append('file', this.file);
     this.productService.addTask(formData).subscribe((data) => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/admin/listProduct']);
     });
   }
 
