@@ -27,6 +27,23 @@ export class ProjectFileService {
     return this.httpClient.request(req);
   }
 
+  uploadProjectFileByProjectId(file: File,projectId:number): Observable<HttpEvent<any>>
+  {
+    const formData : FormData = new FormData(); //Stores Key Value Pairs
+    formData.append('file',file);
+
+    const req = new HttpRequest('POST', `${this.baseUrl}/upload${projectId}`,formData, {
+      reportProgress:true,
+      responseType:'json'
+    });
+    return this.httpClient.request(req);
+  }
+
+  getProjectFilesByProjectId(projectId:number): Observable<any>
+  {
+    return this.httpClient.get(`${this.baseUrl}/files${projectId}`) 
+  }
+
   getProjectFiles(): Observable<any>
   {
     return this.httpClient.get(`${this.baseUrl}/files`)
