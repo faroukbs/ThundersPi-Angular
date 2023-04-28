@@ -71,17 +71,19 @@ children: [
   { path: 'sign', component: SignUpComponent },
 
 
-//product routes
-{path: 'product/add', component: AddProductComponent},
-{ path: 'listProduct', component: ListProductComponent },
+
+  //admin routes
+  {path: 'admin', component: BackOfficeComponent, children: [
+    {path: 'dashboard', component: DashboardComponent},
+    {path:'project', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)},
+    //product routes
+
 { path: 'listUser', component: UserListComponent },
 { path: 'updateProduct/:id', component: UpdateProductComponent },
 {path: 'addCategory', component: AddcategoryComponent},
 {path: 'listCategory', component: ListCategoryComponent},
-  //admin routes
-  {path: 'admin', component: BackOfficeComponent, children: [
-    {path: 'dashboard', component: DashboardComponent},
-    {path:'project', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)}
+    {path: 'product/add', component: AddProductComponent},
+{ path: 'listProduct', component: ListProductComponent },
   ]},
   
  
