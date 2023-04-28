@@ -48,8 +48,8 @@ import { ProjectService } from './services/riadh/project.service';
 import { QuizService } from './services/riadh/quiz.service';
 import { BackOfficeComponent } from './admin/back-office/back-office.component';
 import { ProjectComponent } from './admin/project/project.component';
-
-
+import { ReviewComponent } from './front/shop/single-product/review/review.component';
+import { RevComponent } from './front/shop/single-product/rev/rev.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,6 +94,8 @@ import { ProjectComponent } from './admin/project/project.component';
     EmptyPageComponent,
     FooterComponent,
     BackOfficeComponent,
+    ReviewComponent,
+    RevComponent,
    
   ],
   imports: [
@@ -104,7 +106,7 @@ import { ProjectComponent } from './admin/project/project.component';
     ToastrModule.forRoot(),
     AppRoutingModule,
     NgxPaginationModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
   ],
   providers: [ProductService,WishListService,ProjectService,QuizService],
   bootstrap: [AppComponent]
