@@ -2,7 +2,7 @@
           class="cursor-pointer "
           aria-labelledby="reviews-tab"
           >
-          <div class="reviews-cont">
+          <div class="reviews-cont" >
             <ul>
               <li>
                 <div class="singel-reviews">
@@ -13,9 +13,9 @@
                         alt="Reviews"
                       />
                     </div>
-                    <div class="author-name">
-                      <h6>Bobby Aktar</h6>
-                      <span>April 03, 2019</span>
+                    <div class="author-name" *ngFor="let com of produit.commentaire ;let i=index">
+                      <h6>{{user.fname}}</h6>
+                      <span></span>
                     </div>
                   </div>
                   <div class="reviews-description pt-20">
