@@ -10,7 +10,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   '../../assets/sign/fonts/material-icon/css/material-design-iconic-font.min.css',
   '../../assets/sign/css/style.css',
 ],
-encapsulation: ViewEncapsulation.None,
+encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class AuthComponent implements OnInit {
 
