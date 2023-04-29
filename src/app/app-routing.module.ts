@@ -37,14 +37,17 @@ children: [
     
   },
   {path : 'course' , component: CourseComponent},
+
+  //shop routes
   {path:'shop', component: ProductsComponent},
   {path: 'products/:id', component: SingleProductComponent},
   {path: 'cart-details', component: CartComponent},
   { path: 'listProduct/:id', component: ProductbycatComponent },
+  {path:'favoriteProduct', component: WishlistComponent},
 
   
 ]},
-{path:'favoriteProduct', component: WishlistComponent},
+
 
 
   
