@@ -12,40 +12,20 @@
     
     
     <!-- ========================= SECTION PAGETOP ========================= -->
-    <section class="section-pagetop bg">
-    <div class="container">
-        <h2 class="title-page">Category products</h2>
-        <nav>
-        <ol class="breadcrumb text-white">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Best category</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Great articles</li>
-        </ol>  
-        </nav>
-    </div> <!-- container //  -->
-    </section>
-    <!-- ========================= SECTION INTRO END// ========================= -->
-    
-    <!-- ========================= SECTION CONTENT ========================= -->
-    <section class="section-content padding-y">
     <div class="container">
     
     <div class="row">
-        <aside class="col-md-3">
-         <app-category-product></app-category-product>   
-     <!-- card.// -->
-    
-        </aside> <!-- col.// -->
+
         <main class="col-md-9">
     
     <header class="border-bottom mb-4 pb-3">
             <div class="form-inline">
-                <span class="mr-md-auto">32 Items found </span>
+                <h1 class="mr-md-auto">wishList </h1>
             </div>
     </header><!-- sect-heading -->
     
     <div  class="row">
-        <div  *ngFor="let product of products | paginate: { itemsPerPage: 6, currentPage: p }" class="col-md-4">
+        <div  *ngFor="let fa of fav | paginate: { itemsPerPage: 6, currentPage: p } and let product of products" class="col-md-4">
             <figure class="card card-product-grid">
                 <div class="img-wrap"> 
                     <span class="badge badge-danger"> NEW </span>
@@ -53,14 +33,14 @@
                 </div> <!-- img-wrap.// -->
                 <figcaption class="info-wrap">
                     <div class="fix-height">
-                        <a routerLink="/p/products/{{ product.id }}" class="title">{{product.name}}</a>
+                        <a routerLink="/p/products/{{ fa.id }}" class="title">{{fa.name}}</a>
                         <div class="price-wrap mt-2">
-                            <span class="price">{{product.prix}} TND </span>
-                            <del class="price-old">{{product.prix + product.prix * 0.24}} TND</del>
+                            <span class="price">{{fa.prix}} TND </span>
+                            <del class="price-old">{{fa.prix + fa.prix * 0.24}} TND</del>
                         </div> <!-- price-wrap.// -->
                     </div>
-                    <button (click)="addToCart(product)" class="btn btn-block btn-primary">Add to cart </button>
-                    <button (click)=" addToFav(product.id)" class="btn btn-block btn-primary">Add to wishList </button>
+                     <button (click)="addToCart(fa)" class="btn btn-block btn-primary">Add to cart </button>
+                    <button (click)="removeFromWhishList(fa.id)" class="btn btn-block btn-primary">Remove from wishList </button> 
                 </figcaption>
             </figure>
         </div> <!-- col.// -->
@@ -84,7 +64,7 @@
     </div>
     
     </div> <!-- container .//  -->
-    </section>
+  
     <!-- ========================= SECTION CONTENT END// ========================= -->
     
     <!-- ========================= FOOTER ========================= -->

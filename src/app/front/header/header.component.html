@@ -68,6 +68,8 @@
                 <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                     <div class="right-icon text-right">
                         <ul>
+                            <li *ngIf="!currentUser?.id"><a routerLink="/login"><i class="fa fa-lock"></i> Login</a></li>
+              <li *ngIf="currentUser?.id"><a (click)="logOut()"><i class="fa fa-lock"></i> LogOut</a></li>
                             <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
                         </ul>

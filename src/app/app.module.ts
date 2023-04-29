@@ -50,6 +50,7 @@ import { BackOfficeComponent } from './admin/back-office/back-office.component';
 import { ProjectComponent } from './admin/project/project.component';
 import { ReviewComponent } from './front/shop/single-product/review/review.component';
 import { RevComponent } from './front/shop/single-product/rev/rev.component';
+import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,6 +97,7 @@ import { RevComponent } from './front/shop/single-product/rev/rev.component';
     BackOfficeComponent,
     ReviewComponent,
     RevComponent,
+    WishlistComponent,
    
   ],
   imports: [
