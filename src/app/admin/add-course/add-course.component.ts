@@ -1,11 +1,11 @@
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategoryProductService } from 'src/app/services/category-product.service';
-import { ProductService } from 'src/app/services/product.service';
-import { CategoryProduct } from 'src/app/models/category-product';
+import { CategoryProductService } from '../../services/category-product.service';
+import { ProductService } from '../../services/product.service';
+import { CategoryProduct } from '../../models/category-product';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Product } from 'src/app/models/product';
+import { Product } from '../../models/product';
 import { CourseService } from "../../services/course.service";
 import { Course } from "../../models/course";
 import Swal from 'sweetalert2';

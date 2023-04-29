@@ -5,7 +5,7 @@ import { CourseService } from "../../services/course.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { SubjectService } from 'src/app/services/subject.service';
+import { SubjectService } from '../../services/subject.service';
 
 @Component({
   selector: 'app-list-course',
@@ -18,7 +18,8 @@ import { SubjectService } from 'src/app/services/subject.service';
 
 })
 export class ListCourseComponent implements OnInit {
-
+  p: number=1;
+  q: number=1;
   listCourse: any;
   course: any;
   selectedCourse = null;

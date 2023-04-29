@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CourseService } from 'src/app/services/course.service';
-import { SubjectService } from 'src/app/services/subject.service';
+import { CourseService } from '../../services/course.service';
+import { SubjectService } from '../../services/subject.service';
 import Swal from 'sweetalert2';
 
 @Component({

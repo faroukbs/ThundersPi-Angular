@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { CategoryProduct } from 'src/app/models/category-product';
-import { CategoryProductService } from 'src/app/services/category-product.service';
+import { CategoryProduct } from '../../models/category-product';
+import { CategoryProductService } from '../../services/category-product.service';
 
 @Component({
   selector: 'app-list-category',
@@ -26,7 +26,7 @@ export class ListCategoryComponent implements OnInit {
       this.listCategory=data;
     })
   }
- 
+
 
   remove(id: number):void {
     this.categoryService.deleteCategory(id).subscribe(()=>  (this.listCategory=this.listCategory.filter((t)=>t.id !==id)));

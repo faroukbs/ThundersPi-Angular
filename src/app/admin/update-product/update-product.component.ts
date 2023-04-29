@@ -2,10 +2,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryProductService } from 'src/app/services/category-product.service';
-import { ProductService } from 'src/app/services/product.service';
-import { Product } from 'src/app/models/product';
-import { CategoryProduct } from 'src/app/models/category-product';
+import { CategoryProductService } from '../../services/category-product.service';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../models/product';
+import { CategoryProduct } from '../../models/category-product';
 
 @Component({
   selector: 'app-update-product',

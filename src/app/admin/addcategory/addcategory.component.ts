@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategoryProduct } from 'src/app/models/category-product';
-import { CategoryProductService } from 'src/app/services/category-product.service';
+import { CategoryProduct } from '../../models/category-product';
+import { CategoryProductService } from '../../services/category-product.service';
 
 @Component({
   selector: 'app-addcategory',

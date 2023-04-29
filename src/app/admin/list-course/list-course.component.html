@@ -33,7 +33,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title" style="margin-left: 40%; font-size:xx-large; color: coral;"> Courses Management
+                <h4 class="card-title" style="margin-left: 40%; font-size:xx-large; color:  rgb(38, 122, 150);font-family: MyFont;"> Courses Management
                 </h4>
               </div>
               <div class="col-md-2">
@@ -114,7 +114,7 @@
 
                     </thead>
                     <tbody>
-                      <tr *ngFor="let course of listCourse">
+                      <tr *ngFor="let course of listCourse | paginate: { itemsPerPage: 2, currentPage: p }">
                         <td>
                           {{course?.name}}
                         </td>
@@ -147,6 +147,9 @@
                       </tr>
                     </tbody>
                   </table>
+                  <pagination-controls previousLabel="Prev"   nextLabel="Next" [responsive]="true"
+                    (pageChange)=" p = $event ">
+                  </pagination-controls>
                 </div>
               </div>
             </div>
@@ -156,7 +159,7 @@
           <div class="col-md-7">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title" style="margin-left: 40%; font-size:xx-large; color: coral;"> Subject Management
+                <h4 class="card-title" style="margin-left: 40%; font-size:xx-large; color: rgb(38, 122, 150);font-family: MyFont;"> Subject Management
                 </h4>
               </div>
 
@@ -184,7 +187,7 @@
 
                     </thead>
                     <tbody>
-                      <tr *ngFor="let subject of subjects">
+                      <tr *ngFor="let subject of subjects | paginate: { itemsPerPage: 2, currentPage: q}">
                         <td><img  width="150" height="150" src="http://localhost:8082/libFile/files/{{subject?.idFile}}" alt=""></td>
                        <!-- <td>
                           {{subject?.idCourseSubject}}
@@ -203,6 +206,9 @@
                       </tr>
                     </tbody>
                   </table>
+                  <pagination-controls previousLabel="Prev"   nextLabel="Next" [responsive]="true"
+                  (pageChange)=" q = $event ">
+                </pagination-controls>
                 </div>
               </div>
             </div>
