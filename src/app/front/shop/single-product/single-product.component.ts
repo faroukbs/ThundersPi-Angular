@@ -25,6 +25,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class SingleProductComponent implements OnInit {
 
   product: Product = new Product();
+  productt: Product = new Product();
   products! : Product[];
   comment:Comment = new Comment();
   files: any = [];
@@ -53,6 +54,7 @@ export class SingleProductComponent implements OnInit {
     const productIdFromRoute = Number(routeParams.get('id')); //stocking the product into this variable
     this.productService.getProductById(productIdFromRoute).subscribe((data) => {
       this.product = data;
+      this.productt = data;
     });
   }
 
