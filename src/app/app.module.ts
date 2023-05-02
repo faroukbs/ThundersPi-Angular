@@ -93,10 +93,6 @@ import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
     CourseClientComponent,
     CourseListClientComponent,
     CoursePipe,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
     ProductsComponent,
     UserListComponent,
     AuthComponent,
@@ -128,7 +124,12 @@ import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
     ReviewComponent,
     RevComponent,
     WishlistComponent,
+
+  ],
+  imports: [
     BrowserModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

@@ -8,8 +8,7 @@ import {
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Product } from '../models/product';
-import { Comment } from '../models/comment';
-import { User } from '../models/user';
+
 import {Course} from "../models/course";
 import {libElement} from "../models/libElement";
 

@@ -101,11 +101,13 @@ children: [
 {path: 'listCategory', component: ListCategoryComponent},
     {path: 'product/add', component: AddProductComponent},
 { path: 'listProduct', component: ListProductComponent },
+{ path: 'addCourse', component: AddCourseComponent },
+{ path: 'listCourse', component: ListCourseComponent },
   ]},
 
-  { path: 'addCourse', component: AddCourseComponent },
 
-  { path: 'listCourse', component: ListCourseComponent },
+
+
   { path: 'libelem', component: LibElmListComponent },
   { path: 'libcat', component: ListLibcatComponent },
   { path: 'addlib', component: AddLibElementComponent },
