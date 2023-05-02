@@ -23,6 +23,7 @@ import { EmptyPageComponent } from './front/empty-page/empty-page.component';
 import { CourseComponent } from './front/course/course.component';
 import { ProductCommentComponent } from './front/shop/product-comment/product-comment.component';
 import { BackOfficeComponent } from './admin/back-office/back-office.component';
+import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
 
 
 const routes: Routes = [
@@ -36,15 +37,22 @@ children: [
     
   },
   {path : 'course' , component: CourseComponent},
+
+  //shop routes
   {path:'shop', component: ProductsComponent},
-   {path: 'shopdet', component: SingleProductComponent},
+  {path: 'products/:id', component: SingleProductComponent},
+  {path: 'cart-details', component: CartComponent},
+  { path: 'listProduct/:id', component: ProductbycatComponent },
+  {path:'favoriteProduct', component: WishlistComponent},
+
   
 ]},
-{ path: 'listProduct/:id', component: ProductbycatComponent },
 
-  {path: 'products/:id', component: SingleProductComponent},
+
+
+  
    
-   {path: 'cart-details', component: CartComponent},
+   
 
   
    
@@ -61,7 +69,7 @@ children: [
   {path: 'signup', component: SignUpComponent},
    {path: 'reset',component: ResetPasswordComponents},
   
-  { path: 'listProduct/:id', component: ProductbycatComponent },
+  
 
   //Projects Part
   
@@ -70,17 +78,19 @@ children: [
   { path: 'sign', component: SignUpComponent },
 
 
-//product routes
-{path: 'product/add', component: AddProductComponent},
-{ path: 'listProduct', component: ListProductComponent },
+
+  //admin routes
+  {path: 'admin', component: BackOfficeComponent, children: [
+    {path: 'dashboard', component: DashboardComponent},
+    {path:'project', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)},
+    
+    //product routes
 { path: 'listUser', component: UserListComponent },
 { path: 'updateProduct/:id', component: UpdateProductComponent },
 {path: 'addCategory', component: AddcategoryComponent},
 {path: 'listCategory', component: ListCategoryComponent},
-  //admin routes
-  {path: 'admin', component: BackOfficeComponent, children: [
-    {path: 'dashboard', component: DashboardComponent},
-    {path:'project', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)}
+    {path: 'product/add', component: AddProductComponent},
+{ path: 'listProduct', component: ListProductComponent },
   ]},
   
  

@@ -1,0 +1,56 @@
+<div class="container mt-5" style="">
+  <div class="d-flex  row" style="margin-left: 40px">
+    <div class="col-md-8">
+      <div class="d-flex flex-column comment-section">
+        <div *ngFor="let com of produit.comments ;let i=index">
+          
+          <div class="bg-white p-2">
+            <div class="d-flex flex-row user-info"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg"
+                width="55" height="55">
+              <div class="d-flex flex-column justify-content-start ml-2"><span
+                  class="d-block font-weight-bold name">{{user.fname}}</span><span class="date text-black-50">
+                 </span></div>
+            </div>
+            <div class="mt-3">
+              <div *ngIf="(edit==true && i==j); else noedit">
+                <textarea class="form-control ml-1 shadow-none textarea" style="font-size: 14px "
+                  [(ngModel)]='com.comment' required></textarea>
+              </div>
+              <ng-template #noedit>
+                <p class="comment-text" style="font-size: 14px ;margin-left: 60px ">{{com.comment}}</p>
+              </ng-template>
+            </div>
+          </div>
+          <div class="bg-white" style="margin-left: 55px ">
+            <div class="d-flex flex-row fs-12">
+
+              <div class="like p-2 cursor"><span class="ml-1"> <button type="button"
+                    class="btn btn-outline-primary btn-sm" style="border:0px; font-size: 16px ;" data-toggle="button"
+                    aria-pressed="false" autocomplete="off" (click)="likeModifyCom(com,produit)"> {{com.likes}} <i
+                      class="fa fa-thumbs-up"></i> </button></span></div>
+              <div *ngIf="edit==false && com.idClient==user.id" class="like p-2 cursor"><span class="ml-1"> <button
+                    class="btn btn-light btn-sm " style="border:0px; font-size: 12px ;"
+                    (click)="eventEdit(i)">Edit</button></span></div>
+              <div *ngIf="edit==false && com.idClient==user.id" class="like p-2 cursor"><span class="ml-1"> <button
+                    class="btn btn-light btn-sm " style="border:0px; font-size: 12px ;"
+                    (click)="deleteCom(com)">Delete</button></span></div>
+              <div *ngIf="edit==true && i==j" class="like p-2 cursor"><span class="ml-1"> <button type="button"
+                    class="btn btn-light btn-sm " style="border:0px; font-size: 12px ;"
+                    (click)="modifyCom(com,produit)">Save</button></span></div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-light p-2">
+          <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
+              src="https://i.imgur.com/RpzrMR2.jpg" width="40"><textarea class="form-control ml-1 shadow-none textarea "
+              style=" font-size: 13px ;" [(ngModel)]='str'></textarea></div>
+          <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button"
+              (click)="addCom(produit)" style="border:0px; font-size: 13px ;" [disabled]="edit==true">Post
+              comment</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -48,12 +48,9 @@ import { ProjectService } from './services/riadh/project.service';
 import { QuizService } from './services/riadh/quiz.service';
 import { BackOfficeComponent } from './admin/back-office/back-office.component';
 import { ProjectComponent } from './admin/project/project.component';
-import { QuizListComponent } from './admin/quiz/quiz-list/quiz-list.component';
-import { QuizAddComponent } from './admin/quiz/quiz-add/quiz-add.component';
-import { QuizUpdateComponent } from './admin/quiz/quiz-update/quiz-update.component';
-
-
-
+import { ReviewComponent } from './front/shop/single-product/review/review.component';
+import { RevComponent } from './front/shop/single-product/rev/rev.component';
+import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,9 +95,9 @@ import { QuizUpdateComponent } from './admin/quiz/quiz-update/quiz-update.compon
     EmptyPageComponent,
     FooterComponent,
     BackOfficeComponent,
-    QuizListComponent,
-    QuizAddComponent,
-    QuizUpdateComponent,
+    ReviewComponent,
+    RevComponent,
+    WishlistComponent,
    
   ],
   imports: [
@@ -111,7 +108,7 @@ import { QuizUpdateComponent } from './admin/quiz/quiz-update/quiz-update.compon
     ToastrModule.forRoot(),
     AppRoutingModule,
     NgxPaginationModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
   ],
   providers: [ProductService,WishListService,ProjectService,QuizService],
   bootstrap: [AppComponent]

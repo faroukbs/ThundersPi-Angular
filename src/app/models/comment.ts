@@ -1,6 +1,6 @@
 import { Product } from "./product";
 
-export class Comment {
+export class ProductComment {
     idCommentaire!: number;
 
     idClient!: number;
@@ -9,7 +9,7 @@ export class Comment {
   
     likes!: number;
   
-    produit!: Product;
+    procom!: Product;
   
     dateCreated!: Date;
   

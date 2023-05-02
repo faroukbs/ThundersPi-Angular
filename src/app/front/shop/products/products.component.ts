@@ -16,7 +16,6 @@ import { WishListService } from 'src/app/services/wish-list.service';
   '../../../../assets/shop/css/all.min.css' ,
 
 ],
-encapsulation: ViewEncapsulation.None,
 })
 export class ProductsComponent implements OnInit {
 
@@ -37,6 +36,7 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    
     this.listProducts();
     this.productService.getProductList()
     .subscribe((data: Product[]) => {
@@ -46,6 +46,7 @@ export class ProductsComponent implements OnInit {
   listProducts() {
     this.productService.getProductList().subscribe((data) => {
       this.products = data;
+      console.log(this.products);
     });
     this.getProductImages();
     this.getfav();
@@ -74,6 +75,8 @@ export class ProductsComponent implements OnInit {
       this.fav = data;
     }
   )}
+
+
 
  
 

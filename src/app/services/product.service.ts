@@ -8,7 +8,7 @@ import {
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Product } from '../models/product';
-import { Comment } from '../models/comment';
+import { ProductComment } from '../models/comment';
 import { User } from '../models/user';
 
 
@@ -72,28 +72,28 @@ import { User } from '../models/user';
       );
     }
   
-    addCom(c: Comment): Observable<Comment> {
-      return this.httpClient.post<Comment>(
+    addCom(c: ProductComment): Observable<ProductComment> {
+      return this.httpClient.post<ProductComment>(
         'http://localhost:8181/comment/add-commentaire',
         c
       );
     }
   
-    modifyCom(c: Comment): Observable<Comment> {
-      return this.httpClient.put<Comment>(
+    modifyCom(c: ProductComment): Observable<ProductComment> {
+      return this.httpClient.put<ProductComment>(
         'http://localhost:8181/comment/modify-commentaire',
         c
       );
     }
   
     deleteCom(id: any) {
-      return this.httpClient.delete<Comment>(
+      return this.httpClient.delete<ProductComment>(
         'http://localhost:8181/comment/remove-client/' + id
       );
     }
   
-    getByIDCom(idc: number): Observable<Comment> {
-      return this.httpClient.get<Comment>(
+    getByIDCom(idc: number): Observable<ProductComment> {
+      return this.httpClient.get<ProductComment>(
         'http://localhost:8181/comment/retrieve-commentaire/' + idc
       );
     }

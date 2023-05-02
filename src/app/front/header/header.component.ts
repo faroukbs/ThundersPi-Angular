@@ -1,4 +1,8 @@
+import { Router } from '@angular/router';
+import { AuthenticationService } from './../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
+import { Role } from 'src/app/models/role';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  currentUser : User = new User();
+
+  constructor(private authenticationService :AuthenticationService, private router: Router) { 
+    this.authenticationService.currentUser.subscribe(data => {
+      this.currentUser = data
+    })
+  }
+
+  isAdmin(){
+    return this.currentUser?.role === Role.ADMIN
+  }
+
+  logOut() {
+    this.authenticationService.logOut();
+    this.router.navigate(['/login'])
+  }
 
   ngOnInit(): void {
   }

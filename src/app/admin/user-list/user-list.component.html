@@ -41,10 +41,10 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title" style="margin-left: 40%; font-size:xx-large; color: coral;"> Product List</h4>
+                <h4 class="card-title" style="margin-left: 40%; font-size:xx-large; color: coral;"> User List</h4>
               </div>
 
-              <button type="button" routerLink="/add" class="btn btn-outline-success">Add Product</button>
+              <button type="button" routerLink="/add" class="btn btn-outline-success"></button>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
@@ -93,12 +93,10 @@
                         <td>
                             {{list.role}}
                            </td>
+                       
+
                         <td>
-                          <button type="button"
-                            class="btn btn-outline-warning">Danger</button>
-                        </td>
-                        <td>
-                          <button type="button" (click)="onDelete(list)" class="btn btn-outline-danger">Warning</button>
+                          <button type="button" (click)="onDelete(list)" class="btn btn-outline-danger">Delete</button>
                         </td>
                       </tr>
                     </tbody>

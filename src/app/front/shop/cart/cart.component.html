@@ -44,7 +44,7 @@
                 <td class="cart_quantity">
                     <div class="cart_quantity_button">
                         <button (click)="incrementQuantity(cartItem)" class="cart_quantity_up" > + </button>
-                        <input class="cart_quantity_input" type="text" name="quantity" value="{{cartItem.quantity}}" autocomplete="off" size="2">
+                        <input class="cart_quantity_input" [style]="{'background-color':'white'}" type="submit" name="quantity" value="{{cartItem.quantity}}" autocomplete="off" size="2">
                         <button (click)="decrementQuantity(cartItem)" class="cart_quantity_down"> - </button>
                     </div>
                 </td>
@@ -65,7 +65,7 @@
                   >
                     <i class="fa fa-heart"></i
                   ></a>
-                  <a (click)="remove(cartItem)" class="btn btn-light"> Remove</a>
+                  <a (click)="remove(cartItem)" [style]="{'background-color':'red'}" class="btn btn-light"> Remove</a>
                 </td>
               </tr>
 
