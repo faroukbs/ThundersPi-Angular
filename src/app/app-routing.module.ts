@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SingleProductComponent } from './front/shop/single-product/single-product.component';
 import { HomeComponent } from './front/home/home.component';
-import { AddProductComponent } from './admin/add-product/add-product.component"
+import { AddProductComponent } from './admin/add-product/add-product.component';
 import { UpdateProductComponent } from './admin/update-product/update-product.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AddcategoryComponent } from './admin/addcategory/addcategory.component';
