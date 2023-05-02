@@ -9,9 +9,9 @@ import { PaymentInfo } from '../models/payment-info';
 })
 export class CheckoutService {
 
-  private purchaseUrl = 'http://localhost:8082/api/checkout/purchase';
+  private purchaseUrl = 'http://localhost:8181/api/checkout/purchase';
 
-  private paymentIntentUrl = 'http://localhost:8082/api/checkout/payment-intent';
+  private paymentIntentUrl = 'http://localhost:8181/api/checkout/payment-intent';
 
 
   constructor(private httpClient: HttpClient) { }

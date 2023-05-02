@@ -29,7 +29,7 @@ export class CartService {
       // check if we found it
       alreadyExistsInCart = (existingCartItem != undefined);
     }
-    
+
     if (alreadyExistsInCart) {
       // increment the quantity
       existingCartItem.quantity++;
@@ -39,7 +39,7 @@ export class CartService {
       this.cartItems.push(theCartItem);
       // this.cartItems =  [...this.cartItems, theCartItem]
     }
-    
+
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
     // compute cart total price and total quantity
     this.computeCartTotals();
@@ -50,7 +50,7 @@ export class CartService {
     let totalQuantityValue: number = 0;
 
     for (let currentCartItem of this.cartItems) {
-      totalPriceValue += currentCartItem.quantity * currentCartItem.nprix;
+      totalPriceValue += currentCartItem.quantity * currentCartItem.prix;
       totalQuantityValue += currentCartItem.quantity;
     }
 
@@ -66,8 +66,8 @@ export class CartService {
 
     console.log('Contents of the cart');
     for (let tempCartItem of this.cartItems) {
-      const subTotalPrice = tempCartItem.quantity * tempCartItem.nprix;
-      console.log(`name: ${tempCartItem.name}, quantity=${tempCartItem.quantity}, nprix=${tempCartItem.nprix}, subTotalPrice=${subTotalPrice}`);
+      const subTotalPrice = tempCartItem.quantity * tempCartItem.prix;
+      console.log(`name: ${tempCartItem.name}, quantity=${tempCartItem.quantity}, prix=${tempCartItem.prix}, subTotalPrice=${subTotalPrice}`);
     }
 
     console.log(`totalPrice: ${totalPriceValue.toFixed(2)}, totalQuantity: ${totalQuantityValue}`);
@@ -85,7 +85,7 @@ export class CartService {
       this.computeCartTotals();
     }
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
-    
+
   }
 
   remove(theCartItem: CartItem) {

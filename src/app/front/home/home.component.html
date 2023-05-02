@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en">
+
 
 <head>
 
@@ -59,77 +58,22 @@
             <div class="container">
                 <div class="row no-gutters">
                     <div class="col-lg-11 col-md-10 col-sm-9 col-9">
-                        <<nav class="navbar navbar-expand-lg">
+                        <nav class="navbar navbar-expand-lg">
                             <a class="navbar-brand" href="index-4.html">
                                 <img src="../../../assets/front/images/logo-2.png" alt="Logo">
                             </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
 
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item">
-                                        <a class="active" href="index-2.html">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index-2.html">Home 01</a></li>
-                                            <li><a href="index-3.html">Home 02</a></li>
-                                            <li><a class="active" href="index-4.html">Home 03</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="about.html">About us</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a routerLink="/courses-client">Courses</a>
+                        <app-navbar></app-navbar>
 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="events.html">Events</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="events.html">Events</a></li>
-                                            <li><a href="events-singel.html">Event Singel</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="teachers.html">Our teachers</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="teachers.html">teachers</a></li>
-                                            <li><a href="teachers-singel.html">teacher Singel</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="blog.html">Blog</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-singel.html">Blog Singel</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a routerLink="shop">Shop</a>
-                                        <ul class="sub-menu">
-                                            <li><a routerLink="shop">Shop</a></li>
-                                            <li><a routerLink="shop">Shop Singel</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="contact.html">Contact</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="contact-2.html">Contact Us 2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>> <!-- nav -->
+                                              </nav> <!-- nav -->
                     </div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-3">
+                    <div class="col-lg-1 col-md-2 col-sm-3 col-4">
                         <div class="right-icon text-right">
                             <ul>
-                                <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+
+                                <li *ngIf="!currentUser?.id"><a routerLink="/auth"><i class="fa fa-lock"></i> Login</a></li>
+                                <li *ngIf="currentUser?.id"><a (click)="logOut()" ><i class="fa fa-lock; " ></i> LogOut</a></li>
+
                             </ul>
                         </div> <!-- right icon -->
                     </div>
@@ -876,14 +820,12 @@
                                 <h6>Mark anthem</h6>
                                 <span>Bsc, Engineering</span>
                             </div> <!-- singel student -->
-
                             <div class="singel-student">
                                 <img src="../../../assets/front/images/teachers/teacher-2/quote.png" alt="Quote">
                                 <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet</p>
                                 <h6>Mark anthem</h6>
                                 <span>Bsc, Engineering</span>
                             </div> <!-- singel student -->
-
                             <div class="singel-student">
                                 <img src="../../../assets/front/images/teachers/teacher-2/quote.png" alt="Quote">
                                 <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet</p>
@@ -943,14 +885,15 @@
         <!--/div> <!-- container -->
     <!--/div>
 
-    <!--====== PATNAR LOGO PART ENDS ======-->
 
-    <!--====== FOOTER PART START ======-->
 
+
+
+    <app-footer></app-footer>
 
     <!--====== FOOTER PART ENDS ======-->
 
-    <!--====== BACK TO TP PART START ======-->
+    <!--====== BACK TO TP PART START ======--> -->
 
     <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
@@ -1004,4 +947,3 @@
 
 </body>
 
-</html>

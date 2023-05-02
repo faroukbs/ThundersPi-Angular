@@ -1,4 +1,5 @@
 import { CategoryProduct } from "./category-product";
+import { ProductComment } from "./comment";
 
 export class Product {
     id!: number;
@@ -10,7 +11,7 @@ export class Product {
     createdDate!: Date;
     updatedDate!: Date;
     category!: CategoryProduct;
-    commentaire!: Array<Comment>;
+    comments!: Array<ProductComment>;
     clientEtoile!: Map<number, number>;
     etoile!: number;
 }

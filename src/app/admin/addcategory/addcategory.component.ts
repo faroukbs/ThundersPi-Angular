@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategoryProduct } from '../../models/category-product';
-import { CategoryProductService } from '../../services/category-product.service';
+import { CategoryProduct } from 'src/app/models/category-product';
+import { CategoryProductService } from 'src/app/services/category-product.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-addcategory',
@@ -25,7 +26,7 @@ export class AddcategoryComponent implements OnInit {
   ngOnInit(): void {}
   addCategory(): void {
     this.categoryService.addCategorie(this.category).subscribe(() => {
-      this.router.navigate(['/listCategory']);
+      this.router.navigate(['/admin/listCategory']);
     });
   }
 }

@@ -7,8 +7,9 @@ import { CategoryProduct } from '../models/category-product';
   providedIn: 'root'
 })
 export class CategoryProductService {
-  private baseUrl = "http://localhost:8082/category"
+  private baseUrl = "http://localhost:8181/category"
   constructor(private httpClient:HttpClient) { }
+
 
   getProductCategories(): Observable<CategoryProduct[]> {
     return this.httpClient.get<CategoryProduct[]>(this.baseUrl + '/all');

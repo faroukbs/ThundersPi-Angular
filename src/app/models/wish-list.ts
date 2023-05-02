@@ -6,7 +6,6 @@ export class WishList {
     description!:string;
     image!:string;
     nprix!:number;
-    gprix!:number;
     quantity!:number;
 
     constructor(product: Product){
@@ -14,8 +13,7 @@ export class WishList {
         this.name  = product.name
         this.description = product.description
         this.image = product.image
-        this.nprix = product.nprix
-        this.gprix = product.gprix
+        this.nprix = product.prix
         this.quantity = 1
     }
 }
