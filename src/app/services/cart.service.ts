@@ -29,7 +29,7 @@ export class CartService {
       // check if we found it
       alreadyExistsInCart = (existingCartItem != undefined);
     }
-    
+
     if (alreadyExistsInCart) {
       // increment the quantity
       existingCartItem.quantity++;
@@ -39,7 +39,7 @@ export class CartService {
       this.cartItems.push(theCartItem);
       // this.cartItems =  [...this.cartItems, theCartItem]
     }
-    
+
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
     // compute cart total price and total quantity
     this.computeCartTotals();
@@ -85,7 +85,7 @@ export class CartService {
       this.computeCartTotals();
     }
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
-    
+
   }
 
   remove(theCartItem: CartItem) {

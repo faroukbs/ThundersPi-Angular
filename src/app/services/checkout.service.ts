@@ -12,12 +12,12 @@ export class CheckoutService {
   private purchaseUrl = 'http://localhost:8181/api/checkout/purchase';
 
   private paymentIntentUrl = 'http://localhost:8181/api/checkout/payment-intent';
-  
+
 
   constructor(private httpClient: HttpClient) { }
 
   placeOrder(purchase: Purchase): Observable<any> {
-    return this.httpClient.post<Purchase>(this.purchaseUrl, purchase);    
+    return this.httpClient.post<Purchase>(this.purchaseUrl, purchase);
   }
 
   createPaymentIntent(paymentInfo: PaymentInfo): Observable<any> {

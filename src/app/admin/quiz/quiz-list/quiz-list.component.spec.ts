@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateProjectFileComponent } from './update-project-file.component';
+import { QuizListComponent } from './quiz-list.component';
 
-describe('UpdateProjectFileComponent', () => {
-  let component: UpdateProjectFileComponent;
-  let fixture: ComponentFixture<UpdateProjectFileComponent>;
+describe('QuizListComponent', () => {
+  let component: QuizListComponent;
+  let fixture: ComponentFixture<QuizListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateProjectFileComponent ]
+      declarations: [ QuizListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateProjectFileComponent);
+    fixture = TestBed.createComponent(QuizListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

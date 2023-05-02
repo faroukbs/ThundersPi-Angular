@@ -133,7 +133,11 @@
   user-select: none;
   overflow: hidden;
 }
+@font-face {
+  font-family: 'MyFont';
+  src: url('../fonts/myfont.ttf') format('truetype'),
 
+}
 .demo-icons ul li:hover {
   background: #f4f4f4;
 }

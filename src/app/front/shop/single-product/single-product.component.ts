@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartItem } from 'src/app/models/cart-item';
+import { ProductComment } from 'src/app/models/comment';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -18,7 +19,7 @@ import { ProductService } from 'src/app/services/product.service';
   '../../../../assets/front/css/font-awesome.min.css',
   '../../../../assets/front/css/default.css',
   '../../../../assets/front/css/bootstrap.min.css',
-  '../../../../assets/front/css/animate.css' 
+  '../../../../assets/front/css/animate.css'
 ],
   encapsulation: ViewEncapsulation.None,
 })
@@ -27,7 +28,7 @@ export class SingleProductComponent implements OnInit {
   product: Product = new Product();
   productt: Product = new Product();
   products! : Product[];
-  comment:Comment = new Comment();
+  comment:ProductComment = new ProductComment();
   files: any = [];
   id!: number;
   sttr: string = '0';

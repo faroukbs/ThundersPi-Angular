@@ -1,1 +1,19 @@
-<p>all-project-file works!</p>
+<div class="card mt-3">
+    <div class="card-header">List of Project Files</div>
+    <ul
+      class="list-group list-group-flush"
+      *ngFor="let image of projectFilelist | async"
+    >
+      <li class="list-group-item">
+        <p><a href="{{ image.url }}">{{ image.name }}</a></p>
+      </li>
+      <li class="list-group list-group-flush">
+        <button
+        class="btn btn-danger"
+        (click)="deleteProjectFile(image)"
+      >
+        Delete
+      </button>
+      </li>
+    </ul>
+  </div>

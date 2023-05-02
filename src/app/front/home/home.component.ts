@@ -17,14 +17,14 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   '../../../assets/front/css/font-awesome.min.css',
   '../../../assets/front/css/default.css',
   '../../../assets/front/css/bootstrap.min.css',
-  '../../../assets/front/css/animate.css' 
+  '../../../assets/front/css/animate.css'
 ],
 encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class HomeComponent implements OnInit {
   currentUser : User = new User();
 
-  constructor(private authenticationService :AuthenticationService, private router: Router) { 
+  constructor(private authenticationService :AuthenticationService, private router: Router) {
     this.authenticationService.currentUser.subscribe(data => {
       this.currentUser = data
     })
