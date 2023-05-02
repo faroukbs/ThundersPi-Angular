@@ -48,6 +48,10 @@ import { ProjectService } from './services/riadh/project.service';
 import { QuizService } from './services/riadh/quiz.service';
 import { BackOfficeComponent } from './admin/back-office/back-office.component';
 import { ProjectComponent } from './admin/project/project.component';
+import { QuizListComponent } from './admin/quiz/quiz-list/quiz-list.component';
+import { QuizAddComponent } from './admin/quiz/quiz-add/quiz-add.component';
+import { QuizUpdateComponent } from './admin/quiz/quiz-update/quiz-update.component';
+
 
 
 @NgModule({
@@ -94,6 +98,9 @@ import { ProjectComponent } from './admin/project/project.component';
     EmptyPageComponent,
     FooterComponent,
     BackOfficeComponent,
+    QuizListComponent,
+    QuizAddComponent,
+    QuizUpdateComponent,
    
   ],
   imports: [

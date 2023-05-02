@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteProjectFileComponent } from './delete-project-file.component';
+import { QuizListComponent } from './quiz-list.component';
 
-describe('DeleteProjectFileComponent', () => {
-  let component: DeleteProjectFileComponent;
-  let fixture: ComponentFixture<DeleteProjectFileComponent>;
+describe('QuizListComponent', () => {
+  let component: QuizListComponent;
+  let fixture: ComponentFixture<QuizListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeleteProjectFileComponent ]
+      declarations: [ QuizListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteProjectFileComponent);
+    fixture = TestBed.createComponent(QuizListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

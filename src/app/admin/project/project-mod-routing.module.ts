@@ -15,7 +15,7 @@ const routes: Routes = [
     {path: 'update', component: UpdateProjectComponent},
     {path: 'list', component: ProjectListBackComponent},
     {path: 'details', component: ProjectBackDetailsComponent},
-    {path: 'file', component: ProjectFileComponent}, 
+    {path: 'file', loadChildren: () => import('./project-file/project-file.module').then(m => m.ProjectFileModule)}, 
 ];
 
 @NgModule({
