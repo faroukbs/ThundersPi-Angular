@@ -1,17 +1,17 @@
 import { Product } from "./product";
 
-export class Comment {
+export class ProductComment {
     idCommentaire!: number;
 
     idClient!: number;
-  
+
     comment!: string;
-  
+
     likes!: number;
-  
-    produit!: Product;
-  
+
+    procom!: Product;
+
     dateCreated!: Date;
-  
+
     lastUpdated!: Date;
 }

@@ -24,9 +24,16 @@
             </div>
           </div>
         </form>
+        <ul  class="list-menu">
+          <li>
+            <a routerLink="/p/shop">
+              All categories
+            </a>
+          </li>
+        </ul>
         <ul *ngFor="let category of categories" class="list-menu">
           <li>
-            <a routerLink="/listProduct/{{ category.id }}">
+            <a routerLink="/p/listProduct/{{ category.id }}">
               {{ category.name }}
             </a>
           </li>

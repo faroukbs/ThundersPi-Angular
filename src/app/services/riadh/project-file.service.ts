@@ -27,7 +27,7 @@ export class ProjectFileService {
     return this.httpClient.request(req);
   }
 
-  uploadProjectFileByProjectId(file: File,projectId:number): Observable<HttpEvent<any>>
+  uploadProjectFileByProjectId(file: File,projectId:number | undefined): Observable<HttpEvent<any>>
   {
     const formData : FormData = new FormData(); //Stores Key Value Pairs
     formData.append('file',file);
@@ -44,12 +44,18 @@ export class ProjectFileService {
     return this.httpClient.get(`${this.baseUrl}/files${projectId}`) 
   }
 
+  getProjectFileById(id: number): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl}/file/${id}`);
+  }
+
   getProjectFiles(): Observable<any>
   {
     return this.httpClient.get(`${this.baseUrl}/files`)
   }
 
-  
+  deleteProjectFile(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}/delete/${id}`, { responseType: 'text' }); 
+  }
 
   
 }

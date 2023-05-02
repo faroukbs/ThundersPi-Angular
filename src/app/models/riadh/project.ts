@@ -7,6 +7,6 @@ export class Project  {
     maxMarks!: number;
     course! :number | null;
     user!: User;
-    projectFiles! : File[];
+    projectFiles! : ProjectFile[];
     
 }

@@ -1,0 +1,96 @@
+
+      <div class="content">
+        <div class="row">
+
+          <div class="col-md-12">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">New Course</h5>
+              </div>
+              <div class="card-body">
+                <form [formGroup]="courseForm">
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Java,HTML..." formControlName="name" id="name">
+                      </div>
+                    </div>
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Choose Course Subject</label>
+                        <select name="" class="form-control" id="" (change)="onSelectSubject($event)">
+                          <option value="">Select Subject</option>
+                          <option *ngFor="let subject of courseSubjects" value="{{subject?.idCourseSubject}}">
+                            {{subject?.subjectCategory}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+
+
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Course Language</label>
+                        <input type="text" class="form-control" placeholder="français,eng..."
+                          formControlName="courseLanguage" id="courseLanguage">
+                      </div>
+                    </div>
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Education Level</label>
+                        <input type="text" class="form-control" placeholder="Master,licen..."
+                          formControlName="educationLevel" id="educationLevel">
+                      </div>
+
+                    </div>
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Periode</label>
+                        <input type="text" class="form-control" placeholder="semester,tremester..." formControlName="length"
+                          id="length">
+                      </div>
+                    </div>
+                    <div class="col-md-6 pr-1">
+                      <label>Select Rating</label>
+                      <select name="" class="form-control" formControlName="rating">
+                        <option value="0">Select Rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+
+                      </select>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group" style="margin-left:25px ;">
+                          <label> <a href="" class="btn btn-warning" style="color: azure;margin-top: 27px;">Upload
+                              Document <span *ngIf="onSelectFile"> <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                {{selectedFile?.name }} <i class="fa fa-check"></i></span> </a> </label>
+                          <input type="file" (change)="onFileSelected($event)" class="form-control" placeholder="length"
+                            id="length">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" (click)="addCourse()" class="btn btn-primary btn-round">Save
+                        Course</button>
+
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+

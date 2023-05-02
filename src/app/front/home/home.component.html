@@ -1,16 +1,16 @@
 
 
 <head>
-   
+
     <!--====== Required meta tags ======-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!--====== Title ======-->
     <title>EDUHUB</title>
-    
+
  <!--====== Favicon Icon ======-->
  <link rel="shortcut icon" href="../../../assets/front/images/favicon.png" type="image/png">
 
@@ -19,10 +19,10 @@
 
  <!--====== Animate css ======-->
  <link rel="stylesheet" href="../../../assets/front/css/animate.css">
- 
+
  <!--====== Nice Select css ======-->
  <link rel="stylesheet" href="../../../assets/front/css/nice-select.css">
- 
+
  <!--====== Nice Number css ======-->
  <link rel="stylesheet" href="../../../assets/front/css/jquery.nice-number.min.css">
 
@@ -31,29 +31,29 @@
 
  <!--====== Bootstrap css ======-->
  <link rel="stylesheet" href="../../../assets/front/css/bootstrap.min.css">
- 
+
  <!--====== Fontawesome css ======-->
  <link rel="stylesheet" href="../../../assets/front/css/font-awesome.min.css">
- 
+
  <!--====== Default css ======-->
  <link rel="stylesheet" href="../../../assets/front/css/default.css">
- 
+
  <!--====== Style css ======-->
  <link rel="stylesheet" href="../../../assets/front/css/style.css">
- 
+
  <!--====== Responsive css ======-->
  <link rel="stylesheet" href="../../../assets/front/css/responsive.css">
 
-  
-  
+
+
 </head>
 
 <body>
-   
-   
+
+
     <!--====== HEADER PART START ======-->
-    
-    <header id="header-part">        
+
+    <header id="header-part">
         <div class="navigation navigation-2 navigation-3">
             <div class="container">
                 <div class="row no-gutters">
@@ -62,19 +62,18 @@
                             <a class="navbar-brand" href="index-4.html">
                                 <img src="../../../assets/front/images/logo-2.png" alt="Logo">
                             </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
+
                         <app-navbar></app-navbar>
-                        </nav>> <!-- nav -->
+
+                                              </nav> <!-- nav -->
                     </div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-3">
+                    <div class="col-lg-1 col-md-2 col-sm-3 col-4">
                         <div class="right-icon text-right">
                             <ul>
-                                <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
-                                <li><a routerLink="/p/cart-details"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+
+                                <li *ngIf="!currentUser?.id"><a routerLink="/auth"><i class="fa fa-lock"></i> Login</a></li>
+                                <li *ngIf="currentUser?.id"><a (click)="logOut()" ><i class="fa fa-lock; " ></i> LogOut</a></li>
+
                             </ul>
                         </div> <!-- right icon -->
                     </div>
@@ -82,11 +81,11 @@
             </div> <!-- container -->
         </div>
     </header>
-    
+
     <!--====== HEADER PART ENDS ======-->
-   
+
     <!--====== SEARCH BOX PART START ======-->
-    
+
     <div class="search-box">
         <div class="serach-form">
             <div class="closebtn">
@@ -99,11 +98,11 @@
             </form>
         </div> <!-- serach form -->
     </div>
-    
+
     <!--====== SEARCH BOX PART ENDS ======-->
-   
+
     <!--====== SLIDER PART START ======-->
-    
+
     <section id="slider-part-3" class="bg_cover"  style="background-image: url(../../../assets/front/images/slider/s-3.jpg)">
         <div class="container">
             <div class="row justify-content-center">
@@ -175,11 +174,11 @@
             </div> <!-- slider feature -->
         </div> <!-- container -->
     </section>
-    
+
     <!--====== SLIDER PART ENDS ======-->
-    
+
     <!--====== CATEGORY PART START ======-->
-    
+
     <section id="category-3" class="category-2-items pt-50 pb-80 gray-bg">
         <div class="container">
             <div class="row">
@@ -238,10 +237,10 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-    
+
     <!--====== CATEGORY PART ENDS ======-->
         <!--====== NEWS PART START ======-->
-    
+
         <section id="news-part" class="pt-115 pb-110">
             <div class="container">
                 <div class="row">
@@ -330,10 +329,10 @@
                 </div> <!-- row -->
             </div> <!-- container -->
         </section>
-        
+
         <!--====== NEWS PART ENDS ======-->
     <!--====== PUBLICATION PART START ======-->
-    
+
     <section id="publication-part" class="pt-115 pb-120 gray-bg">
         <div class="container">
             <div class="row align-items-end">
@@ -441,11 +440,11 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-    
+
     <!--====== PUBLICATION PART ENDS ======-->
 
     <!--====== COURSE PART START ======-->
-    
+
     <section id="course-part" class="pt-115 pb-115">
         <div class="container">
             <div class="row">
@@ -620,11 +619,11 @@
             </div> <!-- course slied -->
         </div> <!-- container -->
     </section>
-    
+
     <!--====== COURSE PART ENDS ======-->
-    
+
     <!--====== COUNT DOWN PART START ======-->
-    
+
     <section id="count-down-part" class="bg_cover pt-70 pb-120" data-overlay="8" style="background-image: url(../../../assets/front/images/bg-2.jpg)">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -662,11 +661,11 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-    
+
     <!--====== COUNT DOWN PART ENDS ======-->
-    
+
     <!--====== COUNTER PART START ======-->
-    
+
     <div id="counter-part" class="bg_cover pt-25 pb-70 gray-bg">
         <div class="container">
             <div class="row">
@@ -697,11 +696,11 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </div>
-    
+
     <!--====== COUNTER PART ENDS ======-->
-    
+
     <!--====== EVENT 2 PART START ======-->
-    
+
     <section id="event-part" class="pt-120 pb-120">
         <div class="container">
             <div class="event-bg bg_cover" style="background-image: url(../../../assets/front/images/bg-3.jpg)">
@@ -736,18 +735,18 @@
                                         <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
                                     </div>
                                 </li>
-                            </ul> 
+                            </ul>
                         </div> <!-- event 2 -->
                     </div>
                 </div> <!-- row -->
             </div>
         </div> <!-- container -->
     </section>
-    
+
     <!--====== EVENT 2 PART ENDS ======-->
-    
+
     <!--====== TEACHERS PART START ======-->
-    
+
     <section id="teachers-part" class="pt-65 pb-120 gray-bg">
         <div class="container">
             <div class="row">
@@ -821,14 +820,12 @@
                                 <h6>Mark anthem</h6>
                                 <span>Bsc, Engineering</span>
                             </div> <!-- singel student -->
-                            
                             <div class="singel-student">
                                 <img src="../../../assets/front/images/teachers/teacher-2/quote.png" alt="Quote">
                                 <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet</p>
                                 <h6>Mark anthem</h6>
                                 <span>Bsc, Engineering</span>
                             </div> <!-- singel student -->
-                            
                             <div class="singel-student">
                                 <img src="../../../assets/front/images/teachers/teacher-2/quote.png" alt="Quote">
                                 <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet</p>
@@ -844,13 +841,13 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-    
-    <!--====== TEACHERS PART ENDS ======-->
-   
 
-   
+    <!--====== TEACHERS PART ENDS ======-->
+
+
+
     <!--====== PATNAR LOGO PART START ======-->
-    
+
     <!--div id="patnar-logo" class="pt-40 pb-80 gray-bg">
         <div class="container">
             <div class="row patnar-slied">
@@ -886,64 +883,64 @@
                 </div>
             </div> <!-- row -->
         <!--/div> <!-- container -->
-    <!--/div> 
-    
-    <!--====== PATNAR LOGO PART ENDS ======-->
-   
-    <!--====== FOOTER PART START ======-->
-    
+    <!--/div>
+
+
+
+
+
     <app-footer></app-footer>
-    
+
     <!--====== FOOTER PART ENDS ======-->
-   
-    <!--====== BACK TO TP PART START ======-->
-    
+
+    <!--====== BACK TO TP PART START ======--> -->
+
     <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-    
+
     <!--====== BACK TO TP PART ENDS ======-->
-   
-    
-    
-    
-    
-    
-    
-   
+
+
+
+
+
+
+
+
     <!--====== jquery js ======-->
     <script src="../../../assets/front/js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="../../../assets/front/js/vendor/jquery-1.12.4.min.js"></script>
 
     <!--====== Bootstrap js ======-->
     <script src="../../../assets/front/js/bootstrap.min.js"></script>
-    
+
     <!--====== Slick js ======-->
     <script src="../../../assets/front/js/slick.min.js"></script>
-    
+
     <!--====== Magnific Popup js ======-->
     <script src="../../../assets/front/js/jquery.magnific-popup.min.js"></script>
-    
+
     <!--====== Counter Up js ======-->
     <script src="../../../assets/front/js/waypoints.min.js"></script>
     <script src="../../../assets/front/js/jquery.counterup.min.js"></script>
-    
+
     <!--====== Nice Select js ======-->
     <script src="../../../assets/front/js/jquery.nice-select.min.js"></script>
-    
+
     <!--====== Nice Number js ======-->
     <script src="../../../assets/front/js/jquery.nice-number.min.js"></script>
-    
+
     <!--====== Count Down js ======-->
     <script src="../../../assets/front/js/jquery.countdown.min.js"></script>
-    
+
     <!--====== Validator js ======-->
     <script src="../../../assets/front/js/validator.min.js"></script>
-    
+
     <!--====== Ajax Contact js ======-->
     <script src="../../../assets/front/js/ajax-contact.js"></script>
-    
+
     <!--====== Main js ======-->
     <script src="../../../assets/front/js/main.js"></script>
-    
+
     <!--====== Map js ======-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
     <script src="../../../assets/front/js/map-script.js"></script>

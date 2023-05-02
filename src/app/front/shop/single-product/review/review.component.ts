@@ -8,6 +8,7 @@ import { Product } from 'src/app/models/product';
 })
 export class ReviewComponent implements OnInit {
   @Input() product ='';
+  @Input() produit!: Product;
   h=false;
   d=true;
   constructor() { }
