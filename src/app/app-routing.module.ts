@@ -11,7 +11,7 @@ import { CategoryProduct } from './models/category-product';
 import { ListProductComponent } from './admin/list-product/list-product.component';
 import { ProductsComponent } from './front/shop/products/products.component';
 
-import { UserListComponent } from './admin/user-list/user-list.component'; 
+import { UserListComponent } from './admin/user-list/user-list.component';
 import { AuthComponent } from './auth/auth.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
@@ -23,6 +23,8 @@ import { EmptyPageComponent } from './front/empty-page/empty-page.component';
 import { CourseComponent } from './front/course/course.component';
 import { ProductCommentComponent } from './front/shop/product-comment/product-comment.component';
 import { BackOfficeComponent } from './admin/back-office/back-office.component';
+import { JitsiComponent } from './front/meet/meetpanel/meet.component';
+import { QuitComponent } from './front/meet/quit/quit.component';
 
 
 const routes: Routes = [
@@ -31,26 +33,26 @@ const routes: Routes = [
   {path : 'p', component:EmptyPageComponent,
 children: [
   {
-    path : 'project', 
+    path : 'project',
     component: ProjectComponentComponent
-    
+
   },
   {path : 'course' , component: CourseComponent},
   {path:'shop', component: ProductsComponent},
   {path: 'products/:id', component: SingleProductComponent},
   {path: 'cart-details', component: CartComponent},
-  
+
 ]},
 { path: 'listProduct/:id', component: ProductbycatComponent },
 
-  
-   
-   
 
-  
-   
-   
-//{path: 'order-history', component: OrderHistoryComponent}, 
+
+
+
+
+
+
+//{path: 'order-history', component: OrderHistoryComponent},
 
    {path:'product-comment',component: ProductCommentComponent},
 
@@ -61,11 +63,11 @@ children: [
   { path: 'forget', component: ResetPasswordComponent },
   {path: 'signup', component: SignUpComponent},
    {path: 'reset',component: ResetPasswordComponents},
-  
+
   { path: 'listProduct/:id', component: ProductbycatComponent },
 
   //Projects Part
-  
+
   { path: 'auth', component: AuthComponent },
   { path: 'Forget', component: ResetPasswordComponent },
   { path: 'sign', component: SignUpComponent },
@@ -85,9 +87,10 @@ children: [
     {path: 'product/add', component: AddProductComponent},
 { path: 'listProduct', component: ListProductComponent },
   ]},
-  
- 
-  
+
+  {path: 'meet', component: JitsiComponent},
+  {path:'quit' , component: QuitComponent}
+
 ];
 
 @NgModule({
