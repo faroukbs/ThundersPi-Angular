@@ -33,7 +33,9 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title" style="margin-left: 40%; font-size:xx-large; color:  rgb(38, 122, 150);font-family: MyFont;"> Courses Management
+                <h4 class="card-title"
+                  style="margin-left: 40%; font-size:xx-large; color:  rgb(38, 122, 150);font-family: MyFont;"> Courses
+                  Management
                 </h4>
               </div>
               <div class="col-md-2">
@@ -88,7 +90,7 @@
                 </div>
                 <br>
                 <div class="content table-responsive table-full-width">
-                  <table class="table table-hover table-stripted">
+                  <table class="table table-hover table-stripted table-bordered">
                     <thead>
                       <th>
                         Name
@@ -107,6 +109,9 @@
 
                       <th>Length</th>
                       <th>Subject</th>
+                      <th>Rating</th>
+                      <th>Visiblity
+                      </th>
                       <th>
                         Options
                       </th>
@@ -114,7 +119,8 @@
 
                     </thead>
                     <tbody>
-                      <tr *ngFor="let course of listCourse | paginate: { itemsPerPage: 2, currentPage: p }">
+                      <tr
+                        *ngFor="let course of listCourse?.reverse()?.slice() | paginate: {id: 'page-course', itemsPerPage: 4, currentPage: p }">
                         <td>
                           {{course?.name}}
                         </td>
@@ -137,19 +143,32 @@
                           {{course?.courseSubject?.subjectCategory}}
                         </td>
                         <td>
+                          <i *ngFor="let _ of [].constructor(course?.rating)" style="color: #ffd700;" class="fa fa-star"
+                            aria-hidden="true"></i>
+
+                        </td>
+                        <td (click)="updateCourseVisible(course?.idCourse)">
+                          <span *ngIf="course?.visible==true" class="badge badge-success">Visible</span>
+                          <span  *ngIf="course?.visible==false" class="badge badge-danger">Invisible</span>
+                        </td>
+                        <td>
                           <button data-bs-toggle="modal" (click)="getCourseById(course?.idCourse)"
-                            data-bs-target="#exampleModal" class="btn btn-outline-info"><i class="fa fa-refresh"></i></button>
+                            data-bs-target="#exampleModal" class="btn btn-outline-info"><i
+                              class="fa fa-refresh"></i></button>
                           &nbsp;
-                          <button type="button" (click)="deleteCourse(course.idCourse)"
-                            class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                          <button type="button" (click)="deleteCourse(course.idCourse)" class="btn btn-danger"><i
+                              class="fa fa-trash"></i></button>
                         </td>
 
                       </tr>
                     </tbody>
                   </table>
-                  <pagination-controls previousLabel="Prev"   nextLabel="Next" [responsive]="true"
-                    (pageChange)=" p = $event ">
-                  </pagination-controls>
+                  <div style="text-align: center;margin-top: 25px;">
+                    <pagination-controls id="page-course" previousLabel="Prev" nextLabel="Next" [responsive]="true"
+                      (pageChange)=" p = $event ">
+                    </pagination-controls>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -159,7 +178,9 @@
           <div class="col-md-7">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title" style="margin-left: 40%; font-size:xx-large; color: rgb(38, 122, 150);font-family: MyFont;"> Subject Management
+                <h4 class="card-title"
+                  style="margin-left: 40%; font-size:xx-large; color: rgb(38, 122, 150);font-family: MyFont;"> Subject
+                  Management
                 </h4>
               </div>
 
@@ -173,7 +194,7 @@
                       <th>
                         Logo
                       </th>
-                     <!-- <th>
+                      <!-- <th>
                         ID
                       </th>-->
                       <th>
@@ -187,18 +208,16 @@
 
                     </thead>
                     <tbody>
-                      <tr *ngFor="let subject of subjects | paginate: { itemsPerPage: 2, currentPage: q}">
-                        <td><img  width="150" height="150" src="http://localhost:8082/libFile/files/{{subject?.idFile}}" alt=""></td>
-                       <!-- <td>
+                      <tr *ngFor="let subject of subjects?.reverse()?.slice()  | paginate: { itemsPerPage: 4, currentPage: q}">
+                        <td><img width="150" height="150" style="border-radius: 15px;" src="http://localhost:8082/libFile/files/{{subject?.idFile}}"
+                            alt=""></td>
+                        <!-- <td>
                           {{subject?.idCourseSubject}}
                         </td>-->
                         <td>
                           {{subject?.subjectCategory}}
                         </td>
-
-
                         <td>
-
                           <button type="button" (click)="deleteSubject(subject?.idCourseSubject)"
                             class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
                         </td>
@@ -206,9 +225,11 @@
                       </tr>
                     </tbody>
                   </table>
-                  <pagination-controls previousLabel="Prev"   nextLabel="Next" [responsive]="true"
-                  (pageChange)=" q = $event ">
-                </pagination-controls>
+                  <div style="text-align: center;margin-top: 25px;">
+                    <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
+                      (pageChange)=" q = $event ">
+                    </pagination-controls>
+                  </div>
                 </div>
               </div>
             </div>
@@ -230,7 +251,8 @@
                     </div>
                     <div class="col-md-12 pr-1">
                       <div class="form-group">
-                        <label><a class="btn btn-warning" style="color: azure;">Upload Subject Logo</a> </label>
+                        <label><a class="btn btn-warning" style="color: azure;">Upload Subject Logo <span *ngIf="onSelectFile"> <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                          {{selectedFile?.name }} <i class="fa fa-check"></i></span></a> </label>
                         <input type="file" placeholder="Name" (change)="onFileSelected($event)" id="name">
                       </div>
 
@@ -238,9 +260,9 @@
                   </div>
                   <div class="row">
                     <div class="update ml-auto mr-auto">
-                      <button type="submit" (click)="saveSubject()" class="btn btn-primary btn-round"> <i class="fa fa-check"></i> Save
+                      <button type="submit" (click)="saveSubject()" class="btn btn-primary btn-round"> <i
+                          class="fa fa-check"></i> Save
                       </button>
-
                     </div>
                   </div>
 

@@ -2,6 +2,7 @@ import { ListProductComponent } from './admin/list-product/list-product.componen
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,14 +18,13 @@ import { UpdateProductComponent } from './admin/update-product/update-product.co
 import { NavbarComponent } from './front/navbar/navbar.component';
 import { FooterComponent } from './front/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { ProductService } from './services/product.service';
 import { WishListService } from './services/wish-list.service';
 import { NavComponent } from './admin/nav/nav.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './front/shop/products/products.component';
-import {AddCourseComponent} from "./admin/add-course/add-course.component";
+import { AddCourseComponent } from "./admin/add-course/add-course.component";
 import { AddLibElementComponent } from './admin/add-lib-element/add-lib-element.component';
 import { LibElmListComponent } from './admin/lib-elm-list/lib-elm-list.component';
 import { AddLibcatComponent } from './admin/add-libcat/add-libcat.component';
@@ -32,6 +32,7 @@ import { ListLibcatComponent } from './admin/list-libcat/list-libcat.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
 import { CourseClientComponent } from './front/course-client/course-client.component';
 import { CourseListClientComponent } from './front/course-list-client/course-list-client.component';
+import { CoursePipe } from './course.pipe';
 
 
 // @ts-ignore
@@ -61,9 +62,11 @@ import { CourseListClientComponent } from './front/course-list-client/course-lis
     UpdateCourseComponent,
     CourseClientComponent,
     CourseListClientComponent,
+    CoursePipe,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -74,7 +77,7 @@ import { CourseListClientComponent } from './front/course-list-client/course-lis
 
 
   ],
-  providers: [ProductService,WishListService],
+  providers: [ProductService, WishListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

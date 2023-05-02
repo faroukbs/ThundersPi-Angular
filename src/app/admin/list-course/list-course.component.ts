@@ -18,8 +18,8 @@ import { SubjectService } from '../../services/subject.service';
 
 })
 export class ListCourseComponent implements OnInit {
-  p: number=1;
-  q: number=1;
+  p: number = 1;
+  q: number = 1;
   listCourse: any;
   course: any;
   selectedCourse = null;
@@ -29,6 +29,9 @@ export class ListCourseComponent implements OnInit {
   subject: any
   subjects: any
   selectedFile: File
+  starRating = 5;
+  onSelectFile: boolean = false
+
   constructor(private courseService: CourseService, private subjectService: SubjectService, private fb: FormBuilder, private router: Router,) { }
 
   ngOnInit(): void {
@@ -54,6 +57,7 @@ export class ListCourseComponent implements OnInit {
   }
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
+    this.onSelectFile = true
     console.log(this.selectedFile)
   }
   saveSubject() {
@@ -115,6 +119,18 @@ export class ListCourseComponent implements OnInit {
         'text': 'Updated !'
       })
       this.onShow()
+      this.getAllCourses();
+    })
+
+  }
+  updateCourseVisible(id: any) {
+
+    this.courseService.updateCourseVisible(this.courseForm.value, id).subscribe(data => {
+      console.log(data);
+      Swal.fire({
+        'icon': 'success',
+        'text': 'Visibility changed !'
+      })
       this.getAllCourses();
     })
 

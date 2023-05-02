@@ -49,7 +49,7 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" placeholder="Name" formControlName="name" id="name">
+                        <input type="text" class="form-control" placeholder="Java,HTML..." formControlName="name" id="name">
                       </div>
                     </div>
                     <div class="col-md-6 pr-1">
@@ -71,14 +71,14 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Course Language</label>
-                        <input type="text" class="form-control" placeholder="courseLanguage"
+                        <input type="text" class="form-control" placeholder="français,eng..."
                           formControlName="courseLanguage" id="courseLanguage">
                       </div>
                     </div>
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Education Level</label>
-                        <input type="text" class="form-control" placeholder="educationLevel"
+                        <input type="text" class="form-control" placeholder="Master,licen..."
                           formControlName="educationLevel" id="educationLevel">
                       </div>
 
@@ -86,18 +86,34 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Periode</label>
-                        <input type="text" class="form-control" placeholder="length" formControlName="length"
+                        <input type="text" class="form-control" placeholder="semester,tremester..." formControlName="length"
                           id="length">
                       </div>
                     </div>
                     <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label> <a href="" class="btn btn-warning" style="color: azure;margin-top: 27px;">Upload
-                            Document</a> </label>
-                        <input type="file" (change)="onFileSelected($event)"  class="form-control" placeholder="length"
-                          id="length">
+                      <label>Select Rating</label>
+                      <select name="" class="form-control" formControlName="rating">
+                        <option value="0">Select Rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+
+                      </select>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group" style="margin-left:25px ;">
+                          <label> <a href="" class="btn btn-warning" style="color: azure;margin-top: 27px;">Upload
+                              Document <span *ngIf="onSelectFile"> <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                {{selectedFile?.name }} <i class="fa fa-check"></i></span> </a> </label>
+                          <input type="file" (change)="onFileSelected($event)" class="form-control" placeholder="length"
+                            id="length">
+                        </div>
                       </div>
                     </div>
+
                   </div>
 
                   <div class="row">

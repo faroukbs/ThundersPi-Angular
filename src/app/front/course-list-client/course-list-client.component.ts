@@ -18,8 +18,10 @@ import { CourseService } from '../../services/course.service';
     '../../../assets/front/css/animate.css']
 })
 export class CourseListClientComponent implements OnInit {
+  c: number = 1;
   id = this.activatedRoute.snapshot.params['id']
   courses: any
+  searchText=""
   constructor(private activatedRoute: ActivatedRoute, private courseService: CourseService) { }
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class CourseListClientComponent implements OnInit {
   getAllCourses() {
     this.courseService.getCourseList().subscribe(
       (res: any) => {
-        this.courses = res.filter((elem: any) => elem?.courseSubject?.idCourseSubject == this.id)
+        this.courses = res.filter((elem: any) => elem?.courseSubject?.idCourseSubject == this.id && elem?.visible==true)
         console.log(this.courses)
       }
     )

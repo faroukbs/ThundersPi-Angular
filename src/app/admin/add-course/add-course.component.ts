@@ -26,7 +26,7 @@ export class AddCourseComponent implements OnInit {
   courses: any
   selectedFile: File;
 
-
+  onSelectFile: boolean = false
   errorMessage: string = '';
   file!: string;
   courseForm: FormGroup
@@ -46,6 +46,7 @@ export class AddCourseComponent implements OnInit {
       educationLevel: ['', Validators.required],
       courseLanguage: ['', Validators.required],
       length: ['', Validators.required],
+      rating: ['', Validators.required]
     })
     this.getAllCourses()
     this.getAllsubject()
@@ -53,6 +54,7 @@ export class AddCourseComponent implements OnInit {
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
+    this.onSelectFile = true
     console.log(this.selectedFile)
   }
   getAllCourses() {
@@ -74,6 +76,7 @@ export class AddCourseComponent implements OnInit {
     formData.append('educationLevel', this.courseForm.value.educationLevel);
     formData.append('courseLanguage', this.courseForm.value.courseLanguage);
     formData.append('length', this.courseForm.value.length);
+    formData.append('rating', this.courseForm.value.rating);
 
     this.courseService.addCourse(formData, 1, this.subject)
       .subscribe((res: any) => {

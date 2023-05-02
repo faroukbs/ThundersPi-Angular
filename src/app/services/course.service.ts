@@ -52,6 +52,9 @@ import {Course} from "../models/course";
     updateCourse(data: any,id:any): Observable<any> {
       return this.httpClient.put(`${this.baseUrl}/update/${id}`, data);
     }
+    updateCourseVisible(data: any,id:any): Observable<any> {
+      return this.httpClient.put(`${this.baseUrl}/update/visible/${id}`, data);
+    }
 
     deleteCourse(idCourse: any): Observable<Course> {
       const url = `${this.baseUrl}/delete/${idCourse}`;
