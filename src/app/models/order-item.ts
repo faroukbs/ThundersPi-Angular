@@ -2,8 +2,7 @@ import { CartItem } from "./cart-item";
 
 export class OrderItem {
     imageUrl: string;
-    nprix: number;
-    gprix: number;
+    prix: number;
     quantity: number;
     productId: number;
 
