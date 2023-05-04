@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
 import { Course } from "../../models/course";
 import { CourseService } from "../../services/course.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { SubjectService } from '../../services/subject.service';
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-list-course',
@@ -31,10 +31,18 @@ export class ListCourseComponent implements OnInit {
   selectedFile: File
   starRating = 5;
   onSelectFile: boolean = false
+  chart: Chart;
+  one_star_course: any
+  two_star_course: any
+  three_star_course: any
+  four_star_course: any
+  five_star_course: any
+
 
   constructor(private courseService: CourseService, private subjectService: SubjectService, private fb: FormBuilder, private router: Router,) { }
 
   ngOnInit(): void {
+
     this.subjectForm = this.fb.group({
       subjectCategory: ['', Validators.required]
     })
@@ -48,6 +56,29 @@ export class ListCourseComponent implements OnInit {
     this.getAllSubject()
     this.getAllCourses();
   }
+  createBarChart(ctx: CanvasRenderingContext2D) {
+    this.chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['One Star', 'Two Stars', 'Three Stars', 'Four Stars', 'Five Stars'],
+        datasets: [{
+          label: 'Ratings',
+          data: [this.one_star_course, this.two_star_course, this.three_star_course, this.four_star_course, this.five_star_course],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      },
+    });
+  }
+
   getAllSubject() {
     this.subjectService.getSubjects().subscribe(
       (res: any) => {
@@ -91,6 +122,32 @@ export class ListCourseComponent implements OnInit {
   getAllCourses(): void {
     this.courseService.getCourseList().subscribe((data: any[]) => {
       this.listCourse = data;
+      this.one_star_course = 0
+      this.two_star_course = 0
+      this.three_star_course = 0
+      this.four_star_course = 0
+      this.five_star_course = 0
+      this.listCourse.forEach((course: any) => {
+        if (course?.rating == 1) {
+          this.one_star_course++
+        }
+        else if (course?.rating == 2) {
+          this.two_star_course++
+        }
+        else if (course?.rating == 3) {
+          this.three_star_course++
+        }
+        else if (course?.rating == 4) {
+          this.four_star_course++
+        }
+        else if (course?.rating == 5) {
+          this.five_star_course++
+        }
+      });
+      const canvas = document.getElementById('myChart') as HTMLCanvasElement;
+      const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+      this.createBarChart(ctx);
+
       console.log(this.listCourse)
     })
   }
@@ -157,7 +214,7 @@ export class ListCourseComponent implements OnInit {
           'icon': 'success',
           'text': 'Course added successfully !'
         })
-        this.router.navigateByUrl("/listCourse")
+        this.router.navigateByUrl("admin/listCourse")
       }, err => {
         Swal.fire({
           'icon': 'error',

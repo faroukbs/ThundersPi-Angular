@@ -21,7 +21,7 @@ import Swal from 'sweetalert2';
     '../../../assets/front/css/animate.css']
 })
 export class CourseClientComponent implements OnInit {
-
+  p: number = 1;
   listCourse: any;
   course: any;
   selectedCourse = null;
@@ -143,7 +143,7 @@ export class CourseClientComponent implements OnInit {
           'icon': 'success',
           'text': 'Course added successfully !'
         })
-        this.router.navigateByUrl("/listCourse")
+        this.router.navigateByUrl("admin/listCourse")
       }, err => {
         Swal.fire({
           'icon': 'error',

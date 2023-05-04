@@ -10,15 +10,15 @@ export class SubjectService {
   constructor(private http: HttpClient) { }
 
   getSubjects() {
-    return this.http.get(`${environment.baseUrl}/subject/getAll`)
+    return this.http.get(`${environment.baseUrl}/api/subject/getAll`)
   }
   getSubjectById(id: any) {
-    return this.http.get(`${environment.baseUrl}/subject/getAll/${id}`)
+    return this.http.get(`${environment.baseUrl}/api/subject/getAll/${id}`)
   }
   saveSubject(subject: any) {
-    return this.http.post(`${environment.baseUrl}/subject/add`, subject)
+    return this.http.post(`${environment.baseUrl}/api/subject/add`, subject)
   }
   deleteSubject(id: any) {
-    return this.http.delete(`${environment.baseUrl}/subject/delete/${id}`)
+    return this.http.delete(`${environment.baseUrl}/api/subject/delete/${id}`)
   }
 }
