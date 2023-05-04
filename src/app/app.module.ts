@@ -65,6 +65,11 @@ import { BackOfficeComponent } from './admin/back-office/back-office.component';
 import { ProjectComponent } from './admin/project/project.component';
 import { ReviewComponent } from './front/shop/single-product/review/review.component';
 import { RevComponent } from './front/shop/single-product/rev/rev.component';
+//meet
+
+import { JitsiComponent} from './front/meet/meetpanel/meet.component';
+import { QuitComponent } from './front/meet/quit/quit.component';
+// import { MeetService } from './services/meet.service';
 import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
 @NgModule({
   declarations: [
@@ -123,6 +128,8 @@ import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
     BackOfficeComponent,
     ReviewComponent,
     RevComponent,
+    JitsiComponent,
+    QuitComponent,
     WishlistComponent,
 
   ],

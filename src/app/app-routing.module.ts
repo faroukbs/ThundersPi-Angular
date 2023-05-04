@@ -30,6 +30,8 @@ import { EmptyPageComponent } from './front/empty-page/empty-page.component';
 import { CourseComponent } from './front/course/course.component';
 import { ProductCommentComponent } from './front/shop/product-comment/product-comment.component';
 import { BackOfficeComponent } from './admin/back-office/back-office.component';
+import { JitsiComponent } from './front/meet/meetpanel/meet.component';
+import { QuitComponent } from './front/meet/quit/quit.component';
 import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
 
 
@@ -66,7 +68,6 @@ children: [
 
 
 
-
 //{path: 'order-history', component: OrderHistoryComponent},
 
    {path:'product-comment',component: ProductCommentComponent},
@@ -78,7 +79,6 @@ children: [
   { path: 'forget', component: ResetPasswordComponent },
   {path: 'signup', component: SignUpComponent},
    {path: 'reset',component: ResetPasswordComponents},
-
 
 
   //Projects Part
@@ -105,6 +105,8 @@ children: [
 { path: 'listCourse', component: ListCourseComponent },
   ]},
 
+  {path: 'meet', component: JitsiComponent},
+  {path:'quit' , component: QuitComponent},
 
 
 
