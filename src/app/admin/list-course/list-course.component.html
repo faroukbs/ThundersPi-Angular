@@ -1,19 +1,25 @@
 
       <div class="content">
+
         <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
+                <div align="center" style="margin: 50px;text-align: center;"class="col-md-10">
+                  <canvas  id="myChart"></canvas>
+
+                </div>
                 <h4 class="card-title"
                   style="margin-left: 40%; font-size:xx-large; color:  rgb(38, 122, 150);font-family: MyFont;"> Courses
                   Management
                 </h4>
               </div>
               <div class="col-md-2">
-                <button type="button" routerLink="/addCourse" class="btn btn-outline-success"><i class="fa fa-plus"></i>
+                <button type="button" routerLink="/admin/addCourse" class="btn btn-outline-success"><i class="fa fa-plus"></i>
                   New Course</button>
 
               </div>
+
 
               <div class="card-body">
                 <div *ngIf="show==true">
@@ -180,7 +186,7 @@
                     </thead>
                     <tbody>
                       <tr *ngFor="let subject of subjects?.reverse()?.slice()  | paginate: { itemsPerPage: 4, currentPage: q}">
-                        <td><img width="150" height="150" style="border-radius: 15px;" src="http://localhost:8082/libFile/files/{{subject?.idFile}}"
+                        <td><img width="150" height="150" style="border-radius: 15px;" src="http://localhost:8181/api/libFile/files/{{subject?.idFile}}"
                             alt=""></td>
                         <!-- <td>
                           {{subject?.idCourseSubject}}

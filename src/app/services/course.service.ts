@@ -24,7 +24,7 @@ import {Course} from "../models/course";
   })
   export class CourseService {
     [x: string]: any;
-    baseUrl = 'http://localhost:8082/course';
+    baseUrl = 'http://localhost:8181/api/course';
     course: Course = new Course();
 
     public dataForm!: FormGroup;
@@ -38,7 +38,7 @@ import {Course} from "../models/course";
       return this.httpClient.get<Course[]>(this.baseUrl + '/getAll');
     }
     getCourseSubjectList(): Observable<any[]> {
-      return this.httpClient.get<any>('http://localhost:8082/subject/getAll');
+      return this.httpClient.get<any>('http://localhost:8181/api/subject/getAll');
     }
     getCourseById(idCourse: number): Observable<any> {
       return this.httpClient.get<any>(`${this.baseUrl}/getAll/${idCourse}`  );
