@@ -71,6 +71,7 @@ import { JitsiComponent} from './front/meet/meetpanel/meet.component';
 import { QuitComponent } from './front/meet/quit/quit.component';
 // import { MeetService } from './services/meet.service';
 import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
+import { CheckoutComponent } from './front/shop/checkout/checkout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -131,6 +132,7 @@ import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
     JitsiComponent,
     QuitComponent,
     WishlistComponent,
+    CheckoutComponent,
 
   ],
   imports: [
