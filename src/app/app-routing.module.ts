@@ -93,6 +93,7 @@ children: [
   {path: 'admin', component: BackOfficeComponent, children: [
     {path: 'dashboard', component: DashboardComponent},
     {path:'project', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)},
+    {path: 'quiz', loadChildren: () => import('./admin/quiz/quiz-mod.module').then(m => m.QuizModModule)},
 
     //product routes
 { path: 'listUser', component: UserListComponent },

@@ -19,6 +19,7 @@ import { UpdateProductComponent } from './admin/update-product/update-product.co
 import { NavbarComponent } from './front/navbar/navbar.component';
 import { FooterComponent } from './front/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {MaterialExampleModule} from './material.module';
 
 import { ProductService } from './services/product.service';
 import { WishListService } from './services/wish-list.service';
@@ -71,7 +72,10 @@ import { JitsiComponent} from './front/meet/meetpanel/meet.component';
 import { QuitComponent } from './front/meet/quit/quit.component';
 // import { MeetService } from './services/meet.service';
 import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
-import { CheckoutComponent } from './front/shop/checkout/checkout.component';
+//import { CheckoutComponent } from './front/shop/checkout/checkout.component';
+import { ProjectModModule } from './admin/project/project-mod.module';
+import { QuizModModule } from './admin/quiz/quiz-mod.module';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -132,7 +136,7 @@ import { CheckoutComponent } from './front/shop/checkout/checkout.component';
     JitsiComponent,
     QuitComponent,
     WishlistComponent,
-    CheckoutComponent,
+    //CheckoutComponent,
 
   ],
   imports: [
@@ -146,8 +150,13 @@ import { CheckoutComponent } from './front/shop/checkout/checkout.component';
     AppRoutingModule,
     NgxPaginationModule,
     RouterModule.forRoot([]),
+    ProjectModModule,
+    QuizModModule,
+    MaterialExampleModule,
+    
   ],
-  providers: [ProductService,WishListService,ProjectService,QuizService],
+  providers: [ProductService,WishListService,ProjectService,QuizService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

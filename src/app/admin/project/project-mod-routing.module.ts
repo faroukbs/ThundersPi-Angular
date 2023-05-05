@@ -10,6 +10,7 @@ import { AddProjectComponent } from './add-project/add-project.component';
 
 const routes: Routes = [
   
+    
     {path: 'add', component: AddProjectComponent},
     {path: 'delete', component: DeleteProjectComponent},
     {path: 'update', component: UpdateProjectComponent},
