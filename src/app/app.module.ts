@@ -76,8 +76,31 @@ import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
 import { ProjectModModule } from './admin/project/project-mod.module';
 import { QuizModModule } from './admin/quiz/quiz-mod.module';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+//post
+import { AddPosttComponent } from './front/add-post/add-post.component';
+
+import { ListpostComponent } from './admin/listpost/listpost.component';
+import { PostshowComponent } from './front/postshow/postshow.component';
+import { PostcommentComponent } from './front/postcomment/postcomment.component';
+import { PostManagmentComponent } from './admin/post-managment/post-managment.component';
+import { AddPostComponent } from './admin/post-managment/add-post/add-post.component';
+import { EditPostComponent } from './front/edit-post/edit-post.component';
+import { CommentManagmentComponent } from './front/comment/comment-managment/comment-managment.component';
+import { EditorComponent, EditorModule } from '@tinymce/tinymce-angular';
+import { AffichPostComponent } from './admin/affich-post/affich-post.component';
+import { EditPostFrontComponent } from './front/edit-post-front/edit-post-front.component';
+import Swal from 'sweetalert2';
+import { DomSanitizer } from '@angular/platform-browser';
+import { CommentManagmenttComponent } from './front/comment-managment/comment-managment.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+
+
 @NgModule({
   declarations: [
+
     AppComponent,
     HomeComponent,
     ListProductComponent,
@@ -137,22 +160,38 @@ import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
     QuitComponent,
     WishlistComponent,
     //CheckoutComponent,
+    ListpostComponent,
+    PostshowComponent,
+    PostcommentComponent,
+    PostManagmentComponent,
+    EditPostComponent,
+    CommentManagmentComponent,
+      AddPostComponent,
+      AffichPostComponent,
+      EditPostFrontComponent,
+      AddPosttComponent,
+      CommentManagmenttComponent
 
   ],
   imports: [
-    BrowserModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ToastrModule.forRoot(),
-    AppRoutingModule,
-    NgxPaginationModule,
-    RouterModule.forRoot([]),
-    ProjectModModule,
-    QuizModModule,
-    MaterialExampleModule,
+    
+BrowserModule,
+BrowserModule,
+BrowserAnimationsModule,
+HttpClientModule,
+FormsModule,
+ReactiveFormsModule,
+ToastrModule.forRoot(),
+AppRoutingModule,
+NgxPaginationModule,
+RouterModule.forRoot([]),
+ProjectModModule,
+QuizModModule,
+MaterialExampleModule,
+EditorModule,
+FontAwesomeModule
+
+
     
   ],
   providers: [ProductService,WishListService,ProjectService,QuizService,
