@@ -27,6 +27,7 @@ export class AffichPostComponent implements OnInit {
   isReady:boolean=false;
   listofpost:Post[];
 
+  
 
   constructor(private ps : PostServiceService,private router: ActivatedRoute,private formBuilder: FormBuilder ) { }
 
@@ -65,7 +66,7 @@ getpost(id:Number){
 }
 ajouter(post:Number){
   console.log(this.cmtform.value);
-  this.ps.addcomentaire(post,1,this.cmtform.value).subscribe(
+  this.ps.addcomentaire(post,this.post.user.id,this.cmtform.value).subscribe(
   data=>{
     window.location.reload();
       }
@@ -86,7 +87,7 @@ supprimer(post :any){
 }
 
 addlike(post:Post){
-  this.ps.addlike(post.postId,1,post).subscribe(
+  this.ps.addlike(post.postId,this.post.user.id,post).subscribe(
     data=>{
 
         this.ps.getlike(post.postId).subscribe(
