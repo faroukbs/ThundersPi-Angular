@@ -17,35 +17,23 @@
       </select>
     </div>
     
-    <div class="form-group">
-                  <label>Quiz Category</label>
-                  <input type="text"
-           placeholder="Pick one"
-           aria-label="Number"
-           matInput
-           [matAutocomplete]="auto"
-           (keyup.enter)="openDialog($event)">
-                  <mat-autocomplete
-                    class="form-control"
-                    placeholder="Quiz Category"
-                    formControlName="quizCategory"
-                    id="quizCategory"
-                    autoActiveFirstOption
-                    #auto="matAutocomplete"
-                    
-                  >
-                    <mat-option *ngFor="let opt of listCategories" >
-                      {{ opt.title }}
-                    </mat-option>
-                  </mat-autocomplete>
-                  <!-- <input type="text" list="categories" (keyup.enter)="openDialog($event)"/> -->
-                  <datalist id="categories">
-                    <option *ngFor="let opt of listCategories" [ngValue]="opt">
-                      {{ opt.title }}
-                    </option>
-                  </datalist>
+   <div class="form-group">
+    <label for="categorySelect">Category Select</label>
+    <select class="form-control" id="categorySelect" 
+    *ngFor="let c of listCategories , let i = index" >
+      <option>{{ c.title }}</option>
+    </select>
+    <button type="button" class="btn btn-primary" (click)="openDialog()">Add Category</button>
+   </div>
 
-                </div>
+   <div class="form-group">
+    <label for="questions" >Questions</label>
+    <button type="button" class="btn btn-primary" (click)="addQuestion()">Add Question</button>
+    <div class="form-group" *ngFor="let q of questions , let i = index">
+      <label for="questionText">Question</label>
+      <input type="text" class="form-control" id="questionText" placeholder="Add question here" [(ngModel)]="questions[i]">
+   </div>
+   </div>
     
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Example textarea</label>

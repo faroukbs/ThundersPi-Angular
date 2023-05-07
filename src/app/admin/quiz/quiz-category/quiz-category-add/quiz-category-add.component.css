@@ -1,7 +1,0 @@
-.cdk-overlay-container {
-    z-index: 9999;
-  }
-  .cdk-overlay-container {
-    visibility: visible !important;
-  }
-  
