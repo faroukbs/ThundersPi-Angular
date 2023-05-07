@@ -98,6 +98,14 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatStepperModule } from '@angular/material/stepper';
 @NgModule({
   declarations: [
 
@@ -174,25 +182,40 @@ import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
   ],
   imports: [
-    
-BrowserModule,
-BrowserModule,
-BrowserAnimationsModule,
-HttpClientModule,
-FormsModule,
-ReactiveFormsModule,
-ToastrModule.forRoot(),
-AppRoutingModule,
-NgxPaginationModule,
-RouterModule.forRoot([]),
-ProjectModModule,
-QuizModModule,
-MaterialExampleModule,
 EditorModule,
-FontAwesomeModule
-
-
+FontAwesomeModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    AppRoutingModule,
+    NgxPaginationModule,
+    RouterModule.forRoot([]),
+    ProjectModModule,
+    QuizModModule,
+    MaterialExampleModule,
+    MatInputModule,
+    MaterialExampleModule,
+    MatFormFieldModule,
+    MatToolbarModule, 
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule ,
+    MatStepperModule,
     
+  ],
+  exports: [
+    MatInputModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule ,
+    MatStepperModule,
   ],
   providers: [ProductService,WishListService,ProjectService,QuizService,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
