@@ -93,9 +93,7 @@ import Swal from 'sweetalert2';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CommentManagmenttComponent } from './front/comment-managment/comment-managment.component';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+
 
 
 @NgModule({
@@ -189,7 +187,6 @@ ProjectModModule,
 QuizModModule,
 MaterialExampleModule,
 EditorModule,
-FontAwesomeModule
 
 
     
