@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+
+</head>
+
+<body>
+
+
+  <!--====== HEADER PART START ======-->
+
+  <header id="header-part">
+    <div class="navigation navigation-2 navigation-3">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-lg-11 col-md-10 col-sm-9 col-9">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand" href="index-4.html">
+                <img src="../../../assets/front/images/logo-2.png" alt="Logo">
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="active" href="index-2.html">Home</a>
+                    <ul class="sub-menu">
+                      <li><a href="index-2.html">Home 01</a></li>
+                      <li><a href="index-3.html">Home 02</a></li>
+                      <li><a class="active" href="index-4.html">Home 03</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a href="about.html">About us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="courses-client">Courses</a>
+
+                  </li>
+                  <li class="nav-item">
+                    <a href="events.html">Events</a>
+                    <ul class="sub-menu">
+                      <li><a href="events.html">Events</a></li>
+                      <li><a href="events-singel.html">Event Singel</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a href="teachers.html">Our teachers</a>
+                    <ul class="sub-menu">
+                      <li><a href="teachers.html">teachers</a></li>
+                      <li><a href="teachers-singel.html">teacher Singel</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a href="blog.html">Blog</a>
+                    <ul class="sub-menu">
+                      <li><a  routerLink="/commentpost">Blog</a></li>
+                      <li><a  routerLink="/addpostt">Blog Singel</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="shop">Shop</a>
+                    <ul class="sub-menu">
+                      <li><a routerLink="shop">Shop</a></li>
+                      <li><a routerLink="shop">Shop Singel</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a href="contact.html">Contact</a>
+                    <ul class="sub-menu">
+                      <li><a href="contact.html">Contact Us</a></li>
+                      <li><a href="contact-2.html">Contact Us 2</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              </nav>> <!-- nav -->
+          </div>
+          <div class="col-lg-1 col-md-2 col-sm-3 col-3">
+            <div class="right-icon text-right">
+              <ul>
+                <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+              </ul>
+            </div> <!-- right icon -->
+          </div>
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div>
+  </header>
+  <section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8"
+    style="background-image: url(../../../assets/front/images/page-banner-1.jpg)">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="page-banner-cont">
+            <h2>Our Blogs</h2>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Blogs</li>
+              </ol>
+            </nav>
+          </div> <!-- page banner cont -->
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </section>
+
+
+
+<div style="padding:90px " >
+<div class="posts-container" >
+  
+
+  <div class="post" *ngFor="let p of listofpost; let indexOfelement=index; ">
+    <div class="post-image">
+        <img class="img" src="http://localhost:8181/File/file/{{p?.files?.id}}" alt="Post Image" style="height: 280px; width: 280px; 
+        padding: px; margin-bottom: 30px">
+      </div>
+      
+    <div class="post-content">
+      <h2 class="post-title" style="text-align: center; margin-bottom: 20px; ">{{p.title}}</h2>
+      <div class="post-text" [innerHTML]="p.content" ></div></div>
+
+      <a href="/more/{{p.postId}}">Read more</a>
+
+      <div class="post-details" style="text-align: center;">
+                                                             &nbsp;
+
+                                                             <button class="btn btn-like btn-primary" (click)="addlike(p)">
+                                                              <i class="fas fa-thumbs-up"></i>
+                                                              {{ nbrlike[indexOfelement] }}
+                                                            </button>
+                                                            &nbsp;
+                                                            <button class="btn btn-dislike btn-primary" (click)="adddislike(p)">
+                                                              <i class="fas fa-thumbs-down"></i>
+                                                              {{ nbrdislike[indexOfelement] }}
+                                                            </button>
+                                                             </div>
+        
+        <ul class="comments-list">
+            <li *ngFor="let c of p.comment">
+              <div class="comment-box" style="margin-right: 100px; justify-content: center; width: fit-content;"  >
+                <div class="comment-head">
+                  <h6 class="comment-name by-author"><a href="http://creaticode.com/blog" >Ghofrane Ferchichi</a></h6>
+                  <span class="comment-date">Hace 20 minutos</span>
+                  <i class="fa fa-reply"></i>
+                  <i class="fa fa-heart"></i>
+                </div>
+                <div class="comment-content">
+                  {{c.content}}
+                  
+                </div>
+              </div>
+            </li>
+          </ul>
+          <form [formGroup]="cmtform">
+            <div class="input-group">
+              <textarea formControlName="content" type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
+              <div class="input-group-append">
+                <button class="btn btn-dislike btn-primary" type="button" (click)="ajouter(p.postId)">Comment</button>
+                
+              </div>
+              
+            </div> 
+            
+          
+          </form>
+      </div>
+      
+    
+    </div>
+  </div>
+
+
+
+ <app-footer></app-footer>

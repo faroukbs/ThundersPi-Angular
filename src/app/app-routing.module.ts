@@ -33,6 +33,14 @@ import { BackOfficeComponent } from './admin/back-office/back-office.component';
 import { JitsiComponent } from './front/meet/meetpanel/meet.component';
 import { QuitComponent } from './front/meet/quit/quit.component';
 import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
+import { AddPostComponent } from './admin/post-managment/add-post/add-post.component';
+import { AffichPostComponent } from './admin/affich-post/affich-post.component';
+import { PostManagmentComponent } from './admin/post-managment/post-managment.component';
+import { CommentManagmentComponent } from './front/comment/comment-managment/comment-managment.component';
+import { EditPostFrontComponent } from './front/edit-post-front/edit-post-front.component';
+import { AddPosttComponent } from './front/add-post/add-post.component';
+import { PostshowComponent } from './front/postshow/postshow.component';
+import { CommentManagmenttComponent } from './front/comment-managment/comment-managment.component';
 
 
 
@@ -93,6 +101,7 @@ children: [
   {path: 'admin', component: BackOfficeComponent, children: [
     {path: 'dashboard', component: DashboardComponent},
     {path:'project', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)},
+    {path: 'quiz', loadChildren: () => import('./admin/quiz/quiz-mod.module').then(m => m.QuizModModule)},
 
     //product routes
 { path: 'listUser', component: UserListComponent },
@@ -114,6 +123,21 @@ children: [
   { path: 'libcat', component: ListLibcatComponent },
   { path: 'addlib', component: AddLibElementComponent },
   { path: 'updateCourse', component: UpdateCourseComponent },
+
+   
+  
+  //Post Paths:
+  { path: 'addPost', component: AddPostComponent },
+  { path: 'listPost/affichpost/:id', component: AffichPostComponent },
+  { path: 'more/:id', component: AffichPostComponent },
+
+  { path: 'listPost', component: PostManagmentComponent },
+  { path: 'commentpost', component: CommentManagmenttComponent },
+  { path: 'editPost/:id', component: EditPostFrontComponent},
+  { path: 'addpostt', component: AddPosttComponent },
+  { path: 'showpost', component: PostshowComponent },
+
+
 
 ];
 

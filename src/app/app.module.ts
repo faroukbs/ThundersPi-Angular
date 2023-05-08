@@ -19,6 +19,7 @@ import { UpdateProductComponent } from './admin/update-product/update-product.co
 import { NavbarComponent } from './front/navbar/navbar.component';
 import { FooterComponent } from './front/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {MaterialExampleModule} from './material.module';
 
 import { ProductService } from './services/product.service';
 import { WishListService } from './services/wish-list.service';
@@ -71,8 +72,43 @@ import { JitsiComponent} from './front/meet/meetpanel/meet.component';
 import { QuitComponent } from './front/meet/quit/quit.component';
 // import { MeetService } from './services/meet.service';
 import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
+//import { CheckoutComponent } from './front/shop/checkout/checkout.component';
+import { ProjectModModule } from './admin/project/project-mod.module';
+import { QuizModModule } from './admin/quiz/quiz-mod.module';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+//post
+import { AddPosttComponent } from './front/add-post/add-post.component';
+
+import { ListpostComponent } from './admin/listpost/listpost.component';
+import { PostshowComponent } from './front/postshow/postshow.component';
+import { PostcommentComponent } from './front/postcomment/postcomment.component';
+import { PostManagmentComponent } from './admin/post-managment/post-managment.component';
+import { AddPostComponent } from './admin/post-managment/add-post/add-post.component';
+import { EditPostComponent } from './front/edit-post/edit-post.component';
+import { CommentManagmentComponent } from './front/comment/comment-managment/comment-managment.component';
+import { EditorComponent, EditorModule } from '@tinymce/tinymce-angular';
+import { AffichPostComponent } from './admin/affich-post/affich-post.component';
+import { EditPostFrontComponent } from './front/edit-post-front/edit-post-front.component';
+import Swal from 'sweetalert2';
+import { DomSanitizer } from '@angular/platform-browser';
+import { CommentManagmenttComponent } from './front/comment-managment/comment-managment.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+
+
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatStepperModule } from '@angular/material/stepper';
 @NgModule({
   declarations: [
+
     AppComponent,
     HomeComponent,
     ListProductComponent,
@@ -131,10 +167,23 @@ import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
     JitsiComponent,
     QuitComponent,
     WishlistComponent,
+    //CheckoutComponent,
+    ListpostComponent,
+    PostshowComponent,
+    PostcommentComponent,
+    PostManagmentComponent,
+    EditPostComponent,
+    CommentManagmentComponent,
+      AddPostComponent,
+      AffichPostComponent,
+      EditPostFrontComponent,
+      AddPosttComponent,
+      CommentManagmenttComponent
 
   ],
   imports: [
-    BrowserModule,
+EditorModule,
+FontAwesomeModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -144,8 +193,32 @@ import { WishlistComponent } from './front/shop/wishlist/wishlist.component';
     AppRoutingModule,
     NgxPaginationModule,
     RouterModule.forRoot([]),
+    ProjectModModule,
+    QuizModModule,
+    MaterialExampleModule,
+    MatInputModule,
+    MaterialExampleModule,
+    MatFormFieldModule,
+    MatToolbarModule, 
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule ,
+    MatStepperModule,
+    
   ],
-  providers: [ProductService,WishListService,ProjectService,QuizService],
+  exports: [
+    MatInputModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule ,
+    MatStepperModule,
+  ],
+  providers: [ProductService,WishListService,ProjectService,QuizService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

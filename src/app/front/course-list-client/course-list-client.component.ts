@@ -18,6 +18,7 @@ import { CourseService } from '../../services/course.service';
     '../../../assets/front/css/animate.css']
 })
 export class CourseListClientComponent implements OnInit {
+  q: number = 1;
   c: number = 1;
   id = this.activatedRoute.snapshot.params['id']
   courses: any
