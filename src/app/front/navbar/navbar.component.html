@@ -1,58 +1,53 @@
 <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="active" href="index-2.html">Home</a>
-            <ul class="sub-menu">
-                <li><a href="index-2.html">Home 01</a></li>
-                <li><a href="index-3.html">Home 02</a></li>
-                <li><a class="active" href="index-4.html">Home 03</a></li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a href="about.html">About us</a>
-        </li>
-        <li class="nav-item">
-            <a routerLink="/p/course">Courses</a>
-            <ul class="sub-menu">
-                <li><a routerLink="/p/course">Courses</a></li>
-                <li><a routerLink="/p/course">Course Singel</a></li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a routerLink="project">Projects</a>
-            <ul class="sub-menu">
-                <li><a routerLink="/p/project">Browse</a></li>
-                <li><a href="events-singel.html">My Projects</a></li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a href="teachers.html">Our teachers</a>
-            <ul class="sub-menu">
-                <li><a href="teachers.html">teachers</a></li>
-                <li><a href="teachers-singel.html">teacher Singel</a></li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a href="blog.html">Blog</a>
-            <ul class="sub-menu">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="blog-singel.html">Blog Singel</a></li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a routerLink="/p/shop">Shop</a>
-            <ul class="sub-menu">
-                <li><a routerLink="/p/shop">Shop</a></li>
-                <li><a routerLink="/p/shopdet">Shop Singel</a></li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a routerLink="login">ACCOUNT</a>
-            <ul class="sub-menu">
-                <li *ngIf="!currentUser?.id"><a routerLink="auth"><i class="fa fa-lock"></i> Login</a></li>
-                <li *ngIf="currentUser?.id"><a (click)="logOut()"><i class="fa fa-lock"></i> LogOut</a></li>
-                <li><a routerLink="signup">sign-up</a></li>
-            </ul>
-        </li>
-    </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="active" rou>Home</a>
+      <ul class="sub-menu">
+        <li><a href="index-2.html">Home 01</a></li>
+        <li><a href="index-3.html">Home 02</a></li>
+        <li><a class="active" href="index-4.html">Home 03</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="about.html">About us</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/p/course">Courses</a>
+      <ul class="sub-menu">
+        <li><a routerLink="/p/course">Courses</a></li>
+        <li><a routerLink="/p/course">Course Singel</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a routerLink="project">Projects</a>
+      <ul class="sub-menu">
+        <li><a routerLink="/p/project">Browse</a></li>
+        <li><a href="events-singel.html">My Projects</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="teachers.html">Our teachers</a>
+      <ul class="sub-menu">
+        <li><a href="teachers.html">teachers</a></li>
+        <li><a href="teachers-singel.html">teacher Singel</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="blog.html">Blog</a>
+      <ul class="sub-menu">
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="blog-singel.html">Blog Singel</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a routerLink="shop">Shop</a>
+      <ul class="sub-menu">
+        <li><a routerLink="/p/shop">Shop</a></li>
+        <li><a routerLink="/p/shopdet">Shop Singel</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a routerLink="meet">Conference</a>
+    </li>
+  </ul>
 </div>

@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { Role } from 'src/app/models/role';
+import { User } from 'src/app/models/user';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -13,13 +17,27 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   '../../../assets/front/css/font-awesome.min.css',
   '../../../assets/front/css/default.css',
   '../../../assets/front/css/bootstrap.min.css',
-  '../../../assets/front/css/animate.css' 
+  '../../../assets/front/css/animate.css'
 ],
 encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class HomeComponent implements OnInit {
+  currentUser : User = new User();
 
-  constructor() { }
+  constructor(private authenticationService :AuthenticationService, private router: Router) {
+    this.authenticationService.currentUser.subscribe(data => {
+      this.currentUser = data
+    })
+  }
+
+  isAdmin(){
+    return this.currentUser?.role === Role.ADMIN
+  }
+
+  logOut() {
+    this.authenticationService.logOut();
+    this.router.navigate(['/login'])
+  }
 
   ngOnInit(): void {
   }

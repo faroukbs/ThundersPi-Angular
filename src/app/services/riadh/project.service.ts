@@ -54,7 +54,9 @@ export class ProjectService {
   }
 
   addProject(project : Project): Observable<any> {
-    return this.httpClient.post(this.baseUrl , project,httpOptions);
+    const headers = { 'content-type': 'application/json'};
+    const body = JSON.stringify(project);
+    return this.httpClient.post(this.baseUrl , body,{'headers':headers});
   }
   updateProject(project : Project): Observable<any> {
     return this.httpClient.put(this.baseUrl + '/', project,httpOptions);

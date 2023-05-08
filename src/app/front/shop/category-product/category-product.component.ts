@@ -29,7 +29,7 @@ import { WishListService } from 'src/app/services/wish-list.service';
 export class CategoryProductComponent implements OnInit {
   categories!: CategoryProduct[];
   @Input() products!: Product[];
- 
+
   constructor(private categoryProductService: CategoryProductService,public productService:ProductService) { }
 
   ngOnInit(): void {
@@ -47,7 +47,7 @@ export class CategoryProductComponent implements OnInit {
   }
 
   showProductByCategory(id: number){
-    
+
     this.getProductByCategory(id);
     console.log(this.products);
   }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { RecursiveTemplateAstVisitor } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ResetPass } from '../common/reset-pass';
+import { ResetPass } from '../models/reset-pass';
 
 @Injectable({
   providedIn: 'root'

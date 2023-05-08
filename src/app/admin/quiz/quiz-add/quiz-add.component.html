@@ -1,0 +1,36 @@
+<div class="content">
+<form #F="ngForm">
+  <div class="form-group">
+    <label for="maxMarks">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="quiz.name">
+  </div>
+    <div class="form-group">
+      <label for="maxMarks">MaxMarks</label>
+      <input type="number" class="form-control" id="maxMarks" placeholder="0" [(ngModel)]="quiz.maxMarks">
+    </div>
+    <div class="form-group">
+      <label for="courseSelect">Course Select  </label>
+      <select class="form-select"  id="courseSelect" 
+      *ngFor="let c of listCourses , let i = index"  [(ngModel)]="quiz.course">
+        <option>{{ c.name }}</option>
+      </select>
+      <button type="button" class="btn btn-secondary" routerLink="/admin/addCourse/">Add Course</button>
+    </div>
+    
+   <div class="form-group">
+    <label for="categorySelect">Category Select</label>
+    <select class="form-select" id="categorySelect" 
+    *ngFor="let c of listCategories , let i = index" name="category" [(ngModel)]="quizCategory" >
+      <option>{{ c.title }}</option>
+    </select>
+    <button type="button" class="btn btn-secondary" (click)="openDialog()">Add Category</button>
+   </div>
+
+   <div class="form-group">
+    <button type="button" class="btn btn-secondary" (click)="openQuestionConfig()">Configure Questions</button>
+
+   </div>
+    
+    <button type="submit" class="btn btn-primary" (click)="addQuiz()">Submit</button>
+  </form>
+</div>

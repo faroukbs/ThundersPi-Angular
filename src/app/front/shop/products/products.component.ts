@@ -24,11 +24,11 @@ export class ProductsComponent implements OnInit {
   id!: number;
   fav!:Product[];
   p:number=1;
-  
- 
+
+
 
   constructor(
-   
+
     public productService: ProductService,
     private cartService: CartService,
     private route: ActivatedRoute,
@@ -36,6 +36,7 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.listProducts();
     this.productService.getProductList()
     .subscribe((data: Product[]) => {
@@ -45,6 +46,7 @@ export class ProductsComponent implements OnInit {
   listProducts() {
     this.productService.getProductList().subscribe((data) => {
       this.products = data;
+      console.log(this.products);
     });
     this.getProductImages();
     this.getfav();
@@ -74,7 +76,9 @@ export class ProductsComponent implements OnInit {
     }
   )}
 
- 
+
+
+
 
 }
 

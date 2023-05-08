@@ -1,8 +1,8 @@
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { User } from 'src/app/models/user';
-import { Role } from 'src/app/models/role';
 import { Router } from '@angular/router';
+import { Role } from 'src/app/models/role';
+import { User } from 'src/app/models/user';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,16 +17,15 @@ import { Router } from '@angular/router';
   '../../../assets/front/css/font-awesome.min.css',
   '../../../assets/front/css/default.css',
   '../../../assets/front/css/bootstrap.min.css',
-  '../../../assets/front/css/animate.css' 
+  '../../../assets/front/css/animate.css'
 ],
 encapsulation: ViewEncapsulation.None,
 })
 export class NavbarComponent implements OnInit {
-
   currentUser : User = new User();
 
-  constructor(private AuthenticationService :AuthenticationService, private router: Router) { 
-    this.AuthenticationService.currentUser.subscribe(data => {
+  constructor(private authenticationService :AuthenticationService, private router: Router) {
+    this.authenticationService.currentUser.subscribe(data => {
       this.currentUser = data
     })
   }
@@ -36,10 +35,9 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut() {
-    this.AuthenticationService.logOut();
-    this.router.navigate(['auth'])
+    this.authenticationService.logOut();
+    this.router.navigate(['/auth'])
   }
-
 
   ngOnInit(): void {
   }

@@ -30,7 +30,7 @@ export class UpdateProductComponent implements OnInit {
   files: string[] = [];
   images: string[] = [];
   file!: string;
- 
+
 
   constructor(
     public productService: ProductService ,

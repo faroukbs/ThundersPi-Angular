@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>New Category</h1>
+<div mat-dialog-content>
+  <p>Describe the new category</p>
+  <mat-form-field appearance="outline" color="primary" >
+    <mat-label>Name</mat-label>
+    <input matInput  [(ngModel)]="title" name="title" placeholder="Category Title">
+    
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline" >
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="description" name="description" placeholder="Category Description">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button  cdkFocusInitial (click)="add()">Add</button>
+</div>

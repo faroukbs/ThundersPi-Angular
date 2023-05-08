@@ -1,9 +1,9 @@
 import { ResetServiceService } from 'src/app/services/reset-service.service';
 
-import { ResetPass } from 'src/app/common/reset-pass';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as $ from 'jquery'
 import { Component, OnInit } from '@angular/core';
+import { ResetPass } from 'src/app/models/reset-pass';
 
 @Component({
   selector: 'app-reset-password',

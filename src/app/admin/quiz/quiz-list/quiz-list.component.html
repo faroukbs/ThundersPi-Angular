@@ -1,0 +1,46 @@
+<div class="content">
+    <div class="row">
+  
+      <div class="col-md-12">
+        <div class="card card-user">
+          <div class="card-header">
+            <h5 class="card-title">Quiz List</h5>
+          </div>
+          <div class="card-body">
+<button class="btn btn-primary" routerLink="/admin/quiz/quizAdd">
+    Add New Quiz
+</button>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<th>ID</th>
+<th>Name</th>
+<th>MaxMarks</th>
+<th>Detail</th>
+<th>Edit</th>
+<th>Delete</th>
+</thead>
+<tbody>
+<tr *ngFor="let quiz of quizList">
+<td>{{quiz.id}}</td>
+<td>{{quiz.name}}</td>
+<td>{{quiz.maxMarks}}</td>
+<td>{{quiz.course.name}}</td>
+
+<td>
+
+    <button class="btn btn-info" routerLink="admin/quiz/quiz/{{quiz.id}}">Detail</button> </td>
+<td>
+    <button class="btn btn-info" routerLink="admin/quiz/quizUpdate/{{quiz.id}}">Edit</button></td>
+<td>
+    <button class="btn btn-danger" title="delete Quiz" (click)="deleteQuiz(quiz.id)">x</button></td>
+
+</tr>
+</tbody>
+</table>
+</div>
+  </div>
+  </div>
+</div>
+</div>
+</div>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Comment } from 'src/app/models/comment';
+import { ProductComment } from 'src/app/models/comment';
 import { Product } from 'src/app/models/product';
 import { User } from 'src/app/models/user';
 import { ProductService } from 'src/app/services/product.service';
@@ -12,7 +12,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class RevComponent implements OnInit {
 
   edit = false;
-  c2!: Comment;
+  c2!: ProductComment;
   bad = false;
   str!: string;
   j!: number;
@@ -24,14 +24,16 @@ export class RevComponent implements OnInit {
 
   constructor(public productService: ProductService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.produit);
+  }
 
   eventEdit(i: number) {
     this.edit = true;
     this.j = i;
   }
 
-  deleteCom(c: Comment) {
+  deleteCom(c: ProductComment) {
     this.productService.deleteCom(c.idCommentaire).subscribe(
       (data) => {
         this.getProdById(this.produit.id);
@@ -41,13 +43,13 @@ export class RevComponent implements OnInit {
     this.edit = false;
   }
 
-  likeModifyCom(c : Comment, prod : Product) {
+  likeModifyCom(c : ProductComment, prod : Product) {
     this.bad = false;
     c.likes = c.likes + 1;
     this.productService.getByIDCom(c.idCommentaire).subscribe((data) => {
       this.c2 = data;
       this.c2.likes = c.likes;
-      this.c2.produit = prod;
+      this.c2.procom = prod;
       this.productService.modifyCom(this.c2).subscribe(
         (data) => {},
         (error) => {}
@@ -57,10 +59,10 @@ export class RevComponent implements OnInit {
     this.edit = false;
   }
 
-  modifyCom(c : Comment,prod :Product){
+  modifyCom(c : ProductComment,prod :Product){
     this.bad=false;
     this.productService.getByIDCom(c.idCommentaire).subscribe(
-      (data) =>{this.c2=data;this.c2.comment=c.comment;this.c2.produit=prod;
+      (data) =>{this.c2=data;this.c2.comment=c.comment;this.c2.procom=prod;
         this.productService.modifyCom(this.c2).subscribe(
           (data) =>{},
           (error) =>{if(error.status==406){alert("bad Word")}}
@@ -74,16 +76,17 @@ export class RevComponent implements OnInit {
   }
 
   addCom(prod: Product) {
-    let c3 = new Comment();
+    let c3 = new ProductComment();
     c3.idClient = this.user.id;
     //aModifier
     c3.comment = this.str;
     c3.likes = 0;
-    c3.produit = prod;
+    c3.procom = prod;
     this.bad = false;
-
+    console.log(c3);
     this.productService.addCom(c3).subscribe(
       (data) => {
+        console.log(c3);
         this.getProdById(prod.id);
       },
       (error) => {

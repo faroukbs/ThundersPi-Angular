@@ -30,7 +30,7 @@
                   <figure class="itemside">
                     <div class="aside">
                       <img
-                        src="{{this.productService.baseUrl+'/Imgarticle/'+product.id}}"
+                        src="{{this.productService.baseUrl+'/Imgarticle/'+cartItem.id}}"
                         class="img-sm"
                       />
                     </div>
@@ -96,7 +96,7 @@
           <div class="card-body">
             <dl class="dlist-align">
               <dt>Total price:</dt>
-              <dd class="text-right">{{cartItem.quantity * cartItem.prix}} </dd>
+              <dd class="text-right">{{totalPrice}} </dd>
             </dl>
             <dl class="dlist-align">
               <dt>Discount:</dt>
