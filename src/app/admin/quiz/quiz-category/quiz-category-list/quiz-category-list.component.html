@@ -1,1 +1,45 @@
-<p>quiz-category-list works!</p>
+<div class="content">
+    <div class="row">
+  
+      <div class="col-md-12">
+        <div class="card card-user">
+          <div class="card-header">
+            <h5 class="card-title">Quiz Category List</h5>
+          </div>
+          <div class="card-body">
+<button class="btn btn-primary" routerLink="/admin/quiz/quizCategAdd">
+    Add New Quiz Category
+</button>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<th>ID</th>
+<th>Title</th>
+<th>Description</th>
+<th>Detail</th>
+<th>Edit</th>
+<th>Delete</th>
+</thead>
+<tbody>
+<tr *ngFor="let quizCateg of quizCategList">
+<td>{{quizCateg.idQuizCategory}}</td>
+<td>{{quizCateg.title}}</td>
+<td>{{quizCateg.description}}</td>
+
+<td>
+
+    <button class="btn btn-info" routerLink="/admin/quizCategory/detail/{{quizCateg.idQuizCategory}}">Detail</button> </td>
+<td>
+    <button class="btn btn-info" routerLink="/admin/quiz/quizCategUpdate/{{quizCateg.idQuizCategory}}">Edit</button></td>
+<td>
+    <button class="btn btn-danger" title="delete project" (click)="delete(quizCateg.idQuizCategory)">x</button></td>
+
+</tr>
+</tbody>
+</table>
+</div>
+  </div>
+  </div>
+</div>
+</div>
+</div>

@@ -1,17 +1,18 @@
-    <h2>Add Project Detail</h2>
-    <div>
-      <p>
+    <h2 class="card-title">Add Project Detail</h2>
+    <form class="card-body">
+    <div >
+      <div class="form-group">
           <label>Name:
-              <input [(ngModel)]="project.name" placeholder="project Name"/>
+              <input class="input-group-text" [(ngModel)]="project.name" placeholder="project Name"/>
           </label>
-      </p>
-      <p>
+        </div>
+      <div class="form-group">
           <label>MaxMarks:
-              <input [(ngModel)]="project.maxMarks" placeholder="project MaxMarks"/>
+              <input class="input-group-text" [(ngModel)]="project.maxMarks" placeholder="project MaxMarks"/>
           </label>
-      </p>
+        </div>
     </div>
-    <button (click)="goBack()">go back</button>
+    
     <div *ngFor="let progressInfo of progress" class="mb-2">
       <span>{{ progressInfo.fileName }}</span>
       <div class="progress">
@@ -31,7 +32,7 @@
     <div class="row">
       <div class="col-8">
         <label class="btn btn-default p-0">
-          <input type="file" accept="*" multiple (change)="selectFiles($event)" />
+          <input class="form-control" type="file" accept="*" multiple (change)="selectFiles($event)" />
         </label>  
       </div>
     
@@ -41,11 +42,11 @@
           [disabled]="!selectedFiles"
           (click)="addProjectWithFiles()"
         >
-          Upload
+          Add Project Files
         </button>
       </div>
     </div>
-    
+    <button class="btn btn-danger" (click)="goBack()">go back</button>
     <div>
       <img *ngFor='let preview of previews' [src]="preview" class="preview">
     </div>
@@ -67,3 +68,4 @@
         </li>
       </ul>
     </div>
+  </form>
