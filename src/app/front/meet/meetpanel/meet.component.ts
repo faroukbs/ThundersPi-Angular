@@ -39,8 +39,8 @@ export class JitsiComponent implements OnInit,AfterViewInit {
       ngAfterViewInit(): void {
           this.options = {
               roomName: this.room,
-              width: 900,
-              height: 500,
+              width: 1870,
+              height: 860,
               configOverwrite: { prejoinPageEnabled: true },
               interfaceConfigOverwrite: {
                   GENERATE_ROOMNAMES_ON_WELCOME_PAGE: false ,
