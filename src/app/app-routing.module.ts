@@ -41,6 +41,7 @@ import { EditPostFrontComponent } from './front/edit-post-front/edit-post-front.
 import { AddPosttComponent } from './front/add-post/add-post.component';
 import { PostshowComponent } from './front/postshow/postshow.component';
 import { CommentManagmenttComponent } from './front/comment-managment/comment-managment.component';
+import { AffichhPostComponent } from './front/affich-post/affich-post.component';
 
 
 
@@ -132,6 +133,7 @@ children: [
   //Post Paths:
   { path: 'addPost', component: AddPostComponent },
   { path: 'listPost/affichpost/:id', component: AffichPostComponent },
+  { path: 'listPost/affichpostadmin/:id', component: AffichhPostComponent },
   { path: 'more/:id', component: AffichPostComponent },
 
   { path: 'listPost', component: PostManagmentComponent },

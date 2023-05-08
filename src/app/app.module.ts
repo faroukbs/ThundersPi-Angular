@@ -78,7 +78,6 @@ import { QuizModModule } from './admin/quiz/quiz-mod.module';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 //post
 import { AddPosttComponent } from './front/add-post/add-post.component';
-
 import { ListpostComponent } from './admin/listpost/listpost.component';
 import { PostshowComponent } from './front/postshow/postshow.component';
 import { PostcommentComponent } from './front/postcomment/postcomment.component';
@@ -92,7 +91,6 @@ import { EditPostFrontComponent } from './front/edit-post-front/edit-post-front.
 import Swal from 'sweetalert2';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CommentManagmenttComponent } from './front/comment-managment/comment-managment.component';
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
@@ -106,6 +104,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatStepperModule } from '@angular/material/stepper';
+import { AffichhPostComponent } from './front/affich-post/affich-post.component';
 @NgModule({
   declarations: [
 
@@ -178,7 +177,8 @@ import { MatStepperModule } from '@angular/material/stepper';
       AffichPostComponent,
       EditPostFrontComponent,
       AddPosttComponent,
-      CommentManagmenttComponent
+      CommentManagmenttComponent,
+      AffichhPostComponent
 
   ],
   imports: [
