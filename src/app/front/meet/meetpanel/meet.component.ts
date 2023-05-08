@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Role } from 'src/app/models/role';
 import { User } from 'src/app/models/user';
 //import { Room } from 'src/app/models/room';
 // import { MeetService } from 'src/app/services/meet.service';
@@ -52,7 +53,9 @@ export class JitsiComponent implements OnInit,AfterViewInit {
               parentNode: document.querySelector('#meet-iframe'),
               userInfo: {
                   displayName: this.user.fname,
-                  email: this.user.email
+                  email: this.user.email,
+                  id: this.user.id,
+                  Role:this.user.role==="ADMIN"
               } ,
 
           }
