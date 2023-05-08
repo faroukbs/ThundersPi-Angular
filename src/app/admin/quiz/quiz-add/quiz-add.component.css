@@ -19,7 +19,5 @@
     flex-shrink: inherit;
     padding: 12px 0 0 !important;
 
-    &:last-child {
-        margin-bottom: 0 !important;
-    }
+   
 }

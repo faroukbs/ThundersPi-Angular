@@ -1,5 +1,5 @@
 export class QuizCategory {
-    idQuizCategory: number;
+    idQuizCategory!: number;
     title : string;
     description : string;
     constructor (title : string, description : string) {

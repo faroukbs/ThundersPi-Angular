@@ -3,13 +3,13 @@
   <p>Describe the new category</p>
   <mat-form-field appearance="outline" color="primary" >
     <mat-label>Name</mat-label>
-    <input matInput   name="title" placeholder="Category Title">
+    <input matInput  [(ngModel)]="title" name="title" placeholder="Category Title">
     
   </mat-form-field>
   <br>
   <mat-form-field appearance="outline" >
     <mat-label>Description</mat-label>
-    <input matInput  name="description" placeholder="Category Description">
+    <input matInput [(ngModel)]="description" name="description" placeholder="Category Description">
     </mat-form-field>
 </div>
 <div mat-dialog-actions>

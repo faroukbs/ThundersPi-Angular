@@ -1,0 +1,24 @@
+<div class="content">
+    <div class="card-header">
+        <label class="card-title">Edit Project Submission</label>
+    </div>
+    <div class="card-body">
+        <form >
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" placeholder="Title" name="title" [(ngModel)]="projectSubmission.title">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" class="form-control" placeholder="Description" name="description" [(ngModel)]="projectSubmission.description">
+            </div>
+            <div class="form-group">
+                <label>Project</label>
+                <input type="text" class="form-control" placeholder="Project" name="project" [(ngModel)]="projectSubmission.project">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success" (click)="editProjectSub()">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

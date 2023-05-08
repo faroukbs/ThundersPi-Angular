@@ -55,7 +55,7 @@ children: [
     component: ProjectComponentComponent
 
   },
-  {path : 'course' , component: CourseComponent},
+  {path : 'course' , component: CourseClientComponent},
 
   //shop routes
   {path:'shop', component: ProductsComponent},
