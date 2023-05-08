@@ -1,9 +1,9 @@
+import { ProductService } from './../../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartItem } from 'src/app/models/cart-item';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
-import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-cart',
@@ -32,10 +32,12 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.product)
     this.listCartDetails();
     this.cartItems = JSON.parse(localStorage.getItem('cartItems') || '{}');
     console.log(this.cartItems);
     console.log(this.totalPrice);
+    console.log(this.productService);
    console.log (this.getProductImages());
   }
 
@@ -58,6 +60,13 @@ export class CartComponent implements OnInit {
   incrementQuantity(theCartItem: CartItem) {
     this.cartService.addToCart(theCartItem);
     console.log(this.cartItems);
+   // for(let i = 0; i < this.cartItems.length; i++){
+      // if(this.cartItems[i].id === theCartItem.id){
+      //   this.totalPrice += this.cartItems[i].prix * this.cartItems[i].quantity; 
+      //   console.log(this.totalPrice);
+      // }
+   // }
+   this.cartService.computeCartTotals();
     this.cartItems = JSON.parse(localStorage.getItem('cartItems') || '{}');
   }
 
