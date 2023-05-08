@@ -31,6 +31,12 @@ export class UserListComponent implements OnInit {
 
   onDelete(user: User) {}
 
+  delete(id: any) {
+    this.userService.delete(id).subscribe(()=>this.userService.getAllUsers().subscribe((data: User[]) => {
+      this.usersList = data;
+    }));
+    return this.getUsersList();
+  }
 
-
+  
 }

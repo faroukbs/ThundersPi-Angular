@@ -42,6 +42,8 @@ import { AddPosttComponent } from './front/add-post/add-post.component';
 import { PostshowComponent } from './front/postshow/postshow.component';
 import { CommentManagmenttComponent } from './front/comment-managment/comment-managment.component';
 import { AffichhPostComponent } from './front/affich-post/affich-post.component';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { Role } from './models/role';
 
 
 
@@ -82,8 +84,10 @@ children: [
    {path:'product-comment',component: ProductCommentComponent},
 
   //{path:'favoriteProduct', component: WishListComponent},
-  { path: 'listProduct/:id', component: CategoryProduct },
-  { path: 'listUser', component: UserListComponent },
+  { path: 'listProduct/:id', component: CategoryProduct  ,canActivate: [AuthGuardGuard],
+  data: {roles: [Role.ADMIN]} },
+  { path: 'listUser', component: UserListComponent ,canActivate: [AuthGuardGuard],
+  data: {roles: [Role.ADMIN]}},
   { path: 'auth', component: AuthComponent },
   { path: 'forget', component: ResetPasswordComponent },
   {path: 'signup', component: SignUpComponent},
@@ -102,20 +106,29 @@ children: [
 
 
   //admin routes
-  {path: 'admin', component: BackOfficeComponent, children: [
+  {path: 'admin', component: BackOfficeComponent,canActivate: [AuthGuardGuard],
+  data: {roles: [Role.ADMIN]}, children: [
     {path: 'dashboard', component: DashboardComponent},
     {path:'project', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)},
     {path: 'quiz', loadChildren: () => import('./admin/quiz/quiz-mod.module').then(m => m.QuizModModule)},
 
     //product routes
-{ path: 'listUser', component: UserListComponent },
-{ path: 'updateProduct/:id', component: UpdateProductComponent },
-{path: 'addCategory', component: AddcategoryComponent},
-{path: 'listCategory', component: ListCategoryComponent},
-    {path: 'product/add', component: AddProductComponent},
-{ path: 'listProduct', component: ListProductComponent },
-{ path: 'addCourse', component: AddCourseComponent },
-{ path: 'listCourse', component: ListCourseComponent },
+{ path: 'listUser', component: UserListComponent ,canActivate: [AuthGuardGuard],
+data: {roles: [Role.ADMIN]}},
+{ path: 'updateProduct/:id', component: UpdateProductComponent ,canActivate: [AuthGuardGuard],
+data: {roles: [Role.ADMIN]}},
+{path: 'addCategory', component: AddcategoryComponent,canActivate: [AuthGuardGuard],
+data: {roles: [Role.ADMIN]}},
+{path: 'listCategory', component: ListCategoryComponent,canActivate: [AuthGuardGuard],
+data: {roles: [Role.ADMIN]}},
+    {path: 'product/add', component: AddProductComponent,canActivate: [AuthGuardGuard],
+    data: {roles: [Role.ADMIN]}},
+{ path: 'listProduct', component: ListProductComponent ,canActivate: [AuthGuardGuard],
+data: {roles: [Role.ADMIN]}},
+{ path: 'addCourse', component: AddCourseComponent,canActivate: [AuthGuardGuard],
+data: {roles: [Role.ADMIN]} },
+{ path: 'listCourse', component: ListCourseComponent,canActivate: [AuthGuardGuard],
+data: {roles: [Role.ADMIN]} },
   ]},
 
   {path: 'meet', component: JitsiComponent},
@@ -123,20 +136,27 @@ children: [
 
 
 
-  { path: 'libelem', component: LibElmListComponent },
-  { path: 'libcat', component: ListLibcatComponent },
-  { path: 'addlib', component: AddLibElementComponent },
-  { path: 'updateCourse', component: UpdateCourseComponent },
+  { path: 'libelem', component: LibElmListComponent,canActivate: [AuthGuardGuard],
+  data: {roles: [Role.ADMIN]} },
+  { path: 'libcat', component: ListLibcatComponent,canActivate: [AuthGuardGuard],
+  data: {roles: [Role.ADMIN]} },
+  { path: 'addlib', component: AddLibElementComponent ,canActivate: [AuthGuardGuard],
+  data: {roles: [Role.ADMIN]}},
+  { path: 'updateCourse', component: UpdateCourseComponent,canActivate: [AuthGuardGuard],
+  data: {roles: [Role.ADMIN]} },
 
    
   
   //Post Paths:
-  { path: 'addPost', component: AddPostComponent },
+  { path: 'addPost', component: AddPostComponent ,canActivate: [AuthGuardGuard],
+  data: {roles: [Role.ADMIN]}},
   { path: 'listPost/affichpost/:id', component: AffichPostComponent },
-  { path: 'listPost/affichpostadmin/:id', component: AffichhPostComponent },
+  { path: 'listPost/affichpostadmin/:id', component: AffichhPostComponent,canActivate: [AuthGuardGuard],
+  data: {roles: [Role.ADMIN]} },
   { path: 'more/:id', component: AffichPostComponent },
 
-  { path: 'listPost', component: PostManagmentComponent },
+  { path: 'listPost', component: PostManagmentComponent, canActivate: [AuthGuardGuard],
+  data: {roles: [Role.ADMIN]} },
   { path: 'commentpost', component: CommentManagmenttComponent },
   { path: 'editPost/:id', component: EditPostFrontComponent},
   { path: 'addpostt', component: AddPosttComponent },

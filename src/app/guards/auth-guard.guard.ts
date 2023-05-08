@@ -25,9 +25,10 @@ if (route.data['roles']?.indexOf(this.currentUser.role) == -1){
 }
         return true;
       }
-      this.router.navigate(['/login']);
+      this.router.navigate(['/auth']);
     return true;
   }
   
 }
+
 

@@ -66,6 +66,9 @@ export class AuthenticationService {
     };
     return this.http.put(this.baseupdateurl + '/update', user, config);
   }
+  delete(id:number): any{
+    return this.http.delete(`${this.baseupdateurl}/delete/${id}`);
+  }
 
 }
 
