@@ -1,4 +1,8 @@
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { User } from 'src/app/models/user';
+import { Role } from 'src/app/models/role';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +23,23 @@ encapsulation: ViewEncapsulation.None,
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  currentUser : User = new User();
+
+  constructor(private AuthenticationService :AuthenticationService, private router: Router) { 
+    this.AuthenticationService.currentUser.subscribe(data => {
+      this.currentUser = data
+    })
+  }
+
+  isAdmin(){
+    return this.currentUser?.role === Role.ADMIN
+  }
+
+  logOut() {
+    this.AuthenticationService.logOut();
+    this.router.navigate(['auth'])
+  }
+
 
   ngOnInit(): void {
   }

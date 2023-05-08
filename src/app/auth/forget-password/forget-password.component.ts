@@ -28,8 +28,8 @@ export class ResetPasswordComponents implements OnInit {
   }
 
   resetPassword(){
-    this.ResetServiceService.postResetPassword(this.resetpass.password).subscribe((data) => {
-      this.router.navigate(['/auth'])
+    this.ResetServiceService.postResetPassword(this.resetpass).subscribe((data) => {
+      this.router.navigate(['auth'])
     })
     
   }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { RecursiveTemplateAstVisitor } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ResetPass } from '../common/reset-pass';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class ResetServiceService {
     return this.httpClient.get<any>('http://localhost:8181/api/reset/reset_password?token='+token)
   }
 
-  postResetPassword(reset: String):Observable<any>{
+  postResetPassword(reset: ResetPass):Observable<any>{
     return this.httpClient.post<any>('http://localhost:8181/api/reset/reset_password', reset)
   }
 

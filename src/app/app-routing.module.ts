@@ -66,8 +66,8 @@ children: [
 
   //Projects Part
   
-  { path: 'auth', component: AuthComponent },
-  { path: 'Forget', component: ResetPasswordComponent },
+  { path: 'auths', component: AuthComponent },
+ // { path: 'Forget', component: ResetPasswordComponent },
   { path: 'sign', component: SignUpComponent },
 
 
