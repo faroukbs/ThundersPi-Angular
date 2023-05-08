@@ -1,0 +1,40 @@
+
+<h1 mat-dialog-title>Configure Questions</h1>
+<div mat-dialog-content>
+<div class="container card border-primary h-100" *ngFor="let q of questions , let i = index">
+    <div class="row">
+   
+    <mat-form-field appearance="outline"  class="col">
+    
+        <input matInput [(ngModel)]="questions[i].title" type="text" class="form-control"  id="questionText" placeholder="Add question here" name="questions" />
+       
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col">
+        <mat-label>Mark/Note</mat-label>
+        <input matInput [(ngModel)]="questions[i].mark" type="number" class="form-control"  id="mark" placeholder="Add mark here" name="mark" />
+           </mat-form-field>
+    </div>
+    <div class="form-group col" name="questionAnswer" *ngFor="let ans of questions[i].questionAnswers , let j = index">
+<mat-form-field appearance="outline" class="col">
+    <mat-label>Question Answer</mat-label>
+    
+        <input matInput [(ngModel)]="questions[i].questionAnswers[j].content" type="text" class="form-control"  id="questionAnswer" placeholder="Add answer here" name="questions" />
+</mat-form-field>
+<mat-form-field appearance="outline" class="col">
+    <mat-label>Correct?</mat-label>
+        <mat-select matNativeControl [(ngModel)]="questions[i].questionAnswers[j].correct"
+        id="correct" name="correct">
+            <option value="true">Correct</option>
+            <option value="false">Incorrect</option>
+        </mat-select>
+</mat-form-field>
+</div>
+<button mat-button class="btn btn-info" (click)="addQuestionAnswer(i)">Add Answer</button>
+</div>
+</div>
+<button mat-button class="btn btn-success" (click)="addQuestion()">Add Question</button>
+
+<div mat-dialog-actions>
+    <button mat-button class="btn btn-alert" (click)="onNoClick()">Cancel</button>
+    <button mat-button  cdkFocusInitial class="btn btn-danger" (click)="add()">Add</button>
+</div>

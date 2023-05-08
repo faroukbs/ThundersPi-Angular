@@ -1,68 +1,78 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { Course } from 'src/app/models/course';
 import { Quiz } from 'src/app/models/riadh/quiz.model';
 import { CourseService } from 'src/app/services/course.service';
 import { QuizService } from 'src/app/services/riadh/quiz.service';
-import { QuizCategoryAddComponent } from '../quiz-category/quiz-category-add/quiz-category-add.component';
-import { MatDialog, MatDialogConfig,MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogConfig,MatDialogRef } from '@angular/material/dialog';
 import { QuizCategory } from 'src/app/models/riadh/quiz-category';
 import { Observable, OperatorFunction, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { NoopScrollStrategy } from '@angular/cdk/overlay';
 import {Overlay} from '@angular/cdk/overlay';
+import { QuizCategoryService } from 'src/app/services/riadh/quiz-category.service';
+import { Question } from 'src/app/models/riadh/question.model';
+import { QuestionAnswer } from 'src/app/models/riadh/question-answer.model';
+
 
 @Component({
   selector: 'app-quiz-add',
   templateUrl: './quiz-add.component.html',
   styleUrls: ['./quiz-add.component.css'],
-  providers: [MatDialog]
 })
 export class QuizAddComponent implements OnInit {
 
-  @ViewChild('quizCategory',{read:QuizCategoryAddComponent})
-  quizCategoryComponent!: QuizCategoryAddComponent;
+  // @ViewChild('quizCategory',{read:QuizCategoryAddComponent})
+  // quizCategoryComponent!: QuizCategoryAddComponent;
   
   quiz : Quiz;
   listCourses: Course[];
   listCategories : QuizCategory[];
   quizCategory : QuizCategory;
-  constructor(private quizService:QuizService, private courseService : CourseService,
+  questions : Question[] = [new Question()];
+  constructor(private quizService:QuizService, private quizCategoryService:QuizCategoryService, private courseService : CourseService,
     public dialog : MatDialog , public overlay : Overlay) { }
 
-    openDialog(event: any) {
-      const dialogConfig = new MatDialogConfig();
-dialogConfig.width = '400px';
-dialogConfig.height = '300px';
-dialogConfig.data =  {title: event.data, description: ''}
-dialogConfig.scrollStrategy = this.overlay.scrollStrategies.noop();
-      const dialogRef = this.dialog.open(QuizCategoryAddComponent, 
-       dialogConfig
-        
-      );
-      dialogRef.afterClosed().subscribe(result => {
-        this.quizCategoryComponent.data = result;
-        this.quizCategoryComponent.setQuizCategory();
-        this.quiz.quizCategories.push(this.quizCategoryComponent.quizCateg);
+  openQuestionConfig()
+  {
+   const dialogRef = this.dialog.open(DialogQuestion, {
+      data: {questions : this.questions},
+      width: '800px',
+      height: '800px',
+   });
+    dialogRef.afterClosed().subscribe(result => {
+      if (dialogRef.componentInstance.adding){
+      this.questions = dialogRef.componentInstance.questions;
+      console.log(this.questions);
+      }
+      else
+      console.log('The dialog was closed');
+    });
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog,
+      {
+        data: {title: '', description: ''}
+        });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (dialogRef.componentInstance.adding){
+      this.quizCategory = new QuizCategory(dialogRef.componentInstance.category.title, dialogRef.componentInstance.category.description);
+      console.log(this.quizCategory);
+      this.quizCategoryService.addQuiz(this.quizCategory).subscribe(
+        (result) => {
+          console.log(result);
+
+          console.log("categ "+this.quizCategory);
+          //this.listCategories.fill(this.quizCategory);
+        }
+
+      )
+      
     }
-    );}
+      else
+      console.log('The dialog was closed');
+    });
+  }
 
-   setNewCategory(event : any)
-   {
-     this.quizCategory = event.item;
-   }
-   // search = (text$: Observable<string>) =>
-	//	text$.pipe(
-	//		debounceTime(200),
-	//		distinctUntilChanged(),
-	//		switchMap((searchText) =>
-	//			searchText.length < 2 ? [] : this.loadCategoriesWithSearch(searchText)
-	//		),
-	//	);
-
-    loadCategoriesWithSearch(searchText: string) : QuizCategory[]
-    {
-      return this.listCategories.filter(v => new RegExp(searchText, 'gi').test(v.title)).slice(0, 10);
-
-    }
 
   ngOnInit(): void {
     this.quiz = new Quiz();
@@ -71,7 +81,7 @@ dialogConfig.scrollStrategy = this.overlay.scrollStrategies.noop();
   }
   getCategories()
   {
-    this.quizCategoryComponent.quizCategoryService.getAllQuiz().subscribe(
+    this.quizCategoryService.getAllQuiz().subscribe(
       (categories : QuizCategory[]) => {
         this.listCategories = categories as QuizCategory[];
       }
@@ -87,6 +97,9 @@ dialogConfig.scrollStrategy = this.overlay.scrollStrategies.noop();
   }
 
   addQuiz(): void {
+    this.quiz.quizCategories = this.listCategories;
+    this.quiz.questions = this.questions;
+    console.log(this.quiz);
     this.quizService.addQuiz(this.quiz).subscribe(
       //redirect to quiz list page
       (result) => {	
@@ -94,4 +107,70 @@ dialogConfig.scrollStrategy = this.overlay.scrollStrategies.noop();
       });
   }
 
+}
+
+export interface DialogData
+{
+  title : string;
+  description : string;
+}
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: './dialog-overview-example-dialog.html',
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+    public adding: boolean = false;
+    category : QuizCategory;
+    public title: string;
+    public description: string;
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  add(): void { 
+    //this.category = new QuizCategory(this.data.title,this.data.description);
+    this.adding =true;
+    console.log(this.data.title);
+    this.category = new QuizCategory(this.title,this.description);
+    this.dialogRef.close(this.category);
+  }
+}
+
+export interface QuestionsData
+{
+  questions: Question[];
+}
+@Component({
+  selector: 'dialog-question',
+  templateUrl: './question-dialog.html',
+})
+export class DialogQuestion {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogQuestion>,
+    @Inject(MAT_DIALOG_DATA) public data: QuestionsData,
+  ) {
+  }
+    public adding: boolean = false;
+    public questions: Question[]= [new Question()];
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  addQuestion(): void {
+    let question = new Question();
+    question.questionAnswers=[new QuestionAnswer()]
+    this.questions.push(question);
+  }
+  addQuestionAnswer(index : number): void {
+    this.questions[index].questionAnswers.push(new QuestionAnswer());
+  }
+  add(): void { 
+    //this.category = new QuizCategory(this.data.title,this.data.description);
+    
+    this.dialogRef.close(this.questions);
+  }
 }

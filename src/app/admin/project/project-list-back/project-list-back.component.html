@@ -4,33 +4,86 @@
           <div class="col-md-12">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">Add Project</h5>
+                <h5 class="card-title">Project List</h5>
               </div>
               <div class="card-body">
-	<a routerLink="/admin/project/add">
+	<button class="btn btn-primary" routerLink="/admin/project/add">
 		Add New Project
-	</a>
-
-<table class="table-responsive">
-  <tr>
+  </button>
+  <div class="table-responsive">
+<table class="table">
+  <thead>
     <th>ID</th>
     <th>Name</th>
     <th>MaxMarks</th>
-	<th>Actions</th>
-  </tr>
+    <th>Detail</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
   <tr *ngFor="let project of projects">
     <td>{{project.id}}</td>
     <td>{{project.name}}</td>
     <td>{{project.maxMarks}}</td>
-	<td>
-		<a routerLink="admin/project/detail/{{project.id}}">Detail</a>
-		<a routerLink="admin/project/edit/{{project.id}}">Edit</a>
-		<button title="delete project" (click)="delete(project)">x</button>
-	</td>
+	
+    <td>
+    
+		<button class="btn btn-info" routerLink="admin/project/detail/{{project.id}}">Detail</button> </td>
+    <td>
+		<button class="btn btn-info" routerLink="admin/project/edit/{{project.id}}">Edit</button></td>
+    <td>
+		<button class="btn btn-danger" title="delete project" (click)="delete(project)">x</button></td>
+	
   </tr>
+  </tbody>
 </table>
+</div>
       </div>
       </div>
     </div>
   </div>
+  <div class="row">
+      
+    <div class="col-md-12">
+      <div class="card card-user">
+        <div class="card-header">
+          <h5 class="card-title">Project Submission List</h5>
+        </div>
+        <div class="card-body">
+<button class="btn btn-primary" routerLink="/admin/project/addSub">
+Add New Project Submission
+</button>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<th>ID</th>
+<th>Title</th>
+<th>Description</th>
+<th>Marks</th>
+<th>Detail</th>
+<th>Edit</th>
+<th>Delete</th>
+</thead>
+<tbody>
+<tr *ngFor="let projectSub of projectSubs">
+<td>{{projectSub.id}}</td>
+<td>{{projectSub.title}}</td>
+<td>{{projectSub.description}}</td>
+<td>{{projectSub.marks}}</td>
+<td>
+
+<button class="btn btn-info" routerLink="admin/project/sub/detail/{{projectSub.id}}">Detail</button> </td>
+<td>
+<button class="btn btn-info" routerLink="admin/project/sub/edit/{{projectSub.id}}">Edit</button></td>
+<td>
+<button class="btn btn-danger" title="delete project" (click)="deleteSub(projectSub)" >x</button></td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>

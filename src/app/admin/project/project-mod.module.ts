@@ -10,6 +10,9 @@ import { ProjectFileComponent } from './project-file/project-file.component';
 import { ProjectListBackComponent } from './project-list-back/project-list-back.component';
 import { UpdateProjectComponent } from './update-project/update-project.component';
 import { ProjectComponent } from './project.component';
+import { ProjectSubComponent } from './project-sub/project-sub/project-sub.component';
+import { ProjectSubAddComponent } from './project-sub/project-sub-add/project-sub-add.component';
+import { ProjectSubEditComponent } from './project-sub/project-sub-edit/project-sub-edit.component';
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import { ProjectComponent } from './project.component';
 
     //Leads to project file sub Comp
     ProjectFileComponent,
+     ProjectSubComponent,
+     ProjectSubAddComponent,
+     ProjectSubEditComponent,
   ],
   imports: [
     CommonModule,

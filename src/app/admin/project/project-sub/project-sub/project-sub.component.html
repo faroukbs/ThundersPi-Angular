@@ -1,0 +1,36 @@
+<div class="content">
+    <div class="card-header">
+        <label class="card-title">Project Submission Details</label>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>{{projectSub.title | uppercase}} Details</h2>
+                            <div><span>Id: </span>{{projectSub.id}}</div>
+                            <div>
+                                <p>
+                                    Title: {{projectSub.title}}
+                                </p>
+                                <p>
+                                    Description: {{projectSub.description}}
+                                </p>
+                                <p>
+                                    Project: {{projectSub.project}}
+                                </p>
+                                <p>
+                                    User: {{projectSub.user}}
+                                </p>
+                            </div>
+                            <button (click)="goBack()">go back</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
