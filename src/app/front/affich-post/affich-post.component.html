@@ -1,0 +1,80 @@
+<div class="wrapper ">
+  <app-sidebar></app-sidebar>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-nav></app-nav>
+    <!-- End Navbar -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md">
+
+
+        <div class="comments-container" *ngIf="isReady" style=" padding: 10px;">
+          <div class="post-container">
+            <div class="post-header" style="text-align: center
+            ;">
+              <h1 style="text-align: center;margin-bottom: 60px" class="post-title">{{post.title}}</h1>
+
+              <img  src="http://localhost:8181/File/file/{{post?.files?.id}}" class="post-image" >
+            </div>
+            <div class="post-content">
+              <p class="post-text" style="margin-top: 90px" [innerHTML]="post.content"></p>
+             
+             
+                  <button type="button" class="btn btn-danger" (click)="supprimer(post)">
+                      <i class="fas fa-trash-alt" style="display: block; margin: auto;"></i>
+                    </button>
+                    <div style="float: right;margin-top: 20px">
+              <a href="/editPost/{{ post.postId }}" >Edit Post</a>
+              &nbsp;
+              
+              <label >Created: {{post.created_At}}</label>
+
+            </div>
+              <div style="text-align: center;margin-top: 100px" class="post-actions">
+                <button class="btn btn-primary"  (click)="addlike(post)">
+                  <i class="fa fa-thumbs-up" ></i>Like {{nbrlike}}
+                </button>
+                &nbsp;
+                <button class="btn btn-primary" (click)="adddislike(post)">
+                  <i class="fas fa-thumbs-down"></i>Dislike {{nbrdislike}}
+                </button>
+              </div>
+            </div>
+          </div>
+          <h3 style="text-align: center;margin-top: 80px" class="post-title">See the comments</h3>
+          <ul id="comments-list" class="comments-list"  style="text-align: center;" >
+            <li>
+              <div class="comment-main-level" style="margin-top: 60px;">
+                <!-- Avatar -->
+                <!-- Contenedor del Comentario -->
+                <div class="comment-box" *ngFor="let c of post.comment">
+                  <div class="comment-head">
+                    <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Ghofrane Ferchichi</a></h6>
+                    <span>hace 20 minutos</span>
+                    <i class="fa fa-reply"></i>
+                    <i class="fa fa-heart"></i>
+                    <div class="comment-content">
+                      {{c.content}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Respuestas de los comentarios -->
+            </li>
+          </ul>
+          <form [formGroup]="cmtform">
+            <div class="input-group mb-3">
+              <textarea formControlName="content" type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="ajouter(post.postId)">comment</button>
+              </div>
+            </div>
+          </form>
+        </div>
+         </div>
+    </div>
+  </div>
+  <app-footer>
+</app-footer>

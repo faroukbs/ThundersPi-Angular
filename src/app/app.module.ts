@@ -104,6 +104,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatStepperModule } from '@angular/material/stepper';
+import { AffichhPostComponent } from './front/affich-post/affich-post.component';
 @NgModule({
   declarations: [
 
@@ -176,7 +177,8 @@ import { MatStepperModule } from '@angular/material/stepper';
       AffichPostComponent,
       EditPostFrontComponent,
       AddPosttComponent,
-      CommentManagmenttComponent
+      CommentManagmenttComponent,
+      AffichhPostComponent
 
   ],
   imports: [
