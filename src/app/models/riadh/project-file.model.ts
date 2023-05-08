@@ -1,4 +1,5 @@
 export class ProjectFile {
+    id : number;
     data! : Blob;
     name!: string;
     type!: string;

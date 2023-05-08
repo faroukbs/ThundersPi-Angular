@@ -29,13 +29,13 @@ export class QuizService {
     return this.httpClient.get<Quiz>(url);
   }
 
-  addQuiz(formData : FormData) : Observable<any>
+  addQuiz(quiz : Quiz) : Observable<any>
   {
-    return this.httpClient.post(this.baseUrl + '/', formData);
+    return this.httpClient.post(this.baseUrl + '/', quiz);
   }
-  updateQuiz(formData : FormData) : Observable<any>
+  updateQuiz(quiz : Quiz) : Observable<any>
   {
-    return this.httpClient.put(this.baseUrl + '/',formData);
+    return this.httpClient.put(this.baseUrl + '/',quiz);
   }
 
   deleteQuiz(quizId: number)

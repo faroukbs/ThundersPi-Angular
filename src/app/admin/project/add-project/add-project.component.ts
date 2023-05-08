@@ -131,13 +131,14 @@ export class AddProjectComponent implements OnInit {
 		}
 	 // } */
 	
-  @Input() project: Project = {id: undefined, name: '', maxMarks: 0 , course: null  ,user: this.projectService.storageUserAsStr , projectFiles: []};
+  @Input() project: Project = {id: undefined, name: '', description : '', maxMarks: 0 , course: null  ,user: this.projectService.storageUserAsStr , projectFiles: []};
 	constructor(private formBuilder:FormBuilder ,
 		public projectService: ProjectService,public projectFileService:ProjectFileService, private location: Location) { }
 	ngOnInit() {
 		this.fileInfos = this.projectFileService.getProjectFiles();
 	}
 	addProject(): void {
+		
 		 this.projectService.addProject(this.project).subscribe(project => {
 			console.log(project);
 			this.project = project;

@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
     this.cartItems = JSON.parse(localStorage.getItem('cartItems') || '{}');
     console.log(this.cartItems);
     console.log(this.totalPrice);
-    this.getProductImages();
+   console.log (this.getProductImages());
   }
 
   listCartDetails() {
