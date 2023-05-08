@@ -84,8 +84,7 @@ children: [
    {path:'product-comment',component: ProductCommentComponent},
 
   //{path:'favoriteProduct', component: WishListComponent},
-  { path: 'listProduct/:id', component: CategoryProduct  ,canActivate: [AuthGuardGuard],
-  data: {roles: [Role.ADMIN]} },
+  { path: 'listProduct/:id', component: CategoryProduct },
   { path: 'listUser', component: UserListComponent ,canActivate: [AuthGuardGuard],
   data: {roles: [Role.ADMIN]}},
   { path: 'auth', component: AuthComponent },
