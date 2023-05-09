@@ -10,7 +10,7 @@ import { ListCourseComponent } from './admin/list-course/list-course.component';
 import { CategoryProduct } from './models/category-product';
 import { ListProductComponent } from './admin/list-product/list-product.component';
 import { ProductsComponent } from './front/shop/products/products.component';
-import { AddCourseComponent } from "./admin/add-course/add-course.component";
+import { AddCourseComponent } from './admin/add-course/add-course.component';
 import { LibElmListComponent } from './admin/lib-elm-list/lib-elm-list.component';
 import { ListLibcatComponent } from './admin/list-libcat/list-libcat.component';
 import { AddLibElementComponent } from './admin/add-lib-element/add-lib-element.component';
@@ -45,128 +45,187 @@ import { AffichhPostComponent } from './front/affich-post/affich-post.component'
 import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { Role } from './models/role';
 
-
-
-
 const routes: Routes = [
-//General empty page and its children FRONT
-{path: '', component: HomeComponent},
-{path : 'p', component:EmptyPageComponent,
-children: [
+  //General empty page and its children FRONT
+  { path: '', component: HomeComponent },
   {
-    path : 'project',
-    component: ProjectComponentComponent
+    path: 'p',
+    component: EmptyPageComponent,
+    children: [
+      {
+        path: 'project',
+        component: ProjectComponentComponent,
+      },
+      { path: 'course', component: CourseClientComponent },
 
+      //shop routes
+      { path: 'shop', component: ProductsComponent },
+      { path: 'products/:id', component: SingleProductComponent },
+      { path: 'cart-details', component: CartComponent },
+      { path: 'listProduct/:id', component: ProductbycatComponent },
+      { path: 'favoriteProduct', component: WishlistComponent },
+    ],
   },
-  {path : 'course' , component: CourseClientComponent},
+  { path: 'courses-client', component: CourseClientComponent },
+  { path: 'courses-list/:id', component: CourseListClientComponent },
 
-  //shop routes
-  {path:'shop', component: ProductsComponent},
-  {path: 'products/:id', component: SingleProductComponent},
-  {path: 'cart-details', component: CartComponent},
-  { path: 'listProduct/:id', component: ProductbycatComponent },
-  {path:'favoriteProduct', component: WishlistComponent},
+  //{path: 'order-history', component: OrderHistoryComponent},
 
-
-]},
-{ path: 'courses-client', component: CourseClientComponent },
-{ path: 'courses-list/:id', component: CourseListClientComponent },
-
-
-
-
-
-
-
-
-//{path: 'order-history', component: OrderHistoryComponent},
-
-   {path:'product-comment',component: ProductCommentComponent},
+  { path: 'product-comment', component: ProductCommentComponent },
 
   //{path:'favoriteProduct', component: WishListComponent},
   { path: 'listProduct/:id', component: CategoryProduct },
-  { path: 'listUser', component: UserListComponent ,canActivate: [AuthGuardGuard],
-  data: {roles: [Role.ADMIN]}},
+  {
+    path: 'listUser',
+    component: UserListComponent,
+    canActivate: [AuthGuardGuard],
+    data: { roles: [Role.ADMIN] },
+  },
   { path: 'auth', component: AuthComponent },
   { path: 'forget', component: ResetPasswordComponent },
-  {path: 'signup', component: SignUpComponent},
-   {path: 'reset',component: ResetPasswordComponents},
-
+  { path: 'signup', component: SignUpComponent },
+  { path: 'reset', component: ResetPasswordComponents },
 
   //Projects Part
-  
+
   { path: 'auths', component: AuthComponent },
- // { path: 'Forget', component: ResetPasswordComponent },
+  // { path: 'Forget', component: ResetPasswordComponent },
 
   { path: 'auth', component: AuthComponent },
   { path: 'Forget', component: ResetPasswordComponent },
   { path: 'sign', component: SignUpComponent },
 
-
-
   //admin routes
-  {path: 'admin', component: BackOfficeComponent,canActivate: [AuthGuardGuard],
-  data: {roles: [Role.ADMIN]}, children: [
-    {path: 'dashboard', component: DashboardComponent},
-    {path:'project', loadChildren: () => import('./admin/project/project-mod.module').then(m => m.ProjectModModule)},
-    {path: 'quiz', loadChildren: () => import('./admin/quiz/quiz-mod.module').then(m => m.QuizModModule)},
+  {
+    path: 'admin',
+    component: BackOfficeComponent,
+    canActivate: [AuthGuardGuard],
+    data: { roles: [Role.ADMIN] },
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      {
+        path: 'project',
+        loadChildren: () =>
+          import('./admin/project/project-mod.module').then(
+            (m) => m.ProjectModModule
+          ),
+      },
+      {
+        path: 'quiz',
+        loadChildren: () =>
+          import('./admin/quiz/quiz-mod.module').then((m) => m.QuizModModule),
+      },
 
-    //product routes
-{ path: 'listUser', component: UserListComponent ,canActivate: [AuthGuardGuard],
-data: {roles: [Role.ADMIN]}},
-{ path: 'updateProduct/:id', component: UpdateProductComponent ,canActivate: [AuthGuardGuard],
-data: {roles: [Role.ADMIN]}},
-{path: 'addCategory', component: AddcategoryComponent,canActivate: [AuthGuardGuard],
-data: {roles: [Role.ADMIN]}},
-{path: 'listCategory', component: ListCategoryComponent,canActivate: [AuthGuardGuard],
-data: {roles: [Role.ADMIN]}},
-    {path: 'product/add', component: AddProductComponent,canActivate: [AuthGuardGuard],
-    data: {roles: [Role.ADMIN]}},
-{ path: 'listProduct', component: ListProductComponent ,canActivate: [AuthGuardGuard],
-data: {roles: [Role.ADMIN]}},
-{ path: 'addCourse', component: AddCourseComponent,canActivate: [AuthGuardGuard],
-data: {roles: [Role.ADMIN]} },
-{ path: 'listCourse', component: ListCourseComponent,canActivate: [AuthGuardGuard],
-data: {roles: [Role.ADMIN]} },
-  ]},
+      //product routes
+      {
+        path: 'listUser',
+        component: UserListComponent,
+        canActivate: [AuthGuardGuard],
+        data: { roles: [Role.ADMIN] },
+      },
+      {
+        path: 'updateProduct/:id',
+        component: UpdateProductComponent,
+        canActivate: [AuthGuardGuard],
+        data: { roles: [Role.ADMIN] },
+      },
+      {
+        path: 'addCategory',
+        component: AddcategoryComponent,
+        canActivate: [AuthGuardGuard],
+        data: { roles: [Role.ADMIN] },
+      },
+      {
+        path: 'listCategory',
+        component: ListCategoryComponent,
+        canActivate: [AuthGuardGuard],
+        data: { roles: [Role.ADMIN] },
+      },
+      {
+        path: 'product/add',
+        component: AddProductComponent,
+        canActivate: [AuthGuardGuard],
+        data: { roles: [Role.ADMIN] },
+      },
+      {
+        path: 'listProduct',
+        component: ListProductComponent,
+        canActivate: [AuthGuardGuard],
+        data: { roles: [Role.ADMIN] },
+      },
+      {
+        path: 'addCourse',
+        component: AddCourseComponent,
+        canActivate: [AuthGuardGuard],
+        data: { roles: [Role.ADMIN] },
+      },
+      {
+        path: 'listCourse',
+        component: ListCourseComponent,
+        canActivate: [AuthGuardGuard],
+        data: { roles: [Role.ADMIN] },
+      },
+    ],
+  },
 
-  {path: 'meet', component: JitsiComponent},
-  {path:'quit' , component: QuitComponent},
+  { path: 'meet', component: JitsiComponent },
+  { path: 'quit', component: QuitComponent },
 
+  {
+    path: 'libelem',
+    component: LibElmListComponent,
+    canActivate: [AuthGuardGuard],
+    data: { roles: [Role.ADMIN] },
+  },
+  {
+    path: 'libcat',
+    component: ListLibcatComponent,
+    canActivate: [AuthGuardGuard],
+    data: { roles: [Role.ADMIN] },
+  },
+  {
+    path: 'addlib',
+    component: AddLibElementComponent,
+    canActivate: [AuthGuardGuard],
+    data: { roles: [Role.ADMIN] },
+  },
+  {
+    path: 'updateCourse',
+    component: UpdateCourseComponent,
+    canActivate: [AuthGuardGuard],
+    data: { roles: [Role.ADMIN] },
+  },
 
-
-  { path: 'libelem', component: LibElmListComponent,canActivate: [AuthGuardGuard],
-  data: {roles: [Role.ADMIN]} },
-  { path: 'libcat', component: ListLibcatComponent,canActivate: [AuthGuardGuard],
-  data: {roles: [Role.ADMIN]} },
-  { path: 'addlib', component: AddLibElementComponent ,canActivate: [AuthGuardGuard],
-  data: {roles: [Role.ADMIN]}},
-  { path: 'updateCourse', component: UpdateCourseComponent,canActivate: [AuthGuardGuard],
-  data: {roles: [Role.ADMIN]} },
-
-   
-  
   //Post Paths:
-  { path: 'addPost', component: AddPostComponent ,canActivate: [AuthGuardGuard],
-  data: {roles: [Role.ADMIN]}},
+  {
+    path: 'addPost',
+    component: AddPostComponent,
+    canActivate: [AuthGuardGuard],
+    data: { roles: [Role.ADMIN] },
+  },
   { path: 'listPost/affichpost/:id', component: AffichPostComponent },
-  { path: 'listPost/affichpostadmin/:id', component: AffichhPostComponent,canActivate: [AuthGuardGuard],
-  data: {roles: [Role.ADMIN]} },
+  {
+    path: 'listPost/affichpostadmin/:id',
+    component: AffichhPostComponent,
+    canActivate: [AuthGuardGuard],
+    data: { roles: [Role.ADMIN] },
+  },
   { path: 'more/:id', component: AffichPostComponent },
 
-  { path: 'listPost', component: PostManagmentComponent, canActivate: [AuthGuardGuard],
-  data: {roles: [Role.ADMIN]} },
+  {
+    path: 'listPost',
+    component: PostManagmentComponent,
+    canActivate: [AuthGuardGuard],
+    data: { roles: [Role.ADMIN] },
+  },
   { path: 'commentpost', component: CommentManagmenttComponent },
-  { path: 'editPost/:id', component: EditPostFrontComponent},
+  { path: 'editPost/:id', component: EditPostFrontComponent },
   { path: 'addpostt', component: AddPosttComponent },
   { path: 'showpost', component: PostshowComponent },
-
-
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

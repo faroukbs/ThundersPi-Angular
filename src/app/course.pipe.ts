@@ -19,4 +19,4 @@ export class CoursePipe implements PipeTransform {
     });
   }
 
-}
+} 

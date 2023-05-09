@@ -98,7 +98,7 @@ export class JitsiComponent implements OnInit,AfterViewInit {
 
       handleVideoConferenceLeft = () => {
           console.log("handleVideoConferenceLeft");
-          this.router.navigate(['/quit']); // ecit screen route when the call is ended
+          this.router.navigate(['/']); // ecit screen route when the call is ended
       }
 
       handleMuteStatus = (audio:any) => {
