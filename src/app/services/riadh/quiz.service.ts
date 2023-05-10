@@ -16,6 +16,11 @@ export class QuizService {
   {
     return this.httpClient.get<Quiz[]>(this.baseUrl + '/');
   }
+  getQuizByCourseId(courseId : number): Observable<Quiz[]>
+  {
+    const url = `${this.baseUrl}/course/${courseId}`;
+    return this.httpClient.get<Quiz[]>(url);
+  }
 
   getQuizByCourse(courseId : number): Observable<Quiz[]>
   {
@@ -40,7 +45,7 @@ export class QuizService {
 
   deleteQuiz(quizId: number)
   {
-    const url = `${this.baseUrl}/${quizId}`
+    const url = `${this.baseUrl}/del${quizId}`
     return this.httpClient.delete(url);
   }
 

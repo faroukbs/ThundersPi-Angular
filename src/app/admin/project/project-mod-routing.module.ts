@@ -7,15 +7,17 @@ import { UpdateProjectComponent } from './update-project/update-project.componen
 import { ProjectListBackComponent } from './project-list-back/project-list-back.component';
 import { DeleteProjectComponent } from './delete-project/delete-project.component';
 import { AddProjectComponent } from './add-project/add-project.component';
+import { AddProjectSubmissionComponent } from 'src/app/front/project/add-project-submission/add-project-submission.component';
+import { ProjectSubAddComponent } from './project-sub/project-sub-add/project-sub-add.component';
 
 const routes: Routes = [
   
     
     {path: 'add', component: AddProjectComponent},
-    {path: 'delete', component: DeleteProjectComponent},
-    {path: 'update', component: UpdateProjectComponent},
+    {path: 'update/:id', component: UpdateProjectComponent},
     {path: 'list', component: ProjectListBackComponent},
-    {path: 'details', component: ProjectBackDetailsComponent},
+    {path: 'details/:id', component: ProjectBackDetailsComponent},
+    {path:'addSub',component:ProjectSubAddComponent},
     {path: 'file', loadChildren: () => import('./project-file/project-file.module').then(m => m.ProjectFileModule)}, 
 ];
 

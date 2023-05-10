@@ -1,1 +1,20 @@
-<p>quiz works!</p>
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Quiz {{quiz.name}}</h4>
+    </div>
+    <div class="card-body">
+        <!--
+        <div *ngFor="let q of quiz.questions" >
+            <div class="card-user">
+                <div class="card-body">
+                    <div class="author">
+                        <h5 class="title">{{q.title}}</h5>
+                        <p class="description" *ngFor="let an of q.questionAnswers">
+                            {{an.content}}
+                        </p>
+                </div>
+            </div>
+        </div>-->
+        <button class="btn btn-primary" (click)="takeQuiz()">Take Quiz</button>
+    </div>
+</div>

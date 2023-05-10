@@ -3,12 +3,12 @@
     <div >
       <div class="form-group">
           <label>Name:
-              <input class="input-group-text" [(ngModel)]="project.name" placeholder="project Name"/>
+              <input class="input-group-text" [(ngModel)]="project.name" [ngModelOptions]="{standalone: true}" placeholder="project Name"/>
           </label>
         </div>
       <div class="form-group">
           <label>MaxMarks:
-              <input class="input-group-text" [(ngModel)]="project.maxMarks" placeholder="project MaxMarks"/>
+              <input class="input-group-text" [(ngModel)]="project.maxMarks" [ngModelOptions]="{standalone: true}" placeholder="project MaxMarks"/>
           </label>
         </div>
     </div>

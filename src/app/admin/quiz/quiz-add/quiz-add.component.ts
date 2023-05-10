@@ -28,6 +28,7 @@ export class QuizAddComponent implements OnInit {
   listCategories : QuizCategory[];
   quizCategory : QuizCategory;
   questions : Question[] = [new Question()];
+  course: Course;
   constructor(private quizService:QuizService, private quizCategoryService:QuizCategoryService, private courseService : CourseService,
     public dialog : MatDialog , public overlay : Overlay) { }
 
@@ -62,6 +63,7 @@ export class QuizAddComponent implements OnInit {
           console.log(result);
 
           console.log("categ "+this.quizCategory);
+          this.getCategories();
           //this.listCategories.fill(this.quizCategory);
         }
 
@@ -76,6 +78,7 @@ export class QuizAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.quiz = new Quiz();
+    this.course = new Course();
     this.getCourses();
     this.getCategories();
   }
@@ -91,19 +94,30 @@ export class QuizAddComponent implements OnInit {
   getCourses(): void {
     this.courseService.getCourseList().subscribe(
       (courses) => {
+        console.log(courses);
         this.listCourses = courses as  Course[];
       }
     );
   }
-
+  onSelectCourse(event: any) {
+    this.course.idCourse = event.target.value
+    console.log(this.course.idCourse)
+  }
+  onSelectCategory(event: any) {
+    this.quizCategory = event.target.value
+    console.log(this.quizCategory)
+  }
   addQuiz(): void {
-    this.quiz.quizCategories = this.listCategories;
+    this.quiz.quizCategories = [this.quizCategory];
     this.quiz.questions = this.questions;
+    this.quiz.course = this.course;
+    //console.log(this.course.idCourse);
     console.log(this.quiz);
     this.quizService.addQuiz(this.quiz).subscribe(
       //redirect to quiz list page
       (result) => {	
-        console.log(result);
+        console.log("after add quiz" + result);
+        
       });
   }
 

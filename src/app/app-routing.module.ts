@@ -44,6 +44,8 @@ import { CommentManagmenttComponent } from './front/comment-managment/comment-ma
 import { AffichhPostComponent } from './front/affich-post/affich-post.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { Role } from './models/role';
+import { QuizComponent } from './admin/quiz/quiz.component';
+import { QuizTakeComponent } from './front/quiz/quiz-take/quiz-take.component';
 
 const routes: Routes = [
   //General empty page and its children FRONT
@@ -55,7 +57,12 @@ const routes: Routes = [
       {
         path: 'project',
         component: ProjectComponentComponent,
+      },{
+        path: 'quiz',
+        component: QuizComponent,
       },
+      { path :'quiz/take/:id', component: QuizTakeComponent},
+      
       { path: 'course', component: CourseClientComponent },
 
       //shop routes

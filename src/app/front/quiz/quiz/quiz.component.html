@@ -1,41 +1,10 @@
 <div class="col-lg-12 col-md-6">
     <div class="You-makelike mt-30">
-        <h4>Quizzes </h4> 
+        <h4>Quizzes</h4> 
         <!-- get quizes by current course -->
-        <div class="singel-makelike mt-20">
-            <div class="image">
-                <img src="images/your-make/y-1.jpg" alt="Image">
-            </div>
+        <div class="singel-makelike mt-20" *ngFor="let quiz of quizList">
             <div class="cont">
-                <a href="#"><h4>Introduction to machine languages</h4></a>
-                <ul>
-                    <li><a href="#"><i class="fa fa-user"></i>31</a></li>
-                    <li>$50</li>
-                </ul>
-            </div>
-        </div>
-        <div class="singel-makelike mt-20">
-            <div class="image">
-                <img src="images/your-make/y-1.jpg" alt="Image">
-            </div>
-            <div class="cont">
-                <a href="#"><h4>How to build a basis game with java </h4></a>
-                <ul>
-                    <li><a href="#"><i class="fa fa-user"></i>31</a></li>
-                    <li>$50</li>
-                </ul>
-            </div>
-        </div>
-        <div class="singel-makelike mt-20">
-            <div class="image">
-                <img src="images/your-make/y-1.jpg" alt="Image">
-            </div>
-            <div class="cont">
-                <a href="#"><h4>Basic accounting from primary</h4></a>
-                <ul>
-                    <li><a href="#"><i class="fa fa-user"></i>31</a></li>
-                    <li>$50</li>
-                </ul>
+                <a href="/p/quiz/take/{{quiz.id}}"><h4>{{quiz.name}}</h4></a>
             </div>
         </div>
     </div>

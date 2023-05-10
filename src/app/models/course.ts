@@ -1,3 +1,4 @@
+import { Quiz } from "./riadh/quiz.model";
 
 export class Course {
   idCourse!: number;

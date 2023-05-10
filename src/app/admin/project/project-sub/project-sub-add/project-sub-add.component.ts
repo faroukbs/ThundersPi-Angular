@@ -81,4 +81,9 @@ export class ProjectSubAddComponent implements OnInit {
 		  }
 		}
 	  }
+
+	  goBack()
+	  {
+		
+	  }
 }

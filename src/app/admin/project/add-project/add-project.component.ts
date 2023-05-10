@@ -74,64 +74,15 @@ export class AddProjectComponent implements OnInit {
 	 {
 		this.addProject();
 		console.log(this.project.id);
+		this.goBack();
 	}
 		  
 		 
 		
 	 
-	// uploadFileToProject(idx: number, file:File, projectId: number): void 
-/** {
-		this.progress[idx] = { value: 0, fileName: file.name };
 
-		if (file) {
-		  this.projectFileService.uploadProjectFileByProjectId(file,projectId).subscribe({
-			next: (event: any) => {
-			  if (event.type === HttpEventType.UploadProgress) {
-				this.progress[idx].value = Math.round(100 * event.loaded / event.total);
-			  } else if (event instanceof HttpResponse) {
-				const msg = 'Uploaded the file successfully: ' + file.name;
-				this.message.push(msg);
-				this.fileInfos = this.projectFileService.getProjectFilesByProjectId(projectId);
-			  }
-			},
-			error: (err: any) => {
-			  this.progress[idx].value = 0;
-			  const msg = 'Could not upload the file: ' + file.name;
-			  this.message.push(msg);
-			  this.fileInfos = this.projectFileService.getProjectFilesByProjectId(projectId);
-			},
-			complete: () => {
-				// Add Project and link its files
-				
-			}
-		  });
-		} */
-	// }
-	//  upload(idx : number , file:File): void {
-	/*	this.progress[idx] = { value: 0, fileName: file.name };
-
-		if (file) {
-		  this.projectFileService.uploadProjectFile(file).subscribe({
-			next: (event: any) => {
-			  if (event.type === HttpEventType.UploadProgress) {
-				this.progress[idx].value = Math.round(100 * event.loaded / event.total);
-			  } else if (event instanceof HttpResponse) {
-				const msg = 'Uploaded the file successfully: ' + file.name;
-				this.message.push(msg);
-				this.fileInfos = this.projectFileService.getProjectFiles();
-			  }
-			},
-			error: (err: any) => {
-			  this.progress[idx].value = 0;
-			  const msg = 'Could not upload the file: ' + file.name;
-			  this.message.push(msg);
-			  this.fileInfos = this.projectFileService.getProjectFiles();
-			}
-		  });
-		}
-	 // } */
-	
-  @Input() project: Project = {id: undefined, name: '', description : '', maxMarks: 0 , course: null  ,user: this.projectService.storageUserAsStr , projectFiles: []};
+	project: Project= new Project();
+ // @Input() project: Project = {id: undefined, name: '', description : '', maxMarks: 0 , course: null  ,user: this.projectService.storageUserAsStr , projectFiles: []};
 	constructor(private formBuilder:FormBuilder ,
 		public projectService: ProjectService,public projectFileService:ProjectFileService, private location: Location) { }
 	ngOnInit() {

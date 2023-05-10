@@ -2,17 +2,17 @@
 <form #F="ngForm">
   <div class="form-group">
     <label for="maxMarks">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="quiz.name">
+    <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="quiz.name" [ngModelOptions]="{standalone: true}">
   </div>
     <div class="form-group">
       <label for="maxMarks">MaxMarks</label>
-      <input type="number" class="form-control" id="maxMarks" placeholder="0" [(ngModel)]="quiz.maxMarks">
+      <input type="number" class="form-control" id="maxMarks" placeholder="0" [(ngModel)]="quiz.maxMarks" [ngModelOptions]="{standalone: true}">
     </div>
     <div class="form-group">
       <label for="courseSelect">Course Select  </label>
-      <select class="form-select"  id="courseSelect" 
-      *ngFor="let c of listCourses , let i = index"  [(ngModel)]="quiz.course">
-        <option>{{ c.name }}</option>
+      <select class="form-select"  id="courseSelect" [(ngModel)]="course"
+        name="course"  *ngFor="let c of listCourses , let i = index" (ngModelChange)="onSelectCourse($event)" >
+        <option  *ngFor="let c of listCourses , let i = index" [ngValue]="c" >{{ c?.name}}</option>
       </select>
       <button type="button" class="btn btn-secondary" routerLink="/admin/addCourse/">Add Course</button>
     </div>
@@ -20,8 +20,8 @@
    <div class="form-group">
     <label for="categorySelect">Category Select</label>
     <select class="form-select" id="categorySelect" 
-    *ngFor="let c of listCategories , let i = index" name="category" [(ngModel)]="quizCategory" >
-      <option>{{ c.title }}</option>
+     name="category"  [(ngModel)]="quizCategory" >
+      <option *ngFor="let c of listCategories , let i = index" [ngValue]="c">{{ c.title }}</option>
     </select>
     <button type="button" class="btn btn-secondary" (click)="openDialog()">Add Category</button>
    </div>

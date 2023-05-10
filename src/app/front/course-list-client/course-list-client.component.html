@@ -219,11 +219,14 @@
               </div>
             </div> <!-- row -->
           </div> <!-- single publication -->
-
+          <div class="container">
+            <app-quiz [courseId]="course?.courseId"></app-quiz>
+          </div>
         </div>
-
+       
 
       </div>
+      
       <div style="text-align: center;margin-top: 25px;">
         <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
           (pageChange)=" q = $event ">

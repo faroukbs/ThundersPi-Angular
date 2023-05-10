@@ -94,7 +94,7 @@ import { CommentManagmenttComponent } from './front/comment-managment/comment-ma
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
-
+import { SurveyModule } from 'survey-angular-ui';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -205,6 +205,7 @@ FontAwesomeModule,
     MatIconModule,
     MatListModule ,
     MatStepperModule,
+    SurveyModule,
     
   ],
   exports: [

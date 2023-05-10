@@ -5,10 +5,10 @@ import { QuizCategory } from "./quiz-category";
 
 export class Quiz {
     id: number;
+    dateCreated : Date;
     name: string;
     maxMarks: number;
     course : Course;
-    dateCreated : Date;
     teacher : User;
     quizCategories : QuizCategory[];
     questions : Question[];

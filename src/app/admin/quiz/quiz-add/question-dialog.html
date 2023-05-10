@@ -6,23 +6,23 @@
    
     <mat-form-field appearance="outline"  class="col">
     
-        <input matInput [(ngModel)]="questions[i].title" type="text" class="form-control"  id="questionText" placeholder="Add question here" name="questions" />
+        <input matInput [(ngModel)]="questions[i].title" [ngModelOptions]="{standalone: true}" type="text" class="form-control"  id="questionText" placeholder="Add question here" name="questions" />
        
     </mat-form-field>
     <mat-form-field appearance="outline" class="col">
         <mat-label>Mark/Note</mat-label>
-        <input matInput [(ngModel)]="questions[i].mark" type="number" class="form-control"  id="mark" placeholder="Add mark here" name="mark" />
+        <input matInput [(ngModel)]="questions[i].mark" [ngModelOptions]="{standalone: true}" type="number" class="form-control"  id="mark" placeholder="Add mark here" name="mark" />
            </mat-form-field>
     </div>
     <div class="form-group col" name="questionAnswer" *ngFor="let ans of questions[i].questionAnswers , let j = index">
 <mat-form-field appearance="outline" class="col">
     <mat-label>Question Answer</mat-label>
     
-        <input matInput [(ngModel)]="questions[i].questionAnswers[j].content" type="text" class="form-control"  id="questionAnswer" placeholder="Add answer here" name="questions" />
+        <input matInput [(ngModel)]="questions[i].questionAnswers[j].content" [ngModelOptions]="{standalone: true}" type="text" class="form-control"  id="questionAnswer" placeholder="Add answer here" name="questions" />
 </mat-form-field>
 <mat-form-field appearance="outline" class="col">
     <mat-label>Correct?</mat-label>
-        <mat-select matNativeControl [(ngModel)]="questions[i].questionAnswers[j].correct"
+        <mat-select matNativeControl [(ngModel)]="questions[i].questionAnswers[j].correct" [ngModelOptions]="{standalone: true}"
         id="correct" name="correct">
             <option value="true">Correct</option>
             <option value="false">Incorrect</option>

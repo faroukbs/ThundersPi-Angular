@@ -47,8 +47,8 @@ export class ProjectService {
   getProjectById(projectId : number):Observable<Project> 
   {
     
-    //const url = `${this.baseUrl}/${projectId}`;
-    const url = `http://localhost:8181/admin/project/${projectId}`;
+    const url = `${this.baseUrl}/${projectId}`;
+    //const url = `http://localhost:8181/project/${projectId}`;
     
     return this.httpClient.get<Project>(url);
   }
